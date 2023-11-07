@@ -1,0 +1,217 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    overflow-y:auto;
+    overflow-x: hidden;
+    background-color: rgb(170, 171, 172);
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+/* -----------Header----------- */
+/* -----------Header----------- */
+/* -----------Header----------- */
+/* -----------Header----------- */
+/* -----------Header----------- */
+.aNav{
+    text-decoration: none;
+    color: #076594;
+}
+.aLogoNav{
+    text-decoration: none;
+    color: #076594;
+}
+.aNav:hover{
+    background-color: #023047;
+    padding:5px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#logoNavDiv{
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #e3f2fd;
+}
+#logoDiv{
+    height: 70px;
+    width:15%;
+    text-align: center;
+}
+#logo-img{
+    height: 70px;
+}
+
+#navbar-div{
+    width:70%;
+    padding-top: 2%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 21px;
+    font-weight: bold;
+
+}
+#bars-div{
+    display: none;
+    margin-top:auto;
+    margin-bottom: auto;
+    cursor: pointer;
+}
+#mobile-nav-div{
+    display: none;
+    border-radius: 7px;
+    border: 2px solid rgb(152, 152, 152);
+    box-shadow: 2px 2px 5px black;
+    background-color: white;
+}
+#mobile-nav-div p{
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: 22px;
+}
+#mobile-nav-div p:nth-child(even){
+    background-color: rgb(234, 235, 235);
+}
+@media(min-width:900px) and (max-width:1000px){
+    #navbar-div{
+        width:80%;
+        font-size: 19px;
+        padding-top: 3%;
+    }
+    #mobile-nav-div{
+        display: none;
+    }
+}
+@media(min-width:800px) and (max-width:900px){
+    #navbar-div{
+        width:80%;
+        font-size: 19px;
+        padding-top: 3%;
+    }
+    #mobile-nav-div{
+        display: none;
+    }
+}
+@media (max-width:799.9px){
+    #navbar-div {
+        display: none;
+    }
+    #bars-div{
+        display: block;
+        padding-top: 4%;
+        padding-right: 5%;
+    }
+}
+/* -----------Footer----------- */
+/* -----------Footer----------- */
+/* -----------Footer----------- */
+/* -----------Footer----------- */
+/* -----------Footer----------- */
+#footerDiv{
+    width:100%;
+    background-color: #e3f2fd;
+    text-align: center;
+    color: #076594;
+    bottom: 0;
+}
+#footerUL{
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    font-size:40px;
+}
+#footerUL li{
+    padding: 5px;
+}
+#footerHR{
+    width:70%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #091216;
+    height: 5px;
+}
+.footerA , .footerLiA{
+    text-decoration: none;
+    font-weight: bold;
+    color: #076594;
+}
+.footerA:hover{
+    color: #023047;
+    font-size: 17px;
+    padding: 2px;
+    border-radius: 3px;
+}
+.footerLiA:hover{
+
+    color: #023047;
+    font-size: 42px;
+    cursor: pointer;
+}
+footer a:hover {
+  color: var(--accent);
+}
+
+/* edit profile */
+/* edit profile */
+/* edit profile */
+/* edit profile */
+/* edit profile */
+/* edit profile */
+/* edit profile */
+
+
+.editProfileInput{
+    border-radius: 5px;
+    padding:2px 5px;
+
+    background-color: rgb(223, 223, 223);
+}
+#save-fname-Button{
+    background-color: #076595;
+    color:white;
+ }
+#save-lname-Button{
+   background-color: #076595;
+   color:white;
+}
+#save-email-Button{
+    background-color: #076595;
+    color:white;
+ }
+ #save-password-Button{
+    background-color: #076595;
+    color:white;
+ }
+ #save-phone-Button{
+    background-color: #076595;
+    color:white;
+ }
+ #save-gender-Button{
+    background-color: #076595;
+    color:white;
+ }
+ #save-city-Button{
+    background-color: #076595;
+    color:white;
+ }
+ #save-address-Button{
+    background-color: #076595;
+    color:white;
+ }
+ #save-photo-Button{
+    background-color: #076595;
+    color:white;
+ }
+#photoDivProfile{
+    height:1000px;
+}
+
+
