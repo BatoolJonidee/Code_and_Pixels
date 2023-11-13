@@ -28,7 +28,7 @@
         </div>
     </div>
     <div id="right-div-contact">
-        ecefrewfrf
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13885.08034981758!2d35.00909064990769!3d29.53762785770232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2sjo!4v1699864938927!5m2!1sar!2sjo" width="100%" height="520" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </div>
 @endsection

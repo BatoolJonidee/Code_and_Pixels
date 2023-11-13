@@ -217,12 +217,12 @@ footer a:hover {
 
 /* Contact Page */
 #container{
-    width:70%;
+    width:80%;
     background-color: #e8eaed;
     box-shadow: 5px 5px 10px gray;
     display: flex;
     justify-content: space-between;
-    margin:4% 15% 5% 15%;
+    margin:4% 10% 5% 10%;
 }
 #left-div-contact{
     padding:3%;
@@ -243,5 +243,29 @@ footer a:hover {
 .submit-contact:hover{
     background-color: #1c408e;
     box-shadow: 5px 5px 10px gray;
-    width:22.8%;
+    width:22.5%;
+}
+@media (max-width:800px) and (min-width:550px){
+    #container{
+        width:90%;
+        margin:4% 5% 5% 5%;
+
+    }
+}
+@media (max-width:549.9px){
+    #container{
+        width:90%;
+        margin:4% 5% 5% 5%;
+        flex-direction: column;
+    }
+    #left-div-contact{
+        margin-left: 5%;
+
+        width:90%;
+
+    }
+    #right-div-contact{
+        width:90%;
+        margin-left: 5%;
+    }
 }
