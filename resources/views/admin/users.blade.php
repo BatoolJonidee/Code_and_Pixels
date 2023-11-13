@@ -25,7 +25,7 @@
                                 {{-- add fname  --}}
                                 <input id="fnameInput-Add-Admin" class="col-5" class="input-class" type="text" name="fname"
                                     placeholder="First Name"><br><br>
-                                <p id='fnamePAdd' style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">** Letters Only</p>
+                                <p id='fnamePAdd' class="invalid" style="font-size: 12px; font-weight: bold; display: none;">** Letters Only</p>
                                 @error('fname')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror

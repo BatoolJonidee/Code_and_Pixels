@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Users;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -29,41 +30,50 @@ class UsersController extends Controller
      */
     public function create(Request $request)
     {
-        $request->validate([
-            'fname' => 'alpha|required',
-            'lname' => 'alpha|required',
-            'email' => 'email|required',
-            'password' => 'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/ |string|min:8|max:32|required',
-            'conf-password' => 'same:password|required',
-            'phone' => 'numeric|digits:10|required',
-            'gender' => 'in:Male,Female|required',
-            'city' => "required|in:Amman,Ajloun,Aqaba,Balqa,Irbid,Jerash,Karak,Ma'an,Madaba,Mafraq,Tafilah,Zarqa",
-            'address' => 'required',
-        ], [
-            'fname.alpha' => 'Must contain letters only.',
-            'lname.alpha' => 'Must contain letters only.',
-            'email.email' => 'The email address is not valid.',
-            'password.regex' => 'Password must be 8-32 characters and contain at least one uppercase letter, one lowercase letter, one number, and one special character',
-            'conf-password.same' => 'Password confirmation must match with password.',
-            'phone.numeric' => 'Phone must be a valid number with 10 digits.',
-            'gender.in' => 'Please select the gender.',
-            'city.in' => 'Please select your city.',
-        ]);
-        $user = Users::create([
-            'fname' => $request->input('fname'),
-            'lname' => $request->input('lname'),
-            'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password')),
-            'phone' => $request->input('phone'),
-            'gender' => $request->input('gender'),
-            'city' => $request->input('city'),
-            'address' => $request->input('address'),
-        ]);
+        $findUser = Users::where('email', $request->input('email'))->first();
+        if($findUser){
+
+            // dd($findUser);
+            return back()->withErrors(['error' => 'Invalid Email. Try Registration again.']);
+
+        } else{
+            $request->validate([
+                'fname' => 'alpha|required',
+                'lname' => 'alpha|required',
+                'email' => 'email|required',
+                'password' => 'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/ |string|min:8|max:32|required',
+                'conf-password' => 'same:password|required',
+                'phone' => 'numeric|digits:10|required',
+                'gender' => 'in:Male,Female|required',
+                'city' => "required|in:Amman,Ajloun,Aqaba,Balqa,Irbid,Jerash,Karak,Ma'an,Madaba,Mafraq,Tafilah,Zarqa",
+                'address' => 'required',
+            ], [
+                'fname.alpha' => 'Must contain letters only.',
+                'lname.alpha' => 'Must contain letters only.',
+                'email.email' => 'The email address is not valid.',
+                'password.regex' => 'Password must be 8-32 characters and contain at least one uppercase letter, one lowercase letter, one number, and one special character',
+                'conf-password.same' => 'Password confirmation must match with password.',
+                'phone.numeric' => 'Phone must be a valid number with 10 digits.',
+                'gender.in' => 'Please select the gender.',
+                'city.in' => 'Please select your city.',
+            ]);
+            $user = Users::create([
+                'fname' => $request->input('fname'),
+                'lname' => $request->input('lname'),
+                'email' => $request->input('email'),
+                'password' => Hash::make($request->input('password')),
+                'phone' => $request->input('phone'),
+                'gender' => $request->input('gender'),
+                'city' => $request->input('city'),
+                'address' => $request->input('address'),
+            ]);
+
+        }
 
         if ($user) {
-            return redirect()->route('reg')->with('success', 'user created successfully.');
+            return back()->withErrors(['success' => 'User Created Successfully.']);
         } else {
-            return redirect()->back()->with('error', 'Failed to create user.');
+            return back()->withErrors(['error' => 'Failed to create user.']);
         }
 
     }
@@ -166,6 +176,10 @@ class UsersController extends Controller
     {
         //
     }
+    ///////////////////////login/////////////////////////////////
+    ///////////////////////login/////////////////////////////////
+    ///////////////////////login/////////////////////////////////
+    ///////////////////////login/////////////////////////////////
     public function login(Request $request)
     {
         $request->validate([

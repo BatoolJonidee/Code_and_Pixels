@@ -19,7 +19,7 @@ Route::get('users',function(){
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.home');
 })->name('home');
 Route::get('/reg',function(){
     return view('register');

@@ -14,7 +14,7 @@ const createAccBtn=document.getElementById('createAnAccountBtn');
 const haveAccBtn=document.getElementById('haveAnAccountBtn');
 const regDivMob=document.getElementById('regDivMob');
 const bodyWidth = document.body.clientWidth;
-// window.addEventListener('resize',function(){
+// bodyWidth.addEventListener('resize',function(){
 //     if(bodyWidth<=450){
 //         container.style.display='none';
 //         regDivMob.style.display='block';

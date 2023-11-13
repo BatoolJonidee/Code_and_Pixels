@@ -1,0 +1,16 @@
+.valid {
+    color: green;
+    text-align: center;
+  }
+  .valid:before {
+    content: "✔ ";
+    text-align: center;
+  }
+  .invalid {
+    color: red;
+    text-align: center;
+  }
+  .invalid:before {
+    content: "✖ ";
+    text-align: center;
+  }

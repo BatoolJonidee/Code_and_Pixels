@@ -190,7 +190,7 @@ button #havAnAccountBtn:hover{
 	 box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 	 position: relative;
 	 overflow: hidden;
-	 width: 1000px;
+	 width: 1000px !important;
 	 max-width: 100%;
 	 min-height:620px;
      overflow-y: auto;
@@ -403,13 +403,13 @@ button #havAnAccountBtn:hover{
     #login-register{
         display: flex;
         flex-direction: column;
-        width:100%;
+        width:100% !important;
     }
     #signupDiv{
-        width:100%;
+        width:100% !important;
     }
     #loginDiv{
-        width:100%;
+        width:100% !important;
     }
     #overlayContainerDiv{
         display: none;

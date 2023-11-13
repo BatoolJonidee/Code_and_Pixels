@@ -215,3 +215,33 @@ footer a:hover {
 }
 
 
+/* Contact Page */
+#container{
+    width:70%;
+    background-color: #e8eaed;
+    box-shadow: 5px 5px 10px gray;
+    display: flex;
+    justify-content: space-between;
+    margin:4% 15% 5% 15%;
+}
+#left-div-contact{
+    padding:3%;
+    width:60%;
+    line-height: 2.5;
+}
+#right-div-contact{
+    width:40%;
+}
+.submit-contact{
+    padding:0.5% 2%;
+    border-radius: 5px;
+    margin-top: 2%;
+    background-color: #2553b8;
+    color: white;
+    border: none;
+}
+.submit-contact:hover{
+    background-color: #1c408e;
+    box-shadow: 5px 5px 10px gray;
+    width:22.8%;
+}
