@@ -2,7 +2,7 @@
 @section('title', 'Profile')
 
 @section('main')
-@if(session()->has('user_id')!=NULL)
+@if(session()->has('user_id')!=NULL && session('is_admin')==0)
 <div id="containerProfile" style="display: flex; justify-content: space-evenly; width:100%;">
     {{-- Left Div --}}
     {{-- Left Div --}}

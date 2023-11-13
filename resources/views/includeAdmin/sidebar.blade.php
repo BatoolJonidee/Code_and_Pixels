@@ -8,14 +8,14 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav flex-column">
                     <li class="nav-item ">
-                        <a class="nav-link " href="#" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1">
+                        <a class="nav-link " href="{{url('dashboard')}}" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1">
                             {{-- <i class="fa-regular fa-user"></i> --}}
                             <i class="fas fa-chart-area"></i>
                             Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2">
+                        <a class="nav-link" href="{{url('users')}}" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2">
                             <i class="fas fa-users"></i>
                             Users
                         </a>
@@ -45,7 +45,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7">
+                        <a class="nav-link" href="{{url('contacts')}}" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7">
                             <i class=" fas fa-comment-alt"></i>
                             Contacts
                         </a>

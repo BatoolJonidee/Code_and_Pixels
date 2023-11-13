@@ -198,7 +198,7 @@ class UsersController extends Controller
                 if($user->is_admin==0){
                     return redirect()->intended('/');
                 }else if($user->is_admin==2){
-                    return redirect()->intended('/users');
+                    return redirect()->intended('/dashboard');
                 }else{
 
                 }
