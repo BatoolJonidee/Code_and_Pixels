@@ -520,5 +520,18 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
     @else
+    <div id="notfound">
+		<div class="notfound">
+			<div class="notfound-bg">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<h1>oops!</h1>
+			<h2>Error : Can't Access To This Page Before Login</h2>
+			<a href="{{route('reg')}}">Login | Register</a>
+            <a href="{{url('/')}}">Home Page</a>
+		</div>
+	</div>
     @endif
 @endsection

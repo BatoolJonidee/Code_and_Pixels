@@ -20,7 +20,7 @@
         @enderror
                 <form method="post" action="{{ route('createContact') }}">
                     @csrf
-                    <div style="display: flex; justify-content: space-between; width:100%;">
+                    <div id="name-email-div-contact" >
                         <div style="width:47%">
                             <label for='fullName'>Full Name</label><br />
                             @if (session()->has('user_id') == null)
@@ -28,7 +28,7 @@
                                     required>
                             @else
                                 <input id="fullName" class="form-control" type="text" name="name" placeholder="Name"
-                                    value="{{ session('user_name') }}" disabled required>
+                                    value="{{ session('user_name') }}" required>
                             @endif
                         </div>
                         <div style="width:47%">
@@ -38,7 +38,7 @@
                                     required>
                             @else
                                 <input id="email" class="form-control" type="email" name="email" placeholder="Email"
-                                    value="{{ session('user_email') }}" disabled required>
+                                    value="{{ session('user_email') }}" required>
                             @endif
                         </div>
                     </div>
