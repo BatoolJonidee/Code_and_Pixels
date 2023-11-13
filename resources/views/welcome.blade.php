@@ -1,8 +1,8 @@
 @extends('includeUser.top')
 @section('title','Code And Pixels')
-@section('icon')
+{{-- @section('icon')
 <link rel="icon" type="image/x-icon" href="storage/logo.png">
-@endsection
+@endsection --}}
 @include('includeUser.nav')
 
 @yield('main')
