@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 
@@ -27,11 +28,12 @@ Route::get('/reg',function(){
 Route::get('/contact',function(){
     return view('user.contact');
 });
-// Route::get('/your-route', [YourControllerName::class, 'yourControllerMethod']);
 
 Route::get('/profile',[UsersController::class,'show'])->name('profile');
 Route::post('/reg', [UsersController::class,'create'])->name('signup');
 Route::post('/login',[UsersController::class,'login'])->name('login');
+Route::get('/logout',[UsersController::class,'logout'])->name('logout');
+Route::post('/createContact',[ContactController::class,'create'])->name('createContact');
 
 
 //------------- edit profile ------------------------

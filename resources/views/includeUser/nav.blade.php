@@ -14,11 +14,15 @@
             <p><a class="aNav" href="">Photographers</a></p>
             <p><a class="aNav" href="{{url('/contact')}}">Contact</a></p>
             <p><a class="aNav" href="">About</a></p>
+            @if(session()->has('user_id')!=NULL)
             <p>
                 <a class="aNav" href=" {{ route('profile') }} "><i class="fa-solid fa-user"></i></a>&nbsp;|&nbsp;
-                <a class="aNav" href=""><i class="fa-solid fa-cart-shopping "></i></a>&nbsp;|&nbsp;
-                <a class="aNav" href=""><i class="fa-solid fa-right-to-bracket "></i></a>
+                {{-- <a class="aNav" href=""><i class="fa-solid fa-cart-shopping "></i></a>&nbsp;|&nbsp; --}}
+                <a class="aNav" href="{{route('logout')}}"><i class="fa-solid fa-right-to-bracket "></i></a>
             </p>
+            @else
+                <p><a class="aLoginNav" href="{{route('reg')}}">Login | Register</a></p>
+            @endif
         </div>
         <div id="bars-div">
             <p>
@@ -32,10 +36,14 @@
         <p><a class="aNav" href="">Photographers</a></p>
         <p><a class="aNav" href="{{url('/contact')}}">Contact</a></p>
         <p><a class="aNav" href="">About</a></p>
+        @if(session()->has('user_id')!=NULL)
         <p>
             <a class="aNav" href=" {{ route('profile') }} "><i class="fa-solid fa-user "></i></a> |
-            <a class="aNav" href=""><i class="fa-solid fa-cart-shopping "></i></a> |
-            <a class="aNav" href=""><i class="fa-solid fa-right-to-bracket "></i></a>
+            {{-- <a class="aNav" href=""><i class="fa-solid fa-cart-shopping "></i></a> | --}}
+            <a class="aNav" href=" {{route('logout')}} "><i class="fa-solid fa-right-to-bracket "></i></a>
         </p>
+        @else
+            <p><a class="aLoginNav" href="{{route('reg')}}">Login | Register</a></p>
+        @endif
     </div>
 </header>

@@ -121,7 +121,7 @@ class UsersController extends Controller
             'address' => $request->input('address'),
             'is_admin'=> $request->input('is_admin')
         ]);
-        dd ($user);
+        // dd ($user);
         if ($user) {
             return back()->with('success', 'user created successfully.');
         }
@@ -192,13 +192,27 @@ class UsersController extends Controller
                 // session()->put('name', $user->fname);
 
                 session()->put('user_id', $user->id);
-                return redirect()->intended('/');
+                session()->put('user_name', $user->fname . ' '. $user->lname);
+                session()->put('is_admin', $user->is_admin);
+                session()->put('user_email', $user->email);
+                if($user->is_admin==0){
+                    return redirect()->intended('/');
+                }else if($user->is_admin==2){
+                    return redirect()->intended('/users');
+                }else{
+
+                }
             } else {
                 return back()->withErrors(['msg' => 'Invalid email or password']);
             }
         }
-
         return back()->withErrors(['msg' => 'Invalid email or password']);
+    }
+    ///////////////////Logout///////////////////////////////
+    public function logout(){
+        session()->flush();
+        return redirect('/');
+
     }
     ///////////////////edit profile/////////////////////////
     public function fnameEdit(Request $request){
@@ -269,4 +283,6 @@ class UsersController extends Controller
         $user->update();
         return redirect()->route('profile');
     }
+
+
 }

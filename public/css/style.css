@@ -23,6 +23,21 @@ body{
     text-decoration: none;
     color: #076594;
 }
+.aLoginNav{
+    text-decoration: none;
+    background-color: #076594;
+    color:white;
+    padding:5px;
+    border-radius: 5px;
+}
+.aLoginNav:hover{
+    background-color: #023047;
+    padding:7px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px gray;
+}
 .aLogoNav{
     text-decoration: none;
     color: #076594;
@@ -216,13 +231,21 @@ footer a:hover {
 
 
 /* Contact Page */
+
 #container{
     width:80%;
     background-color: #e8eaed;
     box-shadow: 5px 5px 10px gray;
+    margin:4% 10% 5% 10%;
+}
+#header-contact-page{
+    padding-left: 3%;
+    padding-top: 3%;
+}
+#inner-container{
     display: flex;
     justify-content: space-between;
-    margin:4% 10% 5% 10%;
+    width:100%;
 }
 #left-div-contact{
     padding:3%;
@@ -246,14 +269,13 @@ footer a:hover {
     width:22.5%;
 }
 @media (max-width:800px) and (min-width:550px){
-    #container{
+    #inner-container{
         width:90%;
         margin:4% 5% 5% 5%;
-
     }
 }
 @media (max-width:549.9px){
-    #container{
+    #inner-container{
         width:90%;
         margin:4% 5% 5% 5%;
         flex-direction: column;
