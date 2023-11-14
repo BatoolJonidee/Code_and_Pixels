@@ -13,7 +13,7 @@ let statusFlag=0;
 //////////////////////fname add user /////////////////////
 //////////////////////fname add user /////////////////////
 
-let fnameAdd=document.getElementById('fnameInput-Add-Admin');
+let fnameAdd=document.get('fnameInput-Add-Admin');
 fnameAdd.addEventListener("focus",function(){
     document.getElementById("fnamePAdd").style.display="block";
     document.getElementById("fnamePAdd").style.color='#3c8fae';
@@ -336,6 +336,349 @@ addUser.addEventListener('click',function(event){
         document.getElementById("statusPAdd").style.display='block';
         document.getElementById("statusPAdd").style.color='rgb(201, 98, 98)';
         statusFlag=0;
+    }
+}
+
+})
+
+let firstNameFlagEdit=0;
+let lastNameFlagEdit=0;
+let emailFlagEdit=0;
+let passwordFlagEdit=0;
+let confirmPasswordFlagEdit=0;
+let phoneFlagEdit=0;
+let genderFlagEdit=0;
+let cityFlagEdit=0;
+let addressFlagEdit=0;
+let statusFlagEdit=0;
+//////////////////////fname edit user /////////////////////
+//////////////////////fname edit user /////////////////////
+//////////////////////fname edit user /////////////////////
+//////////////////////fname edit user /////////////////////
+
+let fnameEdit=document.get('fnameInput-Edit-Admin');
+fnameEdit.addEventListener("focus",function(){
+    document.getElementById("fnamePEdit").style.display="block";
+    document.getElementById("fnamePEdit").style.color='#3c8fae';
+})
+fnameEdit.addEventListener("blur",function(){
+    let fNameRE=/[a-zA-Z]{1,}/g;
+    if(fnameEdit.value.match(fNameRE)==fnameEdit.value){
+        document.getElementById("fnamePEdit").style.display='none';
+        firstNameFlagEdit=1;
+    }else{
+        document.getElementById("fnamePEdit").style.display='block';
+        document.getElementById("fnamePEdit").style.color='rgb(201, 98, 98)';
+        firstNameFlagEdit=0;
+    }
+})
+//////////////////////lname edit user /////////////////////
+//////////////////////lname edit user /////////////////////
+//////////////////////lname edit user /////////////////////
+//////////////////////lname edit user /////////////////////
+
+let lnameEdit=document.getElementById('lnameInput-Edit-Admin');
+lnameEdit.addEventListener("focus",function(){
+    document.getElementById("lnamePEdit").style.display='block';
+    document.getElementById("lnamePEdit").style.color='#3c8fae';
+})
+lnameEdit.addEventListener("blur",function(){
+    let lNameRE=/[a-zA-Z]{1,}/g;
+    if(lnameEdit.value.match(lNameRE)==lnameEdit.value){
+        document.getElementById("lnamePEdit").style.display='none';
+        lastNameFlagEdit=1;
+    }else{
+        document.getElementById("lnamePAdd").style.display='block';
+        document.getElementById("lnamePAdd").style.color='rgb(201, 98, 98)';
+        lastNameFlagEdit=0;
+    }
+})
+//////////////////////email add user /////////////////////
+//////////////////////email add user /////////////////////
+//////////////////////email add user /////////////////////
+//////////////////////email add user /////////////////////
+
+let emailEdit=document.getElementById('emailInput-Edit-Admin');
+emailEdit.addEventListener("focus",function(){
+    document.getElementById("emailPEdit").style.display='block';
+    document.getElementById("emailPEdit").style.color='#3c8fae';
+
+})
+emailEdit.addEventListener("blur",function(){
+    let emailRE=/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    if(emailEdit.value.match(emailRE)){
+        document.getElementById("emailPEdit").style.display='none';
+        emailFlagEdit=1;
+    }else{
+        document.getElementById("emailPEdit").style.display='block';
+        document.getElementById("emailPEdit").style.color='rgb(201, 98, 98)';
+        emailFlagEdit=0;
+    }
+})
+//////////////////////password add user /////////////////////
+//////////////////////password add user /////////////////////
+//////////////////////password add user /////////////////////
+//////////////////////password add user /////////////////////
+
+let passwordEdit=document.getElementById('passwordInput-Edit-Admin');
+passwordEdit.addEventListener("focus",function(){
+    document.getElementById("passwordPEdit").style.display='block';
+    document.getElementById("passwordPEdit").style.color='#3c8fae';
+
+})
+passwordEdit.addEventListener("blur",function(){
+    const upperCaseLetters = /([A-Z])/g;
+    const lowerCaseLetters = /(?=.*[a-z])/g;
+    const numbers = /(?=.*\d)/g;
+    const special=/[!@#/?\$%\^\&*\)\(+=._-]{1,}/g;
+    if(passwordEdit.value.match(upperCaseLetters) && passwordEdit.value.match(lowerCaseLetters) && passwordEdit.value.match(numbers) && passwordEdit.value.match(special) && passwordEdit.value.length>=8 && passwordEdit.value.length<=32){
+        document.getElementById("passwordPEdit").style.display='none';
+        passwordFlagEdit=1;
+    }else{
+        document.getElementById("passwordPEdit").style.display='block';
+        document.getElementById("passwordPEdit").style.color='rgb(201, 98, 98)';
+        passwordFlagEdit=0;
+    }
+})
+//////////////////////confirm password edit user /////////////////////
+//////////////////////confirm password edit user /////////////////////
+//////////////////////confirm password edit user /////////////////////
+//////////////////////confirm password edit user /////////////////////
+
+let confirmEdit=document.getElementById('confirmPasswordInput-Edit-Admin');
+confirmEdit.addEventListener('focus',function(){
+    document.getElementById("confirmPasswordPEdit").style.display='block';
+    document.getElementById("confirmPasswordPEdit").style.color='#3c8fae';
+})
+confirmEdit.addEventListener('blur',function(){
+    if(passwordEdit.value==confirmEdit.value){
+        document.getElementById("confirmPasswordPEdit").style.display='none';
+        confirmPasswordFlagEdit=1;
+    }else{
+        document.getElementById("confirmPasswordPEdit").style.display='block';
+        document.getElementById("confirmPasswordPEdit").style.color='rgb(201, 98, 98)';
+        confirmPasswordFlagEdit=0;
+    }
+})
+//////////////////////phone add user /////////////////////
+//////////////////////phone add user /////////////////////
+//////////////////////phone add user /////////////////////
+//////////////////////phone add user /////////////////////
+
+let phoneEdit=document.getElementById('phoneInput-Edit-Admin');
+phoneEdit.addEventListener('focus',function(){
+    document.getElementById("phonePEdit").style.display='block';
+    document.getElementById("phonePEdit").style.color='#3c8fae';
+})
+phoneEdit.addEventListener('blur',function(){
+    let phoneRE=/^\d{10}$/;
+    if(phoneEdit.value.match(phoneRE)){
+        document.getElementById("phonePEdit").style.display='none';
+        phoneFlagEdit=1;
+    }else{
+        document.getElementById("phonePEdit").style.display='block';
+        document.getElementById("phonePEdit").style.color='rgb(201, 98, 98)';
+        phoneFlagEdit=0;
+    }
+})
+//////////////////////gender add user /////////////////////
+//////////////////////gender add user /////////////////////
+//////////////////////gender add user /////////////////////
+//////////////////////gender add user /////////////////////
+
+let genderEdit=document.getElementById('genderInput-Edit-Admin');
+genderEdit.addEventListener('blur',function(){
+    if(genderEdit.value!='Gender'){
+        document.getElementById("genderPEdit").style.display='none';
+        genderFlagEdit=1;
+    }else{
+        document.getElementById("genderPEdit").style.display='block';
+        document.getElementById("genderPEdit").style.color='rgb(201, 98, 98)';
+        genderFlagEdit=0;
+    }
+})
+//////////////////////city add user /////////////////////
+//////////////////////city add user /////////////////////
+//////////////////////city add user /////////////////////
+//////////////////////city add user /////////////////////
+
+let cityEdit=document.getElementById('cityInput-Edit-Admin');
+cityEdit.addEventListener('blur',function(){
+    if(cityEdit.value!='City'){
+        document.getElementById("cityPEdit").style.display='none';
+        cityFlagEdit=1;
+    }else{
+        document.getElementById("cityPEdit").style.display='block';
+        document.getElementById("cityPEdit").style.color='rgb(201, 98, 98)';
+        cityFlagEdit=0;
+    }
+})
+//////////////////////address add user /////////////////////
+//////////////////////address add user /////////////////////
+//////////////////////address add user /////////////////////
+//////////////////////address add user /////////////////////
+
+let addressEdit=document.getElementById('addressInput-Edit-Admin');
+addressEdit.addEventListener('focus',function(){
+    document.getElementById("addressPEdit").style.display='block';
+    document.getElementById("addressPEdit").style.color='#3c8fae';
+})
+addressEdit.addEventListener('blur',function(){
+    if(addressEdit.value==""){
+        document.getElementById("addressPEdit").style.display='block';
+        document.getElementById("addressPEdit").style.color='rgb(201, 98, 98)';
+        addressFlagEdit=0;
+    }else{
+        document.getElementById("addressPAddEdit").style.display='none';
+        addressFlagEdit=1;
+    }
+})
+//////////////////////status add user /////////////////////
+//////////////////////status add user /////////////////////
+//////////////////////status add user /////////////////////
+//////////////////////status add user /////////////////////
+
+let statusEdit=document.getElementById('statusInput-Edit-Admin');
+statusEdit.addEventListener('blur',function(){
+    if(statusEdit.value!=3){
+        document.getElementById("statusPEdit").style.display='none';
+        statusFlagEdit=1;
+    }else{
+        document.getElementById("statusPEdit").style.display='block';
+        document.getElementById("statusPEdit").style.color='rgb(201, 98, 98)';
+        statusFlagEdit=0;
+    }
+})
+//////////////////////submit add user /////////////////////
+//////////////////////submit add user /////////////////////
+//////////////////////submit add user /////////////////////
+//////////////////////submit add user /////////////////////
+//////////////////////submit add user /////////////////////
+//////////////////////submit add user /////////////////////
+//////////////////////submit add user /////////////////////
+//////////////////////submit add user /////////////////////
+
+let EditUser=document.getElementById('Edit-User-Button');
+EditUser.addEventListener('click',function(event){
+    if(!(firstNameFlagEdit && lastNameFlagEdit && emailFlagEdit && passwordFlagEdit && confirmPasswordFlagEdit && phoneFlagEdit && genderFlagEdit && cityFlagEdit && addressFlagEdit && statusFlagEdit)){
+        event.preventDefault();
+    //fname
+    //fname
+    //fname
+    let fNameRE=/[a-zA-Z]{1,}/g;
+    if(fnameEdit.value.match(fNameRE)==fnameEdit.value){
+        document.getElementById("fnamePEdit").style.display='none';
+        firstNameFlagEdit=1;
+    }else{
+        document.getElementById("fnamePEdit").style.display='block';
+        document.getElementById("fnamePEdit").style.color='rgb(201, 98, 98)';
+        firstNameFlagEdit=0;
+    }
+    //lname
+    //lname
+    //lname
+    let lNameRE=/[a-zA-Z]{1,}/g;
+    if(lnameEdit.value.match(lNameRE)==lnameEdit.value){
+        document.getElementById("lnamePEdit").style.display='none';
+        lastNameFlagEdit=1;
+    }else{
+        document.getElementById("lnamePEdit").style.display='block';
+        document.getElementById("lnamePEdit").style.color='rgb(201, 98, 98)';
+        lastNameFlagEdit=0;
+    }
+    //email
+    //email
+    //email
+    let emailRE=/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    if(emailEdit.value.match(emailRE)){
+        document.getElementById("emailPEdit").style.display='none';
+        emailFlagEdit=1;
+    }else{
+        document.getElementById("emailPEdit").style.display='block';
+        document.getElementById("emailPEdit").style.color='rgb(201, 98, 98)';
+        emailFlagEdit=0;
+    }
+    //password
+    //password
+    //password
+    const upperCaseLetters = /([A-Z])/g;
+    const lowerCaseLetters = /(?=.*[a-z])/g;
+    const numbers = /(?=.*\d)/g;
+    const special=/[!@#/?\$%\^\&*\)\(+=._-]{1,}/g;
+    if(passwordEdit.value.match(upperCaseLetters) && passwordEdit.value.match(lowerCaseLetters) && passwordEdit.value.match(numbers) && passwordEdit.value.match(special) && passwordEdit.value.length>=8 && passwordEdit.value.length<=32){
+        document.getElementById("passwordPEdit").style.display='none';
+        passwordFlagEdit=1;
+    }else{
+        document.getElementById("passwordPEdit").style.display='block';
+        document.getElementById("passwordPEdit").style.color='rgb(201, 98, 98)';
+        passwordFlagEdit=0;
+    }
+    //confirm password
+    //confirm password
+    //confirm password
+    if(passwordEdit.value==confirmEdit.value){
+        document.getElementById("confirmPasswordPEdit").style.display='none';
+        confirmPasswordFlagEdit=1;
+    }else{
+        document.getElementById("confirmPasswordPEdit").style.display='block';
+        document.getElementById("confirmPasswordPEdit").style.color='rgb(201, 98, 98)';
+        confirmPasswordFlagEdit=0;
+    }
+    //phone
+    //phone
+    //phone
+    let phoneRE=/^\d{10}$/;
+    if(phoneEdit.value.match(phoneRE)){
+        document.getElementById("phonePEdit").style.display='none';
+        phoneFlagEdit=1;
+    }else{
+        document.getElementById("phonePEdit").style.display='block';
+        document.getElementById("phonePEdit").style.color='rgb(201, 98, 98)';
+        phoneFlagEdit=0;
+    }
+    //gender
+    //gender
+    //gender
+    if(genderEdit.value!='Gender'){
+        document.getElementById("genderPEdit").style.display='none';
+        genderFlagEdit=1;
+    }else{
+        document.getElementById("genderPEdit").style.display='block';
+        document.getElementById("genderPEdit").style.color='rgb(201, 98, 98)';
+        genderFlagEdit=0;
+    }
+    //city
+    //city
+    //city
+    if(cityEdit.value!='City'){
+        document.getElementById("cityPEdit").style.display='none';
+        cityFlagEdit=1;
+    }else{
+        document.getElementById("cityPEdit").style.display='block';
+        document.getElementById("cityPEdit").style.color='rgb(201, 98, 98)';
+        cityFlagEdit=0;
+    }
+    //address
+    //address
+    //address
+    if(addressEdit.value!=""){
+        document.getElementById("addressPEdit").style.display='none';
+        addressFlagEdit=1;
+    }else{
+        document.getElementById("addressPEdit").style.display='block';
+        document.getElementById("addressPEdit").style.color='rgb(201, 98, 98)';
+        addressFlagEdit=0;
+    }
+    //status
+    //status
+    //status
+    if(statusEdit.value!=3){
+        document.getElementById("statusPEdit").style.display='none';
+        statusFlagEdit=1;
+    }else{
+        document.getElementById("statusPEdit").style.display='block';
+        document.getElementById("statusPEdit").style.color='rgb(201, 98, 98)';
+        statusFlagEdit=0;
     }
 }
 

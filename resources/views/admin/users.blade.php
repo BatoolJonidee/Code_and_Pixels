@@ -7,8 +7,6 @@
 @section('main')
     <div class="section__content section__content--p30">
         <div class="container-fluid">
-            {{-- <div class="container border-radius"> --}}
-
             <div class="modal fade" id="userAddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
@@ -25,7 +23,7 @@
                                 {{-- add fname  --}}
                                 {{-- add fname  --}}
                                 {{-- add fname  --}}
-                                <input id="fnameInput-Add-Admin" class="col-5" class="input-class" type="text"
+                                <input  78uyh ="fnameInput-Add-Admin" class="col-5" class="input-class" type="text"
                                     name="fname" placeholder="First Name"><br>
                                 <p id='fnamePAdd' style="font-size: 12px; font-weight: bold; display: none;">** Letters Only
                                 </p><br>
@@ -209,18 +207,23 @@
                         {{-- <input type="button" id="addUser-btn" class="btn btn btn-secondary" value="Add New User" name="adding"> --}}
                         {{-- </form> --}}
                         {{-- </div> --}}
-
+                        @error('success')
+                        <div class="alert alert-success" role="alert" style="width: 100%">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                    @error('error')
+                        <div class="alert alert-danger" role="alert" style="width: 100%">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                    @error('photo')
+                        <div class="alert alert-danger" role="alert" style="width: 100%">
+                            {{ $message }}
+                        </div>
+                    @enderror
                         <div class="table-responsive table-data">
-                            @error('success')
-                                <div class="alert alert-success" role="alert" style="width: 100%">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                            @error('error')
-                                <div class="alert alert-success" role="alert" style="width: 100%">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
@@ -294,7 +297,7 @@
                                                     aria-label="Close"><i class=" far fa-window-close"></i></button>
                                             </div>
                                             <div class="modal-body" style="text-align: center">
-                                                <form method="post" action="{{ route('users.update', $user->id) }}">
+                                                <form method="post" action="{{ route('users.update', $user->id) }}" enctype="multipart/form-data">
                                                     @csrf
                                                     @method('PUT')
                                                     {{-- first name edit --}}
@@ -403,11 +406,17 @@
                                                             </option>
                                                         </select><br>
                                                     @endif
+
+                                                    {{-- photo edit --}}
+                                                    {{-- photo edit --}}
+                                                    {{-- photo edit --}}
+                                                    <label class="col-3">Photo:</label>
+                                                    <input type="file" name="photo" value="{{ $user->photo }}"/>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn"
                                                     data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn" style="background-color: #076595;color:white">Save</button>
+                                                <button type="submit" class="btn" style="background-color: #076595;color:white" >Save</button>
                                             </div>
                                             </form>
                                         </div>
