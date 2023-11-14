@@ -2,6 +2,7 @@
 
 @section('title', 'Admin Dashboard | Users')
 
+
 @extends('includeAdmin.blank')
 @section('main')
     <div class="section__content section__content--p30">
@@ -237,7 +238,6 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($users as $user)
-                                        @if ($user->is_admin == 0)
                                             <tr>
                                                 <td>{{ $user->id }}</td>
                                                 <td>
@@ -252,7 +252,11 @@
                                                 <td>{{ $user->gender }}</td>
                                                 <td>{{ $user->city }}</td>
                                                 <td>{{ $user->address }}</td>
+                                                @if($user->is_admin==0)
                                                 <td>User</td>
+                                                @else
+                                                <td>Admin</td>
+                                                @endif
                                                 <td>{{ $user->created_at }}</td>
                                                 <td>{{ $user->updated_at }}</td>
                                                 <td>
@@ -269,8 +273,6 @@
                                                         data-bs-target="#userDeleteModal{{ $user->id }}">
                                                 </td>
                                             </tr>
-                                        @endif
-
                                 </tbody>
                                 {{-- Edit modal --}}
                                 {{-- Edit modal --}}
@@ -287,34 +289,85 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"><i class=" far fa-window-close"></i></button>
                                             </div>
-                                            <div class="modal-body">
+                                            <div class="modal-body" style="text-align: center">
                                                 <form method="post" action=""
-                                                    style=" width:100%;text-align: center">
+                                                    >
                                                     @csrf
                                                     @method('PUT')
-                                                    <input type="hidden" id="id-input" name="id">
+                                                    {{-- first name edit --}}
+                                                    {{-- first name edit --}}
+                                                    {{-- first name edit --}}
                                                     <label class="col-2">First Name:</label>
                                                     <input class="col-5" id="fname-input" type="text" name="fname"
                                                         value="{{ $user->fname }}"><br>
+
+                                                    {{-- last name edit --}}
+                                                    {{-- last name edit --}}
+                                                    {{-- last name edit --}}
                                                     <label class="col-2">Last Name:</label>
                                                     <input class="col-5" id="lname-input" type="text" name="lname"
                                                         value="{{ $user->lname }}"><br>
+
+                                                    {{-- email edit --}}
+                                                    {{-- email edit --}}
+                                                    {{-- email edit --}}
                                                     <label class="col-2">Email:</label>
                                                     <input class="col-5" id="email-input" type="text" name="email"
                                                         value="{{ $user->email }}"><br>
+
+                                                    {{-- phone edit --}}
+                                                    {{-- phone edit --}}
+                                                    {{-- phone edit --}}
+                                                    <label class="col-2">Mobile:</label>
+                                                    <input class="col-5" id="mobile-input" type="number"
+                                                        name="phone" value="{{ $user->phone }}"><br>
+
+                                                    {{-- gender edit --}}
+                                                    {{-- gender edit --}}
+                                                    {{-- gender edit --}}
                                                     <label class="col-2">Gender:</label>
-                                                    <select class="col-5" name="gender">
-                                                        <option name="gender" id="gender-male" value="male">Male
+                                                    @if( $user->gender =='Female')
+                                                    <select class="col-5" name="gender" style="height: 25px">
+                                                        <option name="gender" id="gender-male" value="Male">Male
                                                         </option>
-                                                        <option name="gender" id="gender-female" value="female">FeMale
+                                                        <option name="gender" id="gender-female" value="Female" selected>Female
                                                         </option>
                                                     </select><br>
-                                                    <label class="col-2">Password:</label>
-                                                    <input class="col-5" id="password-input" type="text"
-                                                        name="password"><br>
-                                                    <label class="col-2">Mobile:</label>
-                                                    <input class="col-5" id="mobile-input" type="text"
-                                                        name="phone"><br>
+                                                    @else
+                                                    <select class="col-5" name="gender" style="height: 25px">
+                                                        <option name="gender" id="gender-male" value="Male" selected>Male
+                                                        </option>
+                                                        <option name="gender" id="gender-female" value="Female">Female
+                                                        </option>
+                                                    </select><br>
+                                                    @endif
+                                                    <label class="col-2">City:</label>
+                                                    <select name="city" class="col-5" style="height: 25px">
+                                                        @php
+                                                            $cities = [
+                                                                'Amman' => 'Amman',
+                                                                'Ajloun' => 'Ajloun',
+                                                                'Aqaba' => 'Aqaba',
+                                                                'Balqa' => 'Balqa',
+                                                                'Irbid' => 'Irbid',
+                                                                'Jerash' => 'Jerash',
+                                                                'Karak' => 'Karak',
+                                                                'Ma\'an' => 'Ma\'an',
+                                                                'Madaba' => 'Madaba',
+                                                                'Mafraq' => 'Mafraq',
+                                                                'Tafilah' => 'Tafilah',
+                                                                'Zarqa' => 'Zarqa',
+                                                            ];
+                                                        @endphp
+
+                                                        @foreach ($cities as $cityValue => $city)
+                                                            <option value="{{ $cityValue }}"
+                                                                {{ $user->city == $cityValue ? 'selected' : '' }}>
+                                                                {{ $city }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select><br>
+
                                                     <label class="col-2">Admin:</label>
                                                     <input type="radio" id="admin-yes" value="1" name="is_admin"
                                                         required> Yes
