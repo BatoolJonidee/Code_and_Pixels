@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css.usersAdmin.css"/>
+    {{-- <link rel="stylesheet" href="css.usersAdmin.css"/> --}}
     <link rel="icon" type="image/x-icon" href="./img/nav/logo.png">
     <link rel="icon" type="image/x-icon" href="./img/nav/logo.png">
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">

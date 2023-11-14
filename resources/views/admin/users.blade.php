@@ -23,9 +23,10 @@
                                 {{-- add fname  --}}
                                 {{-- add fname  --}}
                                 {{-- add fname  --}}
-                                <input id="fnameInput-Add-Admin" class="col-5" class="input-class" type="text" name="fname"
-                                    placeholder="First Name"><br><br>
-                                <p id='fnamePAdd' class="invalid" style="font-size: 12px; font-weight: bold; display: none;">** Letters Only</p>
+                                <input id="fnameInput-Add-Admin" class="col-5" class="input-class" type="text"
+                                    name="fname" placeholder="First Name"><br>
+                                <p id='fnamePAdd' style="font-size: 12px; font-weight: bold; display: none;">** Letters Only
+                                </p><br>
                                 @error('fname')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
@@ -35,9 +36,11 @@
                                 {{-- add lname --}}
                                 {{-- add lname --}}
                                 {{-- add lname --}}
-                                <input id="lnameInput-Add-Admin" class="col-5" class="input-class" type="text" name="lname"
-                                    placeholder="Last Name"><br><br>
-                                <p id='lnamePAdd' style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">** Letters Only</p>
+                                <input id="lnameInput-Add-Admin" class="col-5" class="input-class" type="text"
+                                    name="lname" placeholder="Last Name"><br>
+                                <p id='lnamePAdd'
+                                    style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">**
+                                    Letters Only</p><br>
                                 @error('lname')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
@@ -47,39 +50,74 @@
                                 {{-- add email --}}
                                 {{-- add email --}}
                                 {{-- add email --}}
-                                <input id="emailInput-Add-Admin" class="col-5" class="input-class" type="email" name="email"
-                                    placeholder="Email"><br><br>
-                                <p id='emailPAdd' style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">** example@mail.com</p>
+                                <input id="emailInput-Add-Admin" class="col-5" class="input-class" type="email"
+                                    name="email" placeholder="Email"><br>
+                                <p id='emailPAdd'
+                                    style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">**
+                                    example@mail.com</p><br>
                                 @error('email')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
-                                <input class="col-5" class="input-class" type="password" name="password"
-                                    placeholder="Password"><br><br>
+
+                                {{-- add password --}}
+                                {{-- add password --}}
+                                {{-- add password --}}
+                                {{-- add password --}}
+                                <input id="passwordInput-Add-Admin" class="col-5" class="input-class" type="password"
+                                    name="password" placeholder="Password"><br>
+                                <p id='passwordPAdd'
+                                    style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">**
+                                    Password must be 8-32 characters and include uppercase
+                                    and lowercase letters, number and special character</p><br>
                                 @error('password')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
-                                <input class="col-5" class="input-class" type="password" name="conf-password"
-                                    placeholder="Confirm Password"><br><br>
+
+                                {{-- add confirm password --}}
+                                {{-- add confirm password --}}
+                                {{-- add confirm password --}}
+                                {{-- add confirm password --}}
+                                <input id="confirmPasswordInput-Add-Admin" class="col-5" class="input-class"
+                                type="password" name="conf-password" placeholder="Confirm Password"><br>
+                                <p id='confirmPasswordPAdd'
+                                style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">**
+                                Must Match with Password</p><br>
                                 @error('conf-password')
-                                    <div class="text-danger">{{ $message }}</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
-                                {{-- <label class="col-2">Phone</label> --}}
-                                <input class="col-5" class="input-class" type="number" name="phone"
-                                    placeholder="Phone"><br><br>
+
+                                {{-- add phone --}}
+                                {{-- add phone --}}
+                                {{-- add phone --}}
+                                {{-- add phone --}}
+                                <input id="phoneInput-Add-Admin" class="col-5" class="input-class" type="number" name="phone"
+                                placeholder="Phone"><br>
+                                <p id='phonePAdd'
+                                style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">** Numbers Only (10 Digits)</p><br>
                                 @error('phone')
-                                    <div class="text-danger">{{ $message }}</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
-                                {{-- <label class="col-2">Gender</label> --}}
-                                <select class="col-5" name="gender" style="height:25px; color:gray">
-                                    <option value="gender" selected disabled>Gender</option>
+
+                                {{-- add gender --}}
+                                {{-- add gender --}}
+                                {{-- add gender --}}
+                                {{-- add gender --}}
+                                <select id="genderInput-Add-Admin" class="col-5" name="gender" style="height:25px; color:gray">
+                                    <option value="Gender" selected disabled>Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
-                                </select><br /><br />
+                                </select><br />
+                                <p id='genderPAdd'
+                                style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">** Gender Required</p><br>
                                 @error('gender')
-                                    <div class="text-danger">{{ $message }}</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
-                                {{-- <label class="col-2">City</label> --}}
-                                <select class="col-5" name='city' style="height:25px; color:gray">
+
+                                {{-- add city --}}
+                                {{-- add city --}}
+                                {{-- add city --}}
+                                {{-- add city --}}
+                                <select id="cityInput-Add-Admin" class="col-5" name='city' style="height:25px; color:gray">
                                     <option value="City" selected disabled>City</option>
                                     <option value="Amman">Amman</option>
                                     <option value="Ajloun">Ajloun</option>
@@ -93,21 +131,38 @@
                                     <option value="Mafraq">Mafraq</option>
                                     <option value="Tafilah">Tafilah</option>
                                     <option value="Zarqa">Zarqa</option>
-                                </select><br><br />
+                                </select><br>
+                                <p id='cityPAdd'
+                                style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">** City Required</p><br>
                                 @error('city')
-                                    <div class="text-danger">{{ $message }}</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
-                                {{-- <label class="col-2">Address</label> --}}
-                                <textarea class="col-5" id="address-input" rows="1" name="address" placeholder="Address.."></textarea><br><br />
-                                {{-- <label class="col-2" >Admin</label> --}}
-                                <select class="col-5" name="is_admin" style="height:25px; color:gray">
+
+                                {{-- add address --}}
+                                {{-- add address --}}
+                                {{-- add address --}}
+                                {{-- add address --}}
+                                <textarea id="addressInput-Add-Admin" class="col-5" id="address-input" rows="1" name="address" placeholder="Address.."></textarea><br>
+                                <p id='addressPAdd'
+                                style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">** Address Required</p><br>
+                                @error('address')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                {{-- add status --}}
+                                {{-- add status --}}
+                                {{-- add status --}}
+                                {{-- add status --}}
+                                <select id="statusInput-Add-Admin" class="col-5" name="is_admin" style="height:25px; color:gray">
                                     <option value="3" selected disabled>Status</option>
                                     <option value="2">Super Admin</option>
                                     <option value="1">Sub Admin</option>
                                     <option value="0">User</option>
                                 </select><br>
-                                @error('address')
-                                    <div class="text-danger">{{ $message }}</div>
+                                <p id='statusPAdd'
+                                style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">** Status Required</p><br>
+                                @error('status')
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="modal-footer">
@@ -275,6 +330,14 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                {{-- delete modal --}}
+                                {{-- delete modal --}}
+                                {{-- delete modal --}}
+                                {{-- delete modal --}}
+                                {{-- delete modal --}}
+                                {{-- delete modal --}}
+                                
                                 @endforeach
                             </table>
                         </div>
