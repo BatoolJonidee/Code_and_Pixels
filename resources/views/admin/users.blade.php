@@ -16,6 +16,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
                                     class=" far fa-window-close"></i></button>
                         </div>
+
                         <form method="post" action="{{ route('users.store') }}" style=" width:100%;text-align: center">
                             <div class="modal-body">
                                 @csrf
@@ -78,46 +79,50 @@
                                 {{-- add confirm password --}}
                                 {{-- add confirm password --}}
                                 <input id="confirmPasswordInput-Add-Admin" class="col-5" class="input-class"
-                                type="password" name="conf-password" placeholder="Confirm Password"><br>
+                                    type="password" name="conf-password" placeholder="Confirm Password"><br>
                                 <p id='confirmPasswordPAdd'
-                                style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">**
-                                Must Match with Password</p><br>
+                                    style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">**
+                                    Must Match with Password</p><br>
                                 @error('conf-password')
-                                <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
                                 {{-- add phone --}}
                                 {{-- add phone --}}
                                 {{-- add phone --}}
                                 {{-- add phone --}}
-                                <input id="phoneInput-Add-Admin" class="col-5" class="input-class" type="number" name="phone"
-                                placeholder="Phone"><br>
+                                <input id="phoneInput-Add-Admin" class="col-5" class="input-class" type="number"
+                                    name="phone" placeholder="Phone"><br>
                                 <p id='phonePAdd'
-                                style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">** Numbers Only (10 Digits)</p><br>
+                                    style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">**
+                                    Numbers Only (10 Digits)</p><br>
                                 @error('phone')
-                                <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
                                 {{-- add gender --}}
                                 {{-- add gender --}}
                                 {{-- add gender --}}
                                 {{-- add gender --}}
-                                <select id="genderInput-Add-Admin" class="col-5" name="gender" style="height:25px; color:gray">
+                                <select id="genderInput-Add-Admin" class="col-5" name="gender"
+                                    style="height:25px; color:gray">
                                     <option value="Gender" selected disabled>Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </select><br />
                                 <p id='genderPAdd'
-                                style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">** Gender Required</p><br>
+                                    style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">**
+                                    Gender Required</p><br>
                                 @error('gender')
-                                <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
                                 {{-- add city --}}
                                 {{-- add city --}}
                                 {{-- add city --}}
                                 {{-- add city --}}
-                                <select id="cityInput-Add-Admin" class="col-5" name='city' style="height:25px; color:gray">
+                                <select id="cityInput-Add-Admin" class="col-5" name='city'
+                                    style="height:25px; color:gray">
                                     <option value="City" selected disabled>City</option>
                                     <option value="Amman">Amman</option>
                                     <option value="Ajloun">Ajloun</option>
@@ -133,36 +138,41 @@
                                     <option value="Zarqa">Zarqa</option>
                                 </select><br>
                                 <p id='cityPAdd'
-                                style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">** City Required</p><br>
+                                    style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">**
+                                    City Required</p><br>
                                 @error('city')
-                                <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
                                 {{-- add address --}}
                                 {{-- add address --}}
                                 {{-- add address --}}
                                 {{-- add address --}}
-                                <textarea id="addressInput-Add-Admin" class="col-5" id="address-input" rows="1" name="address" placeholder="Address.."></textarea><br>
+                                <textarea id="addressInput-Add-Admin" class="col-5" id="address-input" rows="1" name="address"
+                                    placeholder="Address.."></textarea><br>
                                 <p id='addressPAdd'
-                                style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">** Address Required</p><br>
+                                    style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">**
+                                    Address Required</p><br>
                                 @error('address')
-                                <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
                                 {{-- add status --}}
                                 {{-- add status --}}
                                 {{-- add status --}}
                                 {{-- add status --}}
-                                <select id="statusInput-Add-Admin" class="col-5" name="is_admin" style="height:25px; color:gray">
+                                <select id="statusInput-Add-Admin" class="col-5" name="is_admin"
+                                    style="height:25px; color:gray">
                                     <option value="3" selected disabled>Status</option>
                                     <option value="2">Super Admin</option>
                                     <option value="1">Sub Admin</option>
                                     <option value="0">User</option>
                                 </select><br>
                                 <p id='statusPAdd'
-                                style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">** Status Required</p><br>
+                                    style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">**
+                                    Status Required</p><br>
                                 @error('status')
-                                <div class="text-danger">{{ $message }}</div>
+                                    <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="modal-footer">
@@ -200,18 +210,11 @@
                         {{-- </div> --}}
 
                         <div class="table-responsive table-data">
-                            @if (session('success'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ session('success') }}
+                            @error('success')
+                                <div class="alert alert-success" role="alert" style="width: 100%">
+                                    {{ $message }}
                                 </div>
-                            @endif
-
-                            @if (session('error'))
-                                <div class="alert alert-danger" role="alert">
-                                    {{ session('error') }}
-                                </div>
-                            @endif
-
+                            @enderror
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
@@ -234,47 +237,47 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($users as $user)
-                                        <tr>
-                                            <td>{{ $user->id }}</td>
-                                            <td>
-                                                <img src="{{ asset('storage/' . $user->photo) }}"
-                                                    alt="User Profile Image" style="height: 50px">
-                                            </td>
-                                            <td>{{ $user->fname }}</td>
-                                            <td>{{ $user->lname }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            {{-- <td>{{$user->password}}</td> --}}
-                                            <td>{{ $user->phone }}</td>
-                                            <td>{{ $user->gender }}</td>
-                                            <td>{{ $user->city }}</td>
-                                            <td>{{ $user->address }}</td>
-                                            @if ($user->is_admin == 0)
+                                        @if ($user->is_admin == 0)
+                                            <tr>
+                                                <td>{{ $user->id }}</td>
+                                                <td>
+                                                    <img src="{{ asset('storage/' . $user->photo) }}"
+                                                        alt="User Profile Image" style="height: 50px">
+                                                </td>
+                                                <td>{{ $user->fname }}</td>
+                                                <td>{{ $user->lname }}</td>
+                                                <td>{{ $user->email }}</td>
+                                                {{-- <td>{{$user->password}}</td> --}}
+                                                <td>{{ $user->phone }}</td>
+                                                <td>{{ $user->gender }}</td>
+                                                <td>{{ $user->city }}</td>
+                                                <td>{{ $user->address }}</td>
                                                 <td>User</td>
-                                            @elseif($user->is_admin == 1)
-                                                <td>Sub Admin</td>
-                                            @else
-                                                <td>Super Admin</td>
-                                            @endif
-                                            <td>{{ $user->created_at }}</td>
-                                            <td>{{ $user->updated_at }}</td>
-                                            <td>
-                                                {{-- <form method="post" action="{{ route('users.edit',$user->id) }}" > --}}
-                                                <input type="button" class="btn btn-outline-primary" value="Edit"
-                                                    name="editpro" data-bs-toggle="modal"
-                                                    data-bs-target="#userEditModal{{ $user->id }}">
+                                                <td>{{ $user->created_at }}</td>
+                                                <td>{{ $user->updated_at }}</td>
+                                                <td>
+                                                    {{-- <form method="post" action="{{ route('users.edit',$user->id) }}" > --}}
+                                                    <input type="button" class="btn btn-outline-primary" value="Edit"
+                                                        name="editpro" data-bs-toggle="modal"
+                                                        data-bs-target="#userEditModal{{ $user->id }}">
 
-                                                {{-- </form> --}}
-                                            </td>
-                                            <td>
-                                                {{-- <form method="post"action="{{ route('users.destroy',$user->id) }}" >
-                                            @csrf
-                                            @method('DELETE') --}}
-                                                <input type="submit" class="btn btn-outline-danger" value="Delete">
-                                                {{-- </form> --}}
-                                            </td>
-                                        </tr>
+                                                    {{-- </form> --}}
+                                                </td>
+                                                <td>
+                                                    <input type="submit" class="btn btn-outline-danger" value="Delete"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#userDeleteModal{{ $user->id }}">
+                                                </td>
+                                            </tr>
+                                        @endif
 
                                 </tbody>
+                                {{-- Edit modal --}}
+                                {{-- Edit modal --}}
+                                {{-- Edit modal --}}
+                                {{-- Edit modal --}}
+                                {{-- Edit modal --}}
+                                {{-- Edit modal --}}
                                 <div class="modal fade" id="userEditModal{{ $user->id }}" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
@@ -337,7 +340,33 @@
                                 {{-- delete modal --}}
                                 {{-- delete modal --}}
                                 {{-- delete modal --}}
-                                
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="userDeleteModal{{ $user->id }}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"><i class=" far fa-window-close"></i></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure you want to delete user?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <form method="post"action="{{ route('users.destroy', $user->id) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="button" class="btn"
+                                                        data-bs-dismiss="modal">No</button>
+                                                    <button type="submit" class="btn "
+                                                        style="background-color: #076595; color:white">Yes</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 @endforeach
                             </table>
                         </div>

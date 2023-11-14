@@ -172,9 +172,10 @@ class UsersController extends Controller
      * @param  \App\Models\Users  $users
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Users $users)
+    public function destroy($id)
     {
-        //
+        Users::findorFail($id)->delete();
+        return back()->withErrors(['success'=>'User Deleted successfully.']);
     }
     ///////////////////////login/////////////////////////////////
     ///////////////////////login/////////////////////////////////
