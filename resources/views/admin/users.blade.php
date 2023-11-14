@@ -216,6 +216,11 @@
                                     {{ $message }}
                                 </div>
                             @enderror
+                            @error('error')
+                                <div class="alert alert-success" role="alert" style="width: 100%">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
@@ -238,41 +243,40 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($users as $user)
-                                            <tr>
-                                                <td>{{ $user->id }}</td>
-                                                <td>
-                                                    <img src="{{ asset('storage/' . $user->photo) }}"
-                                                        alt="User Profile Image" style="height: 50px">
-                                                </td>
-                                                <td>{{ $user->fname }}</td>
-                                                <td>{{ $user->lname }}</td>
-                                                <td>{{ $user->email }}</td>
-                                                {{-- <td>{{$user->password}}</td> --}}
-                                                <td>{{ $user->phone }}</td>
-                                                <td>{{ $user->gender }}</td>
-                                                <td>{{ $user->city }}</td>
-                                                <td>{{ $user->address }}</td>
-                                                @if($user->is_admin==0)
+                                        <tr>
+                                            <td>{{ $user->id }}</td>
+                                            <td>
+                                                <img src="{{ asset('storage/' . $user->photo) }}"
+                                                    alt="User Profile Image" style="height: 50px">
+                                            </td>
+                                            <td>{{ $user->fname }}</td>
+                                            <td>{{ $user->lname }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>0{{ $user->phone }}</td>
+                                            <td>{{ $user->gender }}</td>
+                                            <td>{{ $user->city }}</td>
+                                            <td>{{ $user->address }}</td>
+                                            @if ($user->is_admin == 0)
                                                 <td>User</td>
-                                                @else
+                                            @else
                                                 <td>Admin</td>
-                                                @endif
-                                                <td>{{ $user->created_at }}</td>
-                                                <td>{{ $user->updated_at }}</td>
-                                                <td>
-                                                    {{-- <form method="post" action="{{ route('users.edit',$user->id) }}" > --}}
-                                                    <input type="button" class="btn btn-outline-primary" value="Edit"
-                                                        name="editpro" data-bs-toggle="modal"
-                                                        data-bs-target="#userEditModal{{ $user->id }}">
+                                            @endif
+                                            <td>{{ $user->created_at }}</td>
+                                            <td>{{ $user->updated_at }}</td>
+                                            <td>
+                                                {{-- <form method="post" action="{{ route('users.edit',$user->id) }}" > --}}
+                                                <input type="button" class="btn btn-outline-primary" value="Edit"
+                                                    name="editpro" data-bs-toggle="modal"
+                                                    data-bs-target="#userEditModal{{ $user->id }}">
 
-                                                    {{-- </form> --}}
-                                                </td>
-                                                <td>
-                                                    <input type="submit" class="btn btn-outline-danger" value="Delete"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#userDeleteModal{{ $user->id }}">
-                                                </td>
-                                            </tr>
+                                                {{-- </form> --}}
+                                            </td>
+                                            <td>
+                                                <input type="submit" class="btn btn-outline-danger" value="Delete"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#userDeleteModal{{ $user->id }}">
+                                            </td>
+                                        </tr>
                                 </tbody>
                                 {{-- Edit modal --}}
                                 {{-- Edit modal --}}
@@ -290,58 +294,64 @@
                                                     aria-label="Close"><i class=" far fa-window-close"></i></button>
                                             </div>
                                             <div class="modal-body" style="text-align: center">
-                                                <form method="post" action=""
-                                                    >
+                                                <form method="post" action="{{ route('users.update', $user->id) }}">
                                                     @csrf
                                                     @method('PUT')
                                                     {{-- first name edit --}}
                                                     {{-- first name edit --}}
                                                     {{-- first name edit --}}
-                                                    <label class="col-2">First Name:</label>
+                                                    <label class="col-3">First Name:</label>
                                                     <input class="col-5" id="fname-input" type="text" name="fname"
                                                         value="{{ $user->fname }}"><br>
 
                                                     {{-- last name edit --}}
                                                     {{-- last name edit --}}
                                                     {{-- last name edit --}}
-                                                    <label class="col-2">Last Name:</label>
+                                                    <label class="col-3">Last Name:</label>
                                                     <input class="col-5" id="lname-input" type="text" name="lname"
                                                         value="{{ $user->lname }}"><br>
 
                                                     {{-- email edit --}}
                                                     {{-- email edit --}}
                                                     {{-- email edit --}}
-                                                    <label class="col-2">Email:</label>
+                                                    <label class="col-3">Email:</label>
                                                     <input class="col-5" id="email-input" type="text" name="email"
                                                         value="{{ $user->email }}"><br>
 
                                                     {{-- phone edit --}}
                                                     {{-- phone edit --}}
                                                     {{-- phone edit --}}
-                                                    <label class="col-2">Mobile:</label>
+                                                    <label class="col-3">Mobile:</label>
                                                     <input class="col-5" id="mobile-input" type="number"
-                                                        name="phone" value="{{ $user->phone }}"><br>
+                                                        name="phone" value="0{{ $user->phone }}"><br>
 
                                                     {{-- gender edit --}}
                                                     {{-- gender edit --}}
                                                     {{-- gender edit --}}
-                                                    <label class="col-2">Gender:</label>
-                                                    @if( $user->gender =='Female')
-                                                    <select class="col-5" name="gender" style="height: 25px">
-                                                        <option name="gender" id="gender-male" value="Male">Male
-                                                        </option>
-                                                        <option name="gender" id="gender-female" value="Female" selected>Female
-                                                        </option>
-                                                    </select><br>
+                                                    <label class="col-3">Gender:</label>
+                                                    @if ($user->gender == 'Female')
+                                                        <select class="col-5" name="gender" style="height: 25px">
+                                                            <option name="gender" id="gender-male" value="Male">Male
+                                                            </option>
+                                                            <option name="gender" id="gender-female" value="Female"
+                                                                selected>Female
+                                                            </option>
+                                                        </select><br>
                                                     @else
-                                                    <select class="col-5" name="gender" style="height: 25px">
-                                                        <option name="gender" id="gender-male" value="Male" selected>Male
-                                                        </option>
-                                                        <option name="gender" id="gender-female" value="Female">Female
-                                                        </option>
-                                                    </select><br>
+                                                        <select class="col-5" name="gender" style="height: 25px">
+                                                            <option name="gender" id="gender-male" value="Male"
+                                                                selected>Male
+                                                            </option>
+                                                            <option name="gender" id="gender-female" value="Female">
+                                                                Female
+                                                            </option>
+                                                        </select><br>
                                                     @endif
-                                                    <label class="col-2">City:</label>
+
+                                                    {{-- city edit --}}
+                                                    {{-- city edit --}}
+                                                    {{-- city edit --}}
+                                                    <label class="col-3">City:</label>
                                                     <select name="city" class="col-5" style="height: 25px">
                                                         @php
                                                             $cities = [
@@ -368,21 +378,38 @@
                                                         @endforeach
                                                     </select><br>
 
-                                                    <label class="col-2">Admin:</label>
-                                                    <input type="radio" id="admin-yes" value="1" name="is_admin"
-                                                        required> Yes
-                                                    <input type="radio" id="admin-no" value="0" name="is_admin"
-                                                        required> No<br><br>
-                                                    <input type="submit" class="btn btn-outline-secondary"
-                                                        value="Save">
-                                                </form>
+                                                    {{-- address edit --}}
+                                                    {{-- address edit --}}
+                                                    {{-- address edit --}}
+                                                    <label class="col-3">Address:</label>
+                                                    <textarea class="col-5" rows="1" name="address">{{ $user->address }}</textarea><br>
+
+                                                    {{-- status edit --}}
+                                                    {{-- status edit --}}
+                                                    {{-- status edit --}}
+                                                    <label class="col-3">Status:</label>
+                                                    @if ($user->is_admin == 0)
+                                                        <select class="col-5" name="is_admin" style="height: 25px">
+                                                            <option value="0" selected>User
+                                                            </option>
+                                                            <option value="2">Admin
+                                                            </option>
+                                                        </select><br>
+                                                    @else
+                                                        <select class="col-5" name="is_admin" style="height: 25px">
+                                                            <option value="0">User
+                                                            </option>
+                                                            <option value="2" selected>Admin
+                                                            </option>
+                                                        </select><br>
+                                                    @endif
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
+                                                <button type="button" class="btn"
                                                     data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn " id="save-fname-Button">Save
-                                                    changes</button>
+                                                <button type="submit" class="btn" style="background-color: #076595;color:white">Save</button>
                                             </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -408,7 +435,7 @@
                                                 Are you sure you want to delete user?
                                             </div>
                                             <div class="modal-footer">
-                                                <form method="post"action="{{ route('users.destroy', $user->id) }}">
+                                                <form method="post" action="{{ route('users.destroy', $user->id) }}">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="button" class="btn"

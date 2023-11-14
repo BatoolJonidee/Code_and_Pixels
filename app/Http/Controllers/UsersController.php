@@ -123,10 +123,10 @@ class UsersController extends Controller
         ]);
         // dd ($user);
         if ($user) {
-            return back()->with('success', 'user created successfully.');
+            return back()->withErrors(['success'=> 'User created successfully.']);
         }
         if(!($user)){
-            return back()->with('error', 'Failed to create user.');
+            return back()->withError(['error'=> 'Failed to create user.']);
         }
     }
 
@@ -161,9 +161,22 @@ class UsersController extends Controller
      * @param  \App\Models\Users  $users
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Users $users)
+    public function update(Request $request, $id)
     {
-        //
+        // dd($request);
+        $user = User::findorFail($id);
+        // dd($request);
+        // $user=new users();
+        $user->fname = $request->fname;
+        $user->lname = $request->lname;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->gender = $request->gender;
+        $user->city = $request->city;
+        $user->address = $request->address;
+        $user->is_admin = $request->is_admin;
+        $user->update();
+        return back()->withErrors(['success'=> 'User info updated successfully.']);
     }
 
     /**
