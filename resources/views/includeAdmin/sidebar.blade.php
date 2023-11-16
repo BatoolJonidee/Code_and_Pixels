@@ -20,6 +20,12 @@
                             Users
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('categories')}}" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3">
+                            <i class="  fas fa-clipboard"></i>
+                            Categories
+                        </a>
+                    </li>
                     {{-- <li class="nav-item">
                         <a class="nav-link" href="#" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3">
                             <i class=" fas fa-code"></i>

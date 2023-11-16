@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
@@ -56,6 +57,7 @@ Route::post('/profilePic',[UsersController::class,'profilePictureEdit'])->name('
 //------------------admin dashboard--------------------//
 Route::resource('users',UsersController::class);
 Route::resource('contacts',ContactController::class);
+Route::resource('categories',CategoriesController::class);
 Route::get('/dashboard',function(){
     return view('admin.dashboard');
 });
