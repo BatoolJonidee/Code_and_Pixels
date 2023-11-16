@@ -1,6 +1,6 @@
 @extends('includeAdmin.top')
 
-@section('title', 'Admin Dashboard | Users')
+@section('title', 'Admin Dashboard | Categories')
 
 @extends('includeAdmin.blank')
 @section('main')
