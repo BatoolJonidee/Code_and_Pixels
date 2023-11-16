@@ -36,7 +36,28 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->hasFile('photo')) {
+            // dd($request->photo);
+            $request->validate([
+                'photo' => 'image|mimes:jpeg,png,jpg,gif',
+            ],[
+                'error' => 'The image must be in (jpeg, png, jpg, gif) format',
+            ]);
+            $photoPath = $request->file('photo')->store('images', 'public');
+            $category=Categories::create([
+                'name' => $request->input('name'),
+                'photo' => $photoPath,
+            ]);
+        }else{
+            $category=Categories::create([
+                'name' => $request->input('name'),
+            ]);
+        }
+        if ($category) {
+            return back()->withErrors(['success' => 'Category created successfully.']);
+        }else{
+            return back()->withError(['error' => 'Failed to create category.']);
+        }
     }
 
     /**
@@ -68,9 +89,25 @@ class CategoriesController extends Controller
      * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categories $categories)
+    public function update(Request $request, $id)
     {
-        //
+        if ($request->hasFile('photo')) {
+            // dd($request->photo);
+            $request->validate([
+                'photo' => 'image|mimes:jpeg,png,jpg,gif',
+            ],[
+                'photo' => 'The image must be in (jpeg, png, jpg, gif) format',
+            ]);
+            $photoPath = $request->file('photo')->store('images', 'public');
+            $category = Categories::findorFail($id);
+            $category->name = $request->name;
+            $category->photo = $photoPath;
+        }else{
+            $category = Categories::findorFail($id);
+            $category->name = $request->name;
+       }
+        $category->update();
+        return back()->withErrors(['success' => 'Category info updated successfully.']);
     }
 
     /**
@@ -79,8 +116,9 @@ class CategoriesController extends Controller
      * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categories $categories)
+    public function destroy($id)
     {
-        //
+        Categories::findorFail($id)->delete();
+        return back()->withErrors(['success' => 'Category Deleted successfully.']);
     }
 }

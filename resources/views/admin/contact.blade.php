@@ -52,12 +52,12 @@
                                             <td>{{ $contact->updated_at }}</td>
                                             <td>
                                                 <input type="submit" class="btn btn-outline-danger" value="Delete" data-bs-toggle="modal"
-                                                data-bs-target="#DeleteModal">
+                                                data-bs-target="#DeleteModal{{ $contact->id }}">
                                             </td>
                                         </tr>
                                     </tbody>
 
-                                <div class="modal fade" id="DeleteModal" tabindex="-1"
+                                <div class="modal fade" id="DeleteModal{{ $contact->id }}" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
