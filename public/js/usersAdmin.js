@@ -44,10 +44,11 @@ lnameAdd.addEventListener("blur",function(){
     let lNameRE=/[a-zA-Z]{1,}/g;
     if(lnameAdd.value.match(lNameRE)==lnameAdd.value){
         document.getElementById("lnamePAdd").style.display='none';
-        firstNameFlag
+        lastNameFlag=1;
     }else{
         document.getElementById("lnamePAdd").style.display='block';
         document.getElementById("lnamePAdd").style.color='rgb(201, 98, 98)';
+        lastNameFlag=0;
     }
 })
 //////////////////////email add user /////////////////////
@@ -356,19 +357,19 @@ let statusFlagEdit=0;
 //////////////////////fname edit user /////////////////////
 //////////////////////fname edit user /////////////////////
 
-let fnameEdit=document.get('fnameInput-Edit-Admin');
+let fnameEdit=document.getElementsByClassName('fnameInput-Edit-Admin');
 fnameEdit.addEventListener("focus",function(){
-    document.getElementById("fnamePEdit").style.display="block";
-    document.getElementById("fnamePEdit").style.color='#3c8fae';
+    document.getElementsByClassName("fnamePEdit").style.display="block";
+    document.getElementsByClassName("fnamePEdit").style.color='#3c8fae';
 })
 fnameEdit.addEventListener("blur",function(){
     let fNameRE=/[a-zA-Z]{1,}/g;
     if(fnameEdit.value.match(fNameRE)==fnameEdit.value){
-        document.getElementById("fnamePEdit").style.display='none';
+        document.getElementsByClassName("fnamePEdit").style.display='none';
         firstNameFlagEdit=1;
     }else{
-        document.getElementById("fnamePEdit").style.display='block';
-        document.getElementById("fnamePEdit").style.color='rgb(201, 98, 98)';
+        document.getElementsByClassName("fnamePEdit").style.display='block';
+        document.getElementsByClassName("fnamePEdit").style.color='rgb(201, 98, 98)';
         firstNameFlagEdit=0;
     }
 })
