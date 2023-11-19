@@ -39,7 +39,7 @@
                         </a>
                     </li> --}}
                     <li class="nav-item">
-                        <a class="nav-link" href="#" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5">
+                        <a class="nav-link" href="{{url('photographers')}}" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5">
                             <i class=" fas fa-camera"></i>
                             Photographers
                         </a>

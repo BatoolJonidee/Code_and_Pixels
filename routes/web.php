@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PhotographersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 
@@ -58,7 +59,7 @@ Route::post('/profilePic',[UsersController::class,'profilePictureEdit'])->name('
 Route::resource('users',UsersController::class);
 Route::resource('contacts',ContactController::class);
 Route::resource('categories',CategoriesController::class);
-Route::resource('categories',CategoriesController::class);
+Route::resource('photographers',PhotographersController::class);
 Route::get('/dashboard',function(){
     return view('admin.dashboard');
 });
