@@ -13,7 +13,7 @@
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="2000">
+            <div class="carousel-item active" data-bs-interval="5000">
                 <div style="display:flex; justify-content: center; padding-left:10%; padding-right:10% ">
                     <div style="width:50%; padding-top:9%; ">
                         <p style="font-size: 35px; text-align: left ; font-weight: 600">Life is Full of </p><br>
@@ -30,7 +30,7 @@
                 </div>
 
             </div>
-            <div class="carousel-item" data-bs-interval="2000">
+            <div class="carousel-item" data-bs-interval="3000">
                 <div style="display:flex; justify-content: center; padding-left:10%; padding-right:10% ">
                     <div style="width: 50%">
                         <img src="storage/images/slider(1).jpg" class="d-block w-100" alt="second slide image"
@@ -47,7 +47,7 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item" data-bs-interval="2000">
+            <div class="carousel-item" data-bs-interval="3000">
                 <img src="storage/images/slider 3.jpeg" class="d-block w-100" alt="third slide image" style="padding-left:10%; padding-right:10% ">
                 <div class="carousel-caption d-none d-md-block" >
                     <h3 style="color: white">Still waiting?</h3><br>
@@ -64,7 +64,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
+{{-- 
     <script>
         const myCarouselElement = document.querySelector('#carouselExampleDark')
 
@@ -72,5 +72,5 @@
             interval: 2000,
             touch: true
         })
-    </script>
+    </script> --}}
 @endsection
