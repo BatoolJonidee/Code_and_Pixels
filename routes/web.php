@@ -58,6 +58,7 @@ Route::post('/profilePic',[UsersController::class,'profilePictureEdit'])->name('
 Route::resource('users',UsersController::class);
 Route::resource('contacts',ContactController::class);
 Route::resource('categories',CategoriesController::class);
+Route::resource('categories',CategoriesController::class);
 Route::get('/dashboard',function(){
     return view('admin.dashboard');
 });
