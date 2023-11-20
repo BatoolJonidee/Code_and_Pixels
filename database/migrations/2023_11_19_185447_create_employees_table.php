@@ -15,7 +15,13 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            
+            $table->string('fname');
+            $table->string('lname');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->text('description');
+            $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
+            $table->string('photo')->default();
             $table->timestamps();
         });
     }
