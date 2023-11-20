@@ -34,7 +34,7 @@
                 <div style="display:flex; justify-content: center; padding-left:10%; padding-right:10% ">
                     <div style="width: 50%">
                         <img src="storage/images/slider(1).jpg" class="d-block w-100" alt="second slide image"
-                            style="width:100%">
+                            style="height:400px">
                     </div>
                     <div style="width:50%; padding-top:9%; " >
                         {{-- <h5>Life is Full of </h5><br> --}}
@@ -48,10 +48,10 @@
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="3000">
-                <img src="storage/images/slider 3.jpeg" class="d-block w-100" alt="third slide image" style="padding-left:10%; padding-right:10% ">
+                <img src="storage/images/slider 3.jpeg" class="d-block w-100" alt="third slide image" style="padding-left:10%; padding-right:10%; height:400px ">
                 <div class="carousel-caption d-none d-md-block" >
-                    <h3 style="color: white">Still waiting?</h3><br>
-                    <p style="color: white; font-size: 50px; font-weight: bolder"> <span style="font-size: 30px;font-weight: bold ">Hurry Up!!</span> Book Your Session Now</p>
+                    <h3 style="color: white">Still waiting?</h3>
+                    <p style="color: white; font-size: 50px; font-weight: bolder"> Book Your Session Now</p>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-{{-- 
+{{--
     <script>
         const myCarouselElement = document.querySelector('#carouselExampleDark')
 
