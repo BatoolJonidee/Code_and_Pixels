@@ -10,7 +10,8 @@
     width:calc(88%/3);
     border-style: outset;
     border-width: 5px ;
-    border-radius: 10px;padding: 1%;
+    border-radius: 10px;
+    padding: 1%;
     /* height:1000px; */
 }
 #img-photographers-div{
@@ -29,7 +30,10 @@
     box-shadow: 5px 5px 10px gray;
 }
 #card-title-photographers{
-    color:#076594;
     font-size: 30px;
     font-weight: bold;
+}
+#card-title-photographers a{
+    text-decoration: none;
+    color:#076594;
 }

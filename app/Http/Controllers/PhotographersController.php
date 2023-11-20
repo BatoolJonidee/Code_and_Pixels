@@ -94,4 +94,8 @@ class PhotographersController extends Controller
         $photographers = Employees::where('category_id', $categoryId)->get();
         return view('user.photographers', compact('photographers'));
     }
+    public function photographerDetails($id){
+        $photographer= Employees::findorFail($id);
+        return view('user.photographer', compact('photographer'));
+    }
 }

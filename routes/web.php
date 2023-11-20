@@ -39,7 +39,7 @@ Route::post('/login',[UsersController::class,'login'])->name('login');
 Route::get('/logout',[UsersController::class,'logout'])->name('logout');
 Route::post('/createContact',[ContactController::class,'create'])->name('createContact');
 Route::get('/photographer',[PhotographersController::class,'photographersPageUser']);
-
+Route::get('/photographerDetails/{id}',[PhotographersController::class,'photographerDetails'])->name('photographerDetails');
 
 //------------- edit profile ------------------------
 //------------- edit profile ------------------------

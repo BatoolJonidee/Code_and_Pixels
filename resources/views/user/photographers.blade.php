@@ -12,13 +12,13 @@
                 </div>
                 <div>
                     <p id="card-title-photographers">
-                        <a>
+                        <a href="{{route ('photographerDetails', $photographer->id)}}">
                             {{ $photographer->fname . ' ' . $photographer->lname }}
                         </a>
                     </p>
                     <p>
                         {{ Str::limit($photographer->description, 70) }}
-                        <a href="#">
+                        <a href="{{route ('photographerDetails', $photographer->id)}}">
                             See More
                         </a>
                     </p>
