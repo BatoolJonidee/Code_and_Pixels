@@ -85,4 +85,13 @@ class PhotographersController extends Controller
         Employees::findorFail($id)->delete();
         return back()->withErrors(['success' => 'Photographer Deleted successfully.']);
     }
+
+
+    //////////////// user side /////////////////
+    public function photographersPageUser(){
+
+        $categoryId= Categories::where('name', 'Photographers')->value('id');
+        $photographers = Employees::where('category_id', $categoryId)->get();
+        return view('user.photographers', compact('photographers'));
+    }
 }

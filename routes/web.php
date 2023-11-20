@@ -24,9 +24,11 @@ Route::get('users',function(){
 Route::get('/', function () {
     return view('user.home');
 })->name('home');
+
 Route::get('/reg',function(){
     return view('register');
 })->name('reg');
+
 Route::get('/contact',function(){
     return view('user.contact');
 });
@@ -36,6 +38,7 @@ Route::post('/reg', [UsersController::class,'create'])->name('signup');
 Route::post('/login',[UsersController::class,'login'])->name('login');
 Route::get('/logout',[UsersController::class,'logout'])->name('logout');
 Route::post('/createContact',[ContactController::class,'create'])->name('createContact');
+Route::get('/photographer',[PhotographersController::class,'photographersPageUser']);
 
 
 //------------- edit profile ------------------------
