@@ -14,16 +14,16 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="5000">
-                <div style="display:flex; justify-content: center; padding-left:10%; padding-right:10% ">
-                    <div style="width:50%; padding-top:9%; ">
+                <div style="display:flex; justify-content: center; padding-left:8%; padding-right:7% ">
+                    <div style="width:40%; padding-top:9%; ">
                         <p style="font-size: 35px; text-align: left ; font-weight: 600">Life is Full of </p><br>
                         <p style="font-size: 50px; text-align: center ; color:#0a598f; font-weight: bolder">Beautiful
                             Momments</p><br>
                         <h5 style="font-size: 35px; text-align: right ; font-weight: 600">Remember Them..</h5>
                         {{-- <p>Some representative placeholder content for the first slide.</p>  class="carousel-caption d-none d-md-block" --}}
                     </div>
-                    <div style="width:50%">
-                        <img src="storage/images/360_F_572457480_Gh1QFNcddrLkybzJcf1hKD9TWb7TqqYO.jpg" class="d-block w-100"
+                    <div style="width:60%">
+                        <img src="storage/images/imgonline-com-ua-resize-lSVXrX46v54RnXNU.jpg" class="d-block w-100"
                             alt="first slide image" style="width: 100%">
                     </div>
 
@@ -33,8 +33,8 @@
             <div class="carousel-item" data-bs-interval="3000">
                 <div style="display:flex; justify-content: center; padding-left:10%; padding-right:10% ">
                     <div style="width: 50%">
-                        <img src="storage/images/slider(1).jpg" class="d-block w-100" alt="second slide image"
-                            style="height:400px">
+                        <img src="storage/images/imgonline-com-ua-resize-b1uV5y00AjerJ.jpg" class="d-block w-100" alt="second slide image"
+                            style="width:100%">
                     </div>
                     <div style="width:50%; padding-top:9%; " >
                         {{-- <h5>Life is Full of </h5><br> --}}
@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="3000">
-                <img src="storage/images/slider 3.jpeg" class="d-block w-100" alt="third slide image" style="padding-left:10%; padding-right:10%; height:400px ">
+                <img src="storage/images/slider 3.jpeg" class="d-block w-100" alt="third slide image" style="padding-left:10%; padding-right:10%; width:68% ">
                 <div class="carousel-caption d-none d-md-block" >
                     <h3 style="color: white">Still waiting?</h3>
                     <p style="color: white; font-size: 50px; font-weight: bolder"> Book Your Session Now</p>
