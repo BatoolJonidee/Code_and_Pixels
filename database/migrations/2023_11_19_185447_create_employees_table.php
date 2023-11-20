@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->text('description');
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
-            $table->string('photo')->default();
+            $table->string('photo');
             $table->timestamps();
         });
     }
