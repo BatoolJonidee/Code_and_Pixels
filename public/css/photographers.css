@@ -18,13 +18,16 @@
     width:100%;
     height:300px;
     padding:2%;
-    background-color: rgb(211, 211, 211);
+    /* background-color: rgb(211, 211, 211); */
     border-radius: 50%;
 }
 #img-photographers-div img{
+    /* border-width: 2px; */
+    /* border-style: double; */
     border-radius: 50%;
     height:290px;
     margin: auto;
+    box-shadow: 5px 5px 10px rgb(74, 74, 74);
 }
 #img-photographers-div img:hover{
     box-shadow: 5px 5px 10px gray;
@@ -36,4 +39,37 @@
 #card-title-photographers a{
     text-decoration: none;
     color:#076594;
+}
+@media (min-width:750px) and (max-width:900px){
+    #photographers-container-div{
+        width:95%;
+        margin-left:2.5%;
+    }
+    #card-photographers-page{
+        width:calc(93%/3);
+    }
+}
+@media (min-width:500px) and (max-width:749.9px){
+    #photographers-container-div{
+        width:95%;
+        margin-left:2.5%;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    #card-photographers-page{
+        width:calc(93%/2);
+        margin-bottom: 2%;
+    }
+}
+@media (max-width:499.9px){
+    #photographers-container-div{
+        width:95%;
+        margin-left:2.5%;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    #card-photographers-page{
+        margin-bottom: 2%;
+        width:100%;
+    }
 }

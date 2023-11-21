@@ -9,8 +9,8 @@
         </div>
         <div id="navbar-div">
             <p><a class="aNav" href="{{url('/')}}">Home</a></p>
-            <p><a class="aNav" href="">Developers</a></p>
-            <p><a class="aNav" href="">Designers</a></p>
+            {{-- <p><a class="aNav" href="">Developers</a></p>
+            <p><a class="aNav" href="">Designers</a></p> --}}
             <p><a class="aNav" href="{{ url('photographer') }}">Photographers</a></p>
             <p><a class="aNav" href="{{url('/contact')}}">Contact</a></p>
             <p><a class="aNav" href="">About</a></p>
@@ -33,7 +33,7 @@
     <div id="mobile-nav-div">
         <p><a class="aNav" href="{{url('/')}}">Home</a></p>
         <p><a class="aNav" href="">Developers</a></p>
-        <p><a class="aNav" href="">Photographers</a></p>
+        <p><a class="aNav" href="{{ url('photographer') }}">Photographers</a></p>
         <p><a class="aNav" href="{{url('/contact')}}">Contact</a></p>
         <p><a class="aNav" href="">About</a></p>
         @if(session()->has('user_id')!=NULL)
