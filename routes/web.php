@@ -66,3 +66,6 @@ Route::resource('photographers',PhotographersController::class);
 Route::get('/dashboard',function(){
     return view('admin.dashboard');
 });
+
+//---------------employees dashboard--------------------//
+Route::get('Photographer-dashboard',[PhotographersController::class,'homePage']);

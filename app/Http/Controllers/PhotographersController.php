@@ -98,4 +98,10 @@ class PhotographersController extends Controller
         $photographer= Employees::findorFail($id);
         return view('user.photographer', compact('photographer'));
     }
+
+
+    /////////////////// photographer side //////////////////////
+    public function homePage(){
+        return view('employee.home');
+    }
 }

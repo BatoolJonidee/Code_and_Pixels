@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employees;
 use App\Models\Users;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
@@ -230,6 +231,21 @@ class UsersController extends Controller
                     return redirect()->intended('/dashboard');
                 } else {
                 }
+            } else {
+                return back()->withErrors(['msg' => 'Invalid email or password']);
+            }
+        }
+
+        $Photographer = Employees::where('email', $request->input('Email'))->first();
+        if($Photographer){
+            if (Hash::check($request->input('Password'), $Photographer->password)) {
+                // session()->put('name', $user->fname);
+
+                session()->put('user_id', $Photographer->id);
+                session()->put('user_name', $Photographer->fname . ' ' . $Photographer->lname);
+                session()->put('is_admin', 1);
+                session()->put('user_email', $Photographer->email);
+                return redirect()->intended('/Photographer-dashboard');
             } else {
                 return back()->withErrors(['msg' => 'Invalid email or password']);
             }
