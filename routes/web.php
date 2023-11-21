@@ -69,3 +69,6 @@ Route::get('/dashboard',function(){
 
 //---------------employees dashboard--------------------//
 Route::get('Photographer-dashboard',[PhotographersController::class,'homePage']);
+Route::get('Photographer-profile',function(){
+    return view('employee.profile');
+});

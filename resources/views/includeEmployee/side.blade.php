@@ -8,14 +8,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav flex-column">
                     <li class="nav-item ">
-                        <a class="nav-link " href="#" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1">
-                            {{-- <i class="fa-regular fa-user"></i> --}}
+                        <a class="nav-link " href=" {{url('Photographer-dashboard')}} " aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1">
                             <i class="fas fa-chart-area"></i>
                             Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2">
+                        <a class="nav-link" href=" {{url('Photographer-profile')}} " aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2">
                             <i class="fas fa-user"></i>
                             Profile
                         </a>
@@ -26,36 +25,12 @@
                             Schedule
                         </a>
                     </li>
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" href="#" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3">
-                            <i class=" fas fa-code"></i>
-                            Developers
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="#" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4">
-                            <i class=" fas fa-eye"></i>
-                            Designers
-                        </a>
-                    </li> --}}
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" href="{{url('photographers')}}" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5">
-                            <i class=" fas fa-camera"></i>
-                            Photographers
-                        </a>
-                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="#" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6">
                             <i class=" fas fa-calendar-alt"></i>
                             Sessions
                         </a>
                     </li>
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" href="{{url('contacts')}}" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7">
-                            <i class=" fas fa-comment-alt"></i>
-                            Contacts
-                        </a>
-                    </li> --}}
                 </ul>
             </div>
         </nav>
