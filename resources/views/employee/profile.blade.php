@@ -1,4 +1,3 @@
-
 @extends('includeEmployee.top')
 
 @section('title', 'Photographer | Profile')
@@ -14,81 +13,297 @@
                         <div style="display:flex;justify-content: space-between ">
                             <div>
                                 <h2 class="title-3">
-                                     Profile
+                                    Profile
                                 </h2>
                             </div>
                         </div>
-                        {{-- @error('success')
-                            <div class="alert alert-success" role="alert" style="width: 100%">
-                                {{ $message }}
+                        <div id="settingDiv"
+                            style="margin-top: 5%;border:1px solid gray;box-shadow: 5px 5px 10px gray; border-radius:10px ;width:70%;margin-bottom: 5%;padding:1%">
+                            @if (session('success'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+
+                            @if (session('error'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+                            {{-- Fname  --}}
+                            {{-- Fname  --}}
+                            {{-- Fname  --}}
+                            {{-- Fname  --}}
+                            <div class="table-responsive table-data">
+                            <div id="fname-show"
+                                style="border-radius:5px; padding:1%; display: flex;width:100%;justify-content: space-between;background-color: rgb(233, 233, 233);">
+                                <div>
+                                    <p style="color:black">First Name</p>
+                                </div>
+                                <div>
+                                    <p style="color:black">{{ $photographer->fname }}</p>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn" data-bs-toggle="modal"
+                                        data-bs-target="#fnameEditModal" style="background-color: #076595; color:white">
+                                        <i class="fa-solid fa-pen-to-square" style="cursor: pointer;"></i>
+                                    </button>
+                                </div>
                             </div>
-                        @enderror
-
-                        <div class="table-responsive table-data">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Subject</th>
-                                        <th>Message</th>
-                                        <th>Created at</th>
-                                        <th>Updated at</th>
-                                        <th>Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($contacts as $contact)
-                                        <tr>
-                                            <td>{{ $contact->id }}</td>
-                                            <td>{{ $contact->name }}</td>
-                                            <td>{{ $contact->email }}</td>
-                                            <td>{{ $contact->subject }}</td>
-                                            <td>{{ $contact->message }}</td>
-                                            <td>{{ $contact->created_at }}</td>
-                                            <td>{{ $contact->updated_at }}</td>
-                                            <td>
-                                                <input type="submit" class="btn btn-outline-danger" value="Delete" data-bs-toggle="modal"
-                                                data-bs-target="#DeleteModal{{ $contact->id }}">
-                                            </td>
-                                        </tr>
-                                    </tbody>
-
-                                <div class="modal fade" id="DeleteModal{{ $contact->id }}" tabindex="-1"
+                            <!-- edit First Name Modal -->
+                            <!-- edit First Name Modal -->
+                            <!-- edit First Name Modal -->
+                            <!-- edit First Name Modal -->
+                            <form method="post" action="" style=" width:100%;text-align: center">
+                                @csrf
+                                <div class="modal fade" id="fnameEditModal" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Frist Name Edit</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"><i class=" far fa-window-close"></i></button>
+                                                    aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                Are you sure you want to delete user?
+                                                <input type="hidden" value="{{ $photographer->id }}" name="id">
+                                                <span>First Name</span>
+                                                <span><input id='fnameEditInput' type="text" value="{{ $photographer->fname }}"
+                                                        name="fname" class="editProfileInput" required></span><br>
                                             </div>
                                             <div class="modal-footer">
-                                                <form method="post"action="{{ route('contacts.destroy', $contact->id) }}">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="button" class="btn"
-                                                        data-bs-dismiss="modal">No</button>
-                                                    <button type="submit" class="btn "
-                                                        style="background-color: #076595; color:white">Yes</button>
-                                                </form>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn " id="save-fname-Button">Save
+                                                    changes</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                @endforeach
-                            </table>
-                        </div> --}}
+                            </form>
 
+
+                            {{-- Lname --}}
+                            {{-- Lname --}}
+                            {{-- Lname --}}
+                            {{-- Lname --}}
+                            <div id="lname-show"
+                                style="padding:1%; display: flex;width:100%;justify-content: space-between;">
+                                <div>
+                                    <p style="color:black">Last Name</p>
+                                </div>
+                                <div>
+                                    <p style="color:black">{{ $photographer->lname }}</p>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn" data-bs-toggle="modal"
+                                        data-bs-target="#lnameEditModal" style="background-color: #076595; color:white">
+                                        <i class="fa-solid fa-pen-to-square" style="cursor: pointer;"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- edit Last Name Modal -->
+                            <!-- edit Last Name Modal -->
+                            <!-- edit Last Name Modal -->
+                            <!-- edit Last Name Modal -->
+                            <form method="post" action="" style=" width:100%;text-align: center">
+                                @csrf
+                                <div class="modal fade" id="lnameEditModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Last Name Edit</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <input type="hidden" value="{{ $photographer->id }}" name="id">
+                                                <span>Last Name</span>
+                                                <span><input id="lnameEditInput" type="text" value="{{ $photographer->lname }}"
+                                                        name="lname" class="editProfileInput" required></span>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn" id="save-lname-Button">Save
+                                                    changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            {{-- Email --}}
+                            {{-- Email --}}
+                            {{-- Email --}}
+                            {{-- Email --}}
+                            <div id="email-show"
+                                style="border-radius:5px;padding:1%; background-color: rgb(233, 233, 233);display: flex;width:100%;justify-content: space-between;">
+                                <div>
+                                    <p style="color:black">Email</p>
+                                </div>
+                                <div>
+                                    <p style="color:black">{{ $photographer->email }}</p>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn" data-bs-toggle="modal"
+                                        data-bs-target="#emailEditModal" style="background-color: #076595; color:white">
+                                        <i class="fa-solid fa-pen-to-square" style="cursor: pointer;"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- edit email Modal -->
+                            <!-- edit email Modal -->
+                            <!-- edit email Modal -->
+                            <!-- edit email Modal -->
+                            <form method="post" action=""
+                                style=" width:100%;text-align: center">
+                                @csrf
+                                <div class="modal fade" id="emailEditModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Email Edit</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <input type="hidden" value="{{ $photographer->id }}" name="id">
+                                                <span>Email</span>
+                                                <span><input id="emailEditInput" type="email"
+                                                        value="{{ $photographer->email }}" name="email"
+                                                        class="editProfileInput" required></span>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn" id="save-email-Button">Save
+                                                    changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            {{-- Password --}}
+                            {{-- Password --}}
+                            {{-- Password --}}
+                            {{-- Password --}}
+                            <div id="password-show"
+                                style="padding:1%; display: flex;width:100%;justify-content: space-between;">
+                                <div>
+                                    <p style="color:black">Password</p>
+                                </div>
+                                <div>
+                                    <p style="color:black">********</p>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn" data-bs-toggle="modal"
+                                        data-bs-target="#PasswordEditModal"
+                                        style="background-color: #076595; color:white">
+                                        <i class="fa-solid fa-pen-to-square" style="cursor: pointer;"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- edit password Modal -->
+                            <!-- edit password Modal -->
+                            <!-- edit password Modal -->
+                            <!-- edit password Modal -->
+                            <form method="post" action=""
+                                style=" width:100%;text-align: center">
+                                @csrf
+                                <div class="modal fade" id="passwordEditModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Password Edit</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <input type="hidden" value="{{ $photographer->id }}" name="id">
+                                                <span>Old Password</span>
+                                                <span><input type="password" name="password" class="editProfileInput"
+                                                        required></span><br /><br />
+                                                <span>New Password</span>
+                                                <span><input id="passwordEditInput" type="password" name="newPassword"
+                                                        class="editProfileInput" required></span>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn" id="save-password-Button">Save
+                                                    changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            {{-- Description--}}
+                            {{-- Description--}}
+                            {{-- Description--}}
+                            {{-- Description--}}
+                            <div id="description-show"
+                                style="padding:1%; display: flex;width:100%;justify-content: space-between;border-radius:5px; background-color: rgb(233, 233, 233); width:100%;">
+                                <div>
+                                    <p style="color:black">Description</p>
+                                </div>
+                                <div style="width:40%">
+                                    <p style="color:black" >{!! nl2br(e($photographer->description)) !!}</p>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn" data-bs-toggle="modal"
+                                        data-bs-target="#descriptionEditModal" style="background-color: #076595; color:white">
+                                        <i class="fa-solid fa-pen-to-square" style="cursor: pointer;"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- edit First Name Modal -->
+                            <!-- edit First Name Modal -->
+                            <!-- edit First Name Modal -->
+                            <!-- edit First Name Modal -->
+                            <form method="post" action="" style=" width:100%;text-align: center">
+                                @csrf
+                                <div class="modal fade" id="descriptionEditModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Description Edit</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <input type="hidden" value="{{ $photographer->id }}" name="id">
+                                                <span>Address</span>
+                                                <span>
+                                                    <textarea cols="40" rows="5" name='address' class="editProfileInput" required>{{ $photographer->description }}</textarea>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn" id="save-address-Button">Save
+                                                    changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
-    {{-- <script src="js/usersAdmin.js"></script> --}}
-@endsection
+        {{-- <script src="js/usersAdmin.js"></script> --}}
+    @endsection

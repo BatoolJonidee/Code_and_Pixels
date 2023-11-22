@@ -17,6 +17,7 @@ class PhotographersController extends Controller
         return view('admin.photographers', compact('photographers'));
 
     }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -103,5 +104,9 @@ class PhotographersController extends Controller
     /////////////////// photographer side //////////////////////
     public function homePage(){
         return view('employee.home');
+    }
+    public function profilePage(){
+        $photographer=Employees::where('id',session('user_id'))->first();
+        return view('employee.profile', compact('photographer'));
     }
 }
