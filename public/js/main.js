@@ -11,7 +11,7 @@ barsDiv.addEventListener('click',function(){
 })
 window.addEventListener('resize',function(){
     const bodyWidth = document.body.clientWidth;
-    if(bodyWidth>=799.9){
+    if(bodyWidth>=699.9){
         document.getElementById('mobile-nav-div').style.display='none';
     }
 })
