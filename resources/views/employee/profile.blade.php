@@ -1,22 +1,20 @@
 @extends('employee.blank')
 @section('title', 'Photographer Dashboard')
 @section('main')
-<div id="containerProfile" style="display: flex; justify-content: space-evenly; width:100%;">
+<div id="containerProfilePhotographer">
     {{-- Left Div --}}
     {{-- Left Div --}}
     {{-- Left Div --}}
     {{-- Left Div --}}
-    <div id="photoDivProfile"
-        style="margin-top: 5%;margin-bottom: 5%;border:1px solid gray;box-shadow: 5px 5px 10px gray; border-radius:10px ;width:20%;padding:1%;display: flex;flex-direction: column">
+    <div id="photoDivProfilePhotographer">
         <div>
-            <img src="{{ asset('storage/' . $photographer->photo) }}" alt="Photographer Profile Picture"
-                style="border-radius: 50%;width:90%;margin-left:5%; cursor: pointer;" data-bs-toggle="modal"
-                data-bs-target="#pictureEditModal">
+            <img id="profilePicPhotographer" src="{{ asset('storage/' . $photographer->photo) }}" alt="Photographer Profile Picture"
+                data-bs-toggle="modal" data-bs-target="#pictureEditModal">
         </div>
         {{-- Edit Profile Picture --}}
         <div class="modal fade" id="pictureEditModal" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
-            <form method="post" action="{{ route('profilePictureEdit') }}" style=" width:100%;text-align: center"
+            <form method="post" action="{{ url('profilePicPhotographer') }}" style=" width:100%;text-align: center"
                 enctype="multipart/form-data">
                 @csrf
                 <div class="modal-dialog modal-dialog-centered">
@@ -50,8 +48,7 @@
     {{-- Right Divs  --}}
     {{-- Right Divs  --}}
     {{-- Right Divs  --}}
-    <div id="settingDiv"
-    style="margin-top: 5%;border:1px solid gray;box-shadow: 5px 5px 10px gray; border-radius:10px ;width:70%;margin-bottom: 5%;padding:1%">
+    <div id="settingDivPhotographer">
 
     <h3>Settings</h3>
     @if (session('success'))
@@ -69,18 +66,16 @@
     {{-- Fname  --}}
     {{-- Fname  --}}
     {{-- Fname  --}}
-    <div id="fname-show"
-        style="border-radius:5px; padding:1%; display: flex;width:100%;justify-content: space-between;background-color: rgb(233, 233, 233);">
+    <div id="fname-showPhotographer">
         <div>
-            <p style="color:black">First Name</p>
+            <p>First Name</p>
         </div>
         <div>
-            <p style="color:black">{{ $photographer->fname }}</p>
+            <p>{{ $photographer->fname }}</p>
         </div>
         <div>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#fnameEditModal"
-                style="background-color: #076595; color:white">
-                <i class="fa-solid fa-pen-to-square" style="cursor: pointer;"></i>
+            <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#fnameEditModal" style="background-color: #076595; color:white; cursor: pointer;">
+                <i class="fa-solid fa-pen-to-square" ></i>
             </button>
         </div>
     </div>
@@ -88,7 +83,7 @@
     <!-- edit First Name Modal -->
     <!-- edit First Name Modal -->
     <!-- edit First Name Modal -->
-    <form method="post" action="" style=" width:100%;text-align: center">
+    <form method="post" action="{{ url('fnamePhotographer') }}" class="profilePhotographerForm">
         @csrf
         <div class="modal fade" id="fnameEditModal" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -103,11 +98,11 @@
                         <input type="hidden" value="{{ $photographer->id }}" name="id">
                         <span>First Name</span>
                         <span><input id='fnameEditInput' type="text" value="{{ $photographer->fname }}"
-                                name="fname" class="editProfileInput" required></span><br>
+                                name="fname" class="editProfileInputPhotographer" required></span><br>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn " id="save-fname-Button">Save changes</button>
+                        <button type="submit" class="btn " id="save-fname-Button-Photographer">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -119,17 +114,17 @@
     {{-- Lname --}}
     {{-- Lname --}}
     {{-- Lname --}}
-    <div id="lname-show" style="padding:1%; display: flex;width:100%;justify-content: space-between;">
+    <div id="lname-showPhotographer">
         <div>
-            <p style="color:black">Last Name</p>
+            <p>Last Name</p>
         </div>
         <div>
-            <p style="color:black">{{ $photographer->lname }}</p>
+            <p>{{ $photographer->lname }}</p>
         </div>
         <div>
             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#lnameEditModal"
-                style="background-color: #076595; color:white">
-                <i class="fa-solid fa-pen-to-square" style="cursor: pointer;"></i>
+                style="background-color: #076595; color:white; cursor: pointer;">
+                <i class="fa-solid fa-pen-to-square"></i>
             </button>
         </div>
     </div>
@@ -138,7 +133,7 @@
     <!-- edit Last Name Modal -->
     <!-- edit Last Name Modal -->
     <!-- edit Last Name Modal -->
-    <form method="post" action="" style=" width:100%;text-align: center">
+    <form method="post" action="{{ url('lnamePhotographer') }}" class="profilePhotographerForm">
         @csrf
         <div class="modal fade" id="lnameEditModal" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -153,12 +148,12 @@
                         <input type="hidden" value="{{ $photographer->id }}" name="id">
                         <span>Last Name</span>
                         <span><input id="lnameEditInput" type="text" value="{{ $photographer->lname }}"
-                                name="lname" class="editProfileInput" required></span>
+                                name="lname" class="editProfileInputPhotographer" required></span>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn" id="save-lname-Button">Save changes</button>
+                        <button type="submit" class="btn" id="save-lname-Button-Photographer">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -169,18 +164,17 @@
     {{-- Email --}}
     {{-- Email --}}
     {{-- Email --}}
-    <div id="email-show"
-        style="border-radius:5px;padding:1%; background-color: rgb(233, 233, 233);display: flex;width:100%;justify-content: space-between;">
+    <div id="email-showPhotographer">
         <div>
-            <p style="color:black">Email</p>
+            <p>Email</p>
         </div>
         <div>
-            <p style="color:black">{{ $photographer->email }}</p>
+            <p>{{ $photographer->email }}</p>
         </div>
         <div>
             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#emailEditModal"
-                style="background-color: #076595; color:white">
-                <i class="fa-solid fa-pen-to-square" style="cursor: pointer;"></i>
+                style="background-color: #076595; color:white; cursor: pointer;">
+                <i class="fa-solid fa-pen-to-square"></i>
             </button>
         </div>
     </div>
@@ -189,7 +183,7 @@
     <!-- edit email Modal -->
     <!-- edit email Modal -->
     <!-- edit email Modal -->
-    <form method="post" action="" style=" width:100%;text-align: center">
+    <form method="post" action="{{ url('emailPhotographer') }}" class="profilePhotographerForm">
         @csrf
         <div class="modal fade" id="emailEditModal" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -204,12 +198,12 @@
                         <input type="hidden" value="{{ $photographer->id }}" name="id">
                         <span>Email</span>
                         <span><input id="emailEditInput" type="email" value="{{ $photographer->email }}"
-                                name="email" class="editProfileInput" required></span>
+                                name="email" class="editProfileInputPhotographer" required></span>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn" id="save-email-Button">Save changes</button>
+                        <button type="submit" class="btn" id="save-email-Button-Photographer">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -220,17 +214,17 @@
     {{-- Password --}}
     {{-- Password --}}
     {{-- Password --}}
-    <div id="password-show" style="padding:1%; display: flex;width:100%;justify-content: space-between;">
+    <div id="password-showPhotographer">
         <div>
-            <p style="color:black">Password</p>
+            <p>Password</p>
         </div>
         <div>
-            <p style="color:black">********</p>
+            <p>********</p>
         </div>
         <div>
             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#PasswordEditModal"
-                style="background-color: #076595; color:white">
-                <i class="fa-solid fa-pen-to-square" style="cursor: pointer;"></i>
+                style="background-color: #076595; color:white; cursor: pointer;">
+                <i class="fa-solid fa-pen-to-square"></i>
             </button>
         </div>
     </div>
@@ -239,7 +233,7 @@
     <!-- edit password Modal -->
     <!-- edit password Modal -->
     <!-- edit password Modal -->
-    <form method="post" action="" style=" width:100%;text-align: center">
+    <form method="post" action="{{ url('passwordPhotographer') }}" class="profilePhotographerForm">
         @csrf
         <div class="modal fade" id="passwordEditModal" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -253,16 +247,16 @@
                     <div class="modal-body">
                         <input type="hidden" value="{{ $photographer->id }}" name="id">
                         <span>Old Password</span>
-                        <span><input type="password" name="password" class="editProfileInput"
+                        <span><input type="password" name="password" class="editProfileInputPhotographer"
                                 required></span><br /><br />
                         <span>New Password</span>
                         <span><input id="passwordEditInput" type="password" name="newPassword"
-                                class="editProfileInput" required></span>
+                                class="editProfileInputPhotographer" required></span>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn" id="save-password-Button">Save changes</button>
+                        <button type="submit" class="btn" id="save-password-Button-Photographer">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -272,17 +266,17 @@
     {{-- Description --}}
     {{-- Description --}}
     {{-- Description --}}
-    <div id="description-show" style="padding:1%; display: flex;width:100%;justify-content: space-between;">
+    <div id="description-showPhotographer">
         <div>
             <p style="color:black">Description</p>
         </div>
-        <div>
-            <p style="color:black">{{ $photographer->description }}</p>
+        <div style="width:30%;">
+            <p style="color:black">{!! nl2br(e($photographer->description)) !!}</p>
         </div>
         <div>
             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#descriptionEditModal"
-                style="background-color: #076595; color:white">
-                <i class="fa-solid fa-pen-to-square" style="cursor: pointer;"></i>
+                style="background-color: #076595; color:white; cursor: pointer;">
+                <i class="fa-solid fa-pen-to-square"></i>
             </button>
         </div>
     </div>
@@ -291,7 +285,7 @@
     <!-- edit Description Modal -->
     <!-- edit Description Modal -->
     <!-- edit Description Modal -->
-    <form method="post" action="" style=" width:100%;text-align: center">
+    <form method="post" action="{{ url('descriptionPhotographer') }}" class="profilePhotographerForm">
         @csrf
         <div class="modal fade" id="descriptionEditModal" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -306,12 +300,12 @@
                         <input type="hidden" value="{{ $photographer->id }}" name="id">
                         <span>Description</span>
                         <span>
-                            <textarea cols="40" rows="5" name='address' class="editProfileInput" required>{{ $photographer->description }}</textarea>
+                            <textarea cols="40" rows="5" name='description' class="editProfileInputPhotographer" required>{{ $photographer->description }}</textarea>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn" id="save-address-Button">Save changes</button>
+                        <button type="submit" class="btn" id="save-description-Button-Photographer">Save changes</button>
                     </div>
                 </div>
             </div>

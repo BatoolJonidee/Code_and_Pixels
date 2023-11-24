@@ -70,3 +70,11 @@ Route::get('/dashboard',function(){
 //---------------employees dashboard--------------------//
 Route::get('Photographer-dashboard',[PhotographersController::class,'homePage']);
 Route::get('Photographer-profile',[PhotographersController::class,'profilePage']);
+//---------------employee edit profile------------------//
+Route::post('/fnamePhotographer',[PhotographersController::class,'fnameEdit']);
+Route::post('/lnamePhotographer',[PhotographersController::class,'lnameEdit']);
+Route::post('/emailPhotographer',[PhotographersController::class,'emailEdit']);
+Route::post('/passwordPhotographer',[PhotographersController::class,'passwordEdit']);
+Route::post('/descriptionPhotographer',[PhotographersController::class,'descriptionEdit']);
+Route::post('/profilePicPhotographer',[PhotographersController::class,'profilePicEdit']);
+

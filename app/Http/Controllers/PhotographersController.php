@@ -21,15 +21,15 @@ class PhotographersController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'fname' => 'alpha|required',
-            'lname' => 'alpha|required',
+            'fname' => 'required',
+            'lname' => 'required',
             'email' => 'email|required',
             'password' => 'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/ |string|min:8|max:32|required',
             'conf-password' => 'same:password|required',
             'description' => 'required',
         ], [
-            'fname.alpha' => 'Must contain letters only.',
-            'lname.alpha' => 'Must contain letters only.',
+            'fname' => 'First Name Required.',
+            'lname' => 'Last name Required.',
             'email.email' => 'The email address is not valid.',
             'password.regex' => 'Password must be 8-32 characters and contain at least one uppercase letter, one lowercase letter, one number, and one special character',
             'conf-password.same' => 'Password confirmation must match with password.',
@@ -108,5 +108,62 @@ class PhotographersController extends Controller
     public function profilePage(){
         $photographer=Employees::where('id',session('user_id'))->first();
         return view('employee.profile', compact('photographer'));
+    }
+
+    ////////////////////Photographer Profile////////////////////
+    public function fnameEdit(Request $request)
+    {
+        $photographer = Employees::find($request->id);
+        $photographer->fname = $request->fname;
+        $photographer->update();
+        return back()->with('success', 'First Name changed successfully');
+    }
+    public function lnameEdit(Request $request)
+    {
+        $photographer = Employees::find($request->id);
+        $photographer->lname = $request->lname;
+        $photographer->update();
+        return back()->with('success', 'Last Name changed successfully');
+    }
+    public function emailEdit(Request $request)
+    {
+        $photographer = Employees::find($request->id);
+        $photographer->email = $request->email;
+        $photographer->update();
+        return back()->with('success', 'Email changed successfully');
+    }
+    public function passwordEdit(Request $request)
+    {
+        $photographer = Employees::find($request->id);
+        if (Hash::check($request->input('password'), $photographer->password)) {
+            $photographer->password = Hash::make($request->input('newPassword'));
+            $photographer->update();
+            return back()->with('success', 'Password changed successfully');
+        } else {
+            return back()->with('error', 'Old Password incorrect!! Please try again');
+        }
+    }
+    public function descriptionEdit(Request $request){
+        // dd($request->id);
+        $photographer = Employees::find($request->id);
+        // dd($photographer);
+        $photographer->description = $request->description;
+        $photographer->update();
+        return back()->with('success', 'Description changed successfully');
+    }
+    public function profilePicEdit(Request $request){
+        $request->validate([
+            'photo' => 'image|mimes:jpeg,png,jpg,gif'
+        ]);
+        // check if there is a img and save the path for it
+        if ($request->hasFile('photo')) {
+            $imagePath = $request->file('photo')->store('images', 'public');
+        } else {
+            $imagePath = null;
+        }
+        $photographer = Employees::find($request->id);
+        $photographer->photo = $imagePath;
+        $photographer->update();
+        return back()->with('success', 'Profile Picture changed successfully');
     }
 }

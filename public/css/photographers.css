@@ -4,6 +4,7 @@
     margin-left:5%;
     padding: 3%;
     display: flex;
+    flex-wrap:wrap ;
     justify-content: space-between;
 }
 #card-photographers-page{
