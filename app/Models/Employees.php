@@ -9,7 +9,12 @@ class Employees extends Model
 {
     use HasFactory;
     protected $guarded;
+
     public function category(){
         return $this->belongsTo(Categories::class);
+    }
+
+    public function schedule(){
+        return $this->hasMany(Schedules::class);
     }
 }
