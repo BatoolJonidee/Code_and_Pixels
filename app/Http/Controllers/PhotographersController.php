@@ -17,7 +17,6 @@ class PhotographersController extends Controller
         return view('admin.photographers', compact('photographers'));
 
     }
-
     public function store(Request $request)
     {
         $request->validate([
@@ -89,6 +88,8 @@ class PhotographersController extends Controller
 
 
     //////////////// user side /////////////////
+    //////////////// user side /////////////////
+    //////////////// user side /////////////////
     public function photographersPageUser(){
 
         $categoryId= Categories::where('name', 'Photographers')->value('id');
@@ -100,7 +101,10 @@ class PhotographersController extends Controller
         return view('user.photographer', compact('photographer'));
     }
 
+    
 
+    /////////////////// photographer side //////////////////////
+    /////////////////// photographer side //////////////////////
     /////////////////// photographer side //////////////////////
     public function homePage(){
         return view('employee.home');
@@ -109,7 +113,14 @@ class PhotographersController extends Controller
         $photographer=Employees::where('id',session('user_id'))->first();
         return view('employee.profile', compact('photographer'));
     }
+    public function schedulePage(){
+        return view('employee.schedule');
+    }
 
+
+
+    ////////////////////Photographer Profile////////////////////
+    ////////////////////Photographer Profile////////////////////
     ////////////////////Photographer Profile////////////////////
     public function fnameEdit(Request $request)
     {
@@ -143,7 +154,8 @@ class PhotographersController extends Controller
             return back()->with('error', 'Old Password incorrect!! Please try again');
         }
     }
-    public function descriptionEdit(Request $request){
+    public function descriptionEdit(Request $request)
+    {
         // dd($request->id);
         $photographer = Employees::find($request->id);
         // dd($photographer);
@@ -151,7 +163,8 @@ class PhotographersController extends Controller
         $photographer->update();
         return back()->with('success', 'Description changed successfully');
     }
-    public function profilePicEdit(Request $request){
+    public function profilePicEdit(Request $request)
+    {
         $request->validate([
             'photo' => 'image|mimes:jpeg,png,jpg,gif'
         ]);

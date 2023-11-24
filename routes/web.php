@@ -70,6 +70,7 @@ Route::get('/dashboard',function(){
 //---------------employees dashboard--------------------//
 Route::get('Photographer-dashboard',[PhotographersController::class,'homePage']);
 Route::get('Photographer-profile',[PhotographersController::class,'profilePage']);
+Route::get('Photographer-schedule',[PhotographersController::class,'schedulePage']);
 //---------------employee edit profile------------------//
 Route::post('/fnamePhotographer',[PhotographersController::class,'fnameEdit']);
 Route::post('/lnamePhotographer',[PhotographersController::class,'lnameEdit']);
