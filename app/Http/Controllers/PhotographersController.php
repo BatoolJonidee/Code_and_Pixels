@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Employees;
+use App\Models\Schedules;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -97,11 +98,15 @@ class PhotographersController extends Controller
         return view('user.photographers', compact('photographers'));
     }
     public function photographerDetails($id){
-        $photographer= Employees::findorFail($id);
-        return view('user.photographer', compact('photographer'));
+        $photographer= Employees::findOrFail($id);
+        $schedules= Schedules::where('emplyee_id', $id)
+        ->whereDate('date', '>=', now()->toDateString())
+        ->get();
+        $availableDates = Schedules::pluck('date')->toArray();
+        return view('user.photographer', compact('photographer','schedules','availableDates'));
     }
 
-    
+
 
     /////////////////// photographer side //////////////////////
     /////////////////// photographer side //////////////////////
@@ -114,7 +119,35 @@ class PhotographersController extends Controller
         return view('employee.profile', compact('photographer'));
     }
     public function schedulePage(){
-        return view('employee.schedule');
+        $photographer = Employees::findOrFail(session('user_id'));
+        $schedules = $photographer->schedule;
+
+        return view('employee.schedule', compact('schedules'));
+    }
+    public function storeSchedulePage(Request $request, $id)
+    {
+        $request->validate([
+            'date' => 'required|date',
+            'times' => 'required|array|min:1|in:09:00,10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00,18:00,19:00,20:00,21:00,22:00,23:00',
+            // 'times.*' => '', // Add more time options as needed
+        ]);
+
+        // $photographer= Employees::findorFail($id);
+        $selectedTimes = $request->input('times');
+        foreach ($selectedTimes as $selectedTime) {
+            $schedule = Schedules::create([
+                'emplyee_id' => $id,
+                'date' => $request->input('date'),
+                'time' => $selectedTime,
+            ]);
+        }
+
+        // You can add a success message or redirect to a confirmation page
+        return redirect()->back()->with('success', 'Schedule saved successfully');
+    }
+    public function destroySchedule($id){
+        Schedules::findOrFail($id)->delete();
+        return redirect()->back()->with('success', 'Schedule deleted successfully');
     }
 
 

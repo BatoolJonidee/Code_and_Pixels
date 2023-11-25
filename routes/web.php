@@ -71,6 +71,10 @@ Route::get('/dashboard',function(){
 Route::get('Photographer-dashboard',[PhotographersController::class,'homePage']);
 Route::get('Photographer-profile',[PhotographersController::class,'profilePage']);
 Route::get('Photographer-schedule',[PhotographersController::class,'schedulePage']);
+Route::post('Photographer-storeSchedule/{id}',[PhotographersController::class,'storeSchedulePage']);
+Route::delete('photographer-destroySchedule/{id}',[PhotographersController::class,'destroySchedule']);
+
+
 //---------------employee edit profile------------------//
 Route::post('/fnamePhotographer',[PhotographersController::class,'fnameEdit']);
 Route::post('/lnamePhotographer',[PhotographersController::class,'lnameEdit']);

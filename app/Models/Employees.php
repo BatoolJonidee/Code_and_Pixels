@@ -15,6 +15,10 @@ class Employees extends Model
     }
 
     public function schedule(){
-        return $this->hasMany(Schedules::class);
+        return $this->hasMany(Schedules::class, 'emplyee_id');
+    }
+
+    public function reservation(){
+        return $this->hasMany(Reservation::class, 'employee_id');
     }
 }
