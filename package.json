@@ -10,5 +10,9 @@
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "moment": "^2.29.4",
+        "pikaday": "^1.8.2"
     }
 }

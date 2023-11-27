@@ -55,7 +55,6 @@
                                                 data-bs-target="#DeleteModal{{ $contact->id }}">
                                             </td>
                                         </tr>
-                                    </tbody>
 
                                 <div class="modal fade" id="DeleteModal{{ $contact->id }}" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -83,6 +82,8 @@
                                     </div>
                                 </div>
                                 @endforeach
+                            </tbody>
+
                             </table>
                         </div>
 

@@ -201,12 +201,6 @@
                                     data-bs-target="#userAddModal">Add New User</button>
                             </div>
                         </div>
-
-                        {{-- <form method="post"> --}}
-                        {{-- <p style="text-align: left; color: #888">Total number of users: {{$sum}} &nbsp; --}}
-                        {{-- <input type="button" id="addUser-btn" class="btn btn btn-secondary" value="Add New User" name="adding"> --}}
-                        {{-- </form> --}}
-                        {{-- </div> --}}
                         @error('success')
                             <div class="alert alert-success" role="alert" style="width: 100%">
                                 {{ $message }}
@@ -232,7 +226,6 @@
                                         <th>First Name</th>
                                         <th>Last Name</th>
                                         <th>Email</th>
-                                        {{-- <td>Password</td> --}}
                                         <th>Phone</th>
                                         <th>Gender</th>
                                         <th>City</th>
@@ -267,12 +260,9 @@
                                             <td>{{ $user->created_at }}</td>
                                             <td>{{ $user->updated_at }}</td>
                                             <td>
-                                                {{-- <form method="post" action="{{ route('users.edit',$user->id) }}" > --}}
                                                 <input type="button" class="btn btn-outline-primary" value="Edit"
                                                     name="editpro" data-bs-toggle="modal"
                                                     data-bs-target="#userEditModal{{ $user->id }}">
-
-                                                {{-- </form> --}}
                                             </td>
                                             <td>
                                                 <input type="submit" class="btn btn-outline-danger" value="Delete"
@@ -280,7 +270,6 @@
                                                     data-bs-target="#userDeleteModal{{ $user->id }}">
                                             </td>
                                         </tr>
-                                </tbody>
                                 {{-- Edit modal --}}
                                 {{-- Edit modal --}}
                                 {{-- Edit modal --}}
@@ -481,6 +470,7 @@
                                     </div>
                                 </div>
                                 @endforeach
+                            </tbody>
                             </table>
                         </div>
 

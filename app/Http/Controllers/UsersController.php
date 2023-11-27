@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employees;
+use App\Models\Reservation;
 use App\Models\Users;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
@@ -136,8 +137,8 @@ class UsersController extends Controller
     public function show(Users $users)
     {
         $user = Users::find(session()->get('user_id'));
-        // dd($user);
-        return view('user.profile', compact('user'));
+        $reservations= $user->reservation;
+        return view('user.profile', compact('user','reservations'));
     }
 
     /**

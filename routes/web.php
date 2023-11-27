@@ -3,9 +3,10 @@
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PhotographersController;
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
-
+use App\Models\Reservation;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,14 +33,16 @@ Route::get('/reg',function(){
 Route::get('/contact',function(){
     return view('user.contact');
 });
-
-Route::get('/profile',[UsersController::class,'show'])->name('profile');
 Route::post('/reg', [UsersController::class,'create'])->name('signup');
 Route::post('/login',[UsersController::class,'login'])->name('login');
 Route::get('/logout',[UsersController::class,'logout'])->name('logout');
+////////////////////////// routs for user side ////////////////////////////
+Route::get('/profile',[UsersController::class,'show'])->name('profile');
 Route::post('/createContact',[ContactController::class,'create'])->name('createContact');
 Route::get('/photographer',[PhotographersController::class,'photographersPageUser']);
 Route::get('/photographerDetails/{id}',[PhotographersController::class,'photographerDetails'])->name('photographerDetails');
+Route::post('/storeReservation', [ReservationController::class,'create']);
+Route::delete('delete-session-userSide/{id}' , [ReservationController::class, 'deleteResUserSide']);
 
 //------------- edit profile ------------------------
 //------------- edit profile ------------------------
@@ -73,8 +76,8 @@ Route::get('Photographer-profile',[PhotographersController::class,'profilePage']
 Route::get('Photographer-schedule',[PhotographersController::class,'schedulePage']);
 Route::post('Photographer-storeSchedule/{id}',[PhotographersController::class,'storeSchedulePage']);
 Route::delete('photographer-destroySchedule/{id}',[PhotographersController::class,'destroySchedule']);
-
-
+Route::post('changeStatus-photographerSide/{id}',[ReservationController::class, 'changeStatusPhotogpraherSide']);
+Route::post('cancelSession-photographerSide/{id}',[ReservationController::class, 'canselSessionPhotographerSide']);
 //---------------employee edit profile------------------//
 Route::post('/fnamePhotographer',[PhotographersController::class,'fnameEdit']);
 Route::post('/lnamePhotographer',[PhotographersController::class,'lnameEdit']);

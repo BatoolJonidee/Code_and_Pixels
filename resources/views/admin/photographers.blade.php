@@ -192,7 +192,6 @@
                                                 data-bs-target="#photographerDeleteModal{{ $photographer->id }}">
                                         </td>
                                     </tr>
-                            </tbody>
                             {{-- Edit modal --}}
                             {{-- Edit modal --}}
                             {{-- Edit modal --}}
@@ -303,6 +302,7 @@
                                 </div>
                             </div>
                             @endforeach
+                        </tbody>
                         </table>
                     </div>
 

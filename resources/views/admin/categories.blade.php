@@ -109,7 +109,6 @@
                                                 data-bs-toggle="modal" data-bs-target="#categoryDeleteModal{{ $category->id }}">
                                         </td>
                                     </tr>
-                            </tbody>
                             {{-- Edit modal --}}
                             {{-- Edit modal --}}
                             {{-- Edit modal --}}
@@ -187,6 +186,8 @@
                                 </div>
                             </div>
                             @endforeach
+                        </tbody>
+
                         </table>
                     </div>
 

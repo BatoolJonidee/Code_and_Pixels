@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Employees;
+use App\Models\Reservation;
 use App\Models\Schedules;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -97,12 +98,16 @@ class PhotographersController extends Controller
         $photographers = Employees::where('category_id', $categoryId)->get();
         return view('user.photographers', compact('photographers'));
     }
-    public function photographerDetails($id){
+    public function photographerDetails($id)
+    {
         $photographer= Employees::findOrFail($id);
         $schedules= Schedules::where('emplyee_id', $id)
         ->whereDate('date', '>=', now()->toDateString())
         ->get();
-        $availableDates = Schedules::pluck('date')->toArray();
+        $availableDates = Schedules::where('emplyee_id', $id)
+        ->whereDate('date', '>=', now()->toDateString())
+        ->distinct('date')
+        ->pluck('date');
         return view('user.photographer', compact('photographer','schedules','availableDates'));
     }
 
@@ -112,7 +117,8 @@ class PhotographersController extends Controller
     /////////////////// photographer side //////////////////////
     /////////////////// photographer side //////////////////////
     public function homePage(){
-        return view('employee.home');
+        $sessions=Reservation::where('employee_id', session('user_id'))->get();
+        return view('employee.home', compact('sessions'));
     }
     public function profilePage(){
         $photographer=Employees::where('id',session('user_id'))->first();
@@ -145,7 +151,8 @@ class PhotographersController extends Controller
         // You can add a success message or redirect to a confirmation page
         return redirect()->back()->with('success', 'Schedule saved successfully');
     }
-    public function destroySchedule($id){
+    public function destroySchedule($id)
+    {
         Schedules::findOrFail($id)->delete();
         return redirect()->back()->with('success', 'Schedule deleted successfully');
     }

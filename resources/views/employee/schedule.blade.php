@@ -1,6 +1,8 @@
-@extends('employee.blank')
-@section('title', 'Photographer Dashboard')
-@section('main')
+@if (session()->has('user_id') != null && session('is_admin') == 1)
+
+@extends('includeUser.top')
+    @section('title', 'Photographer Profile')
+    @include('includeUser.nav')
     <div id="scheduleContainer">
         <!-- Button trigger modal -->
         <div id="schedulePageTitle">
@@ -63,7 +65,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Date</th>
-                        <th>Day</th> <!-- Add a new column for the day -->
+                        <th>Day</th>
                         <th>Time</th>
                         <th>Status</th>
                         <th>Delete</th>
@@ -131,4 +133,8 @@
         document.getElementById('date').min = new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toISOString().split('T')[
             0];
     </script>
-@endsection
+
+@include('includeUser.footer')
+@else
+    @include('error')
+@endif
