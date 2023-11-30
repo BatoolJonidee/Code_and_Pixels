@@ -20,7 +20,6 @@
                         <p style="font-size: 50px; text-align: center ; color:#0a598f; font-weight: bolder">Beautiful
                             Momments</p><br>
                         <h5 style="font-size: 35px; text-align: right ; font-weight: 600">Remember Them..</h5>
-                        {{-- <p>Some representative placeholder content for the first slide.</p>  class="carousel-caption d-none d-md-block" --}}
                     </div>
                     <div style="width:60%">
                         <img src="storage/images/imgonline-com-ua-resize-lSVXrX46v54RnXNU.jpg" class="d-block w-100"
@@ -37,13 +36,11 @@
                             style="width:100%">
                     </div>
                     <div style="width:50%; padding-top:9%; " >
-                        {{-- <h5>Life is Full of </h5><br> --}}
                         <p style="font-size: 40px; text-align: left ; font-weight: 600">Professional
                             </p><br>
                         <p style="font-size: 50px; text-align: center ; color:#0a598f; font-weight: bolder">
                             Photographers</p><br>
                         <p style="font-size: 30px; text-align: right ; font-weight: 600">We Have..</p>
-                        {{-- <p>Some representative placeholder content for the first slide.</p>  class="carousel-caption d-none d-md-block" --}}
                     </div>
                 </div>
             </div>
@@ -64,13 +61,4 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-{{--
-    <script>
-        const myCarouselElement = document.querySelector('#carouselExampleDark')
-
-        const carousel = new bootstrap.Carousel(myCarouselElement, {
-            interval: 2000,
-            touch: true
-        })
-    </script> --}}
 @endsection

@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     {{-- <title>Code And Pixels | Admin Dashboard</title> --}}
     <title>@yield('title')</title>
+    <script src="assets/libs/js/main-js.js"></script>
+
 </head>
 
 <body>

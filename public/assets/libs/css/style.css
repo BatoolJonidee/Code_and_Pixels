@@ -6819,6 +6819,7 @@ Media Query
         position: relative;
         top: 0px;
         right: 0px;
+        height: fit-content;
     }
     .dashboard-wrapper {
         margin-left: 0px;

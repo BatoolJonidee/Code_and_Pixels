@@ -66,9 +66,8 @@ Route::resource('users',UsersController::class);
 Route::resource('contacts',ContactController::class);
 Route::resource('categories',CategoriesController::class);
 Route::resource('photographers',PhotographersController::class);
-Route::get('/dashboard',function(){
-    return view('admin.dashboard');
-});
+Route::get('dashboard',[UsersController::class,'dashboardAdmin']);
+Route::get('admin-profile',[UsersController::class,'adminProfile']);
 
 //---------------employees dashboard--------------------//
 Route::get('Photographer-dashboard',[PhotographersController::class,'homePage']);

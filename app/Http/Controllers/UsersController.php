@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use App\Models\Employees;
 use App\Models\Reservation;
 use App\Models\Users;
@@ -222,10 +223,12 @@ class UsersController extends Controller
             if (Hash::check($request->input('Password'), $user->password)) {
                 // session()->put('name', $user->fname);
 
+                session()->put('last_login', $user->last_login);
                 session()->put('user_id', $user->id);
                 session()->put('user_name', $user->fname . ' ' . $user->lname);
                 session()->put('is_admin', $user->is_admin);
                 session()->put('user_email', $user->email);
+                $user->update(['last_login' => now()]);
                 if ($user->is_admin == 0) {
                     return redirect()->intended('/');
                 } else if ($user->is_admin == 2) {
@@ -241,7 +244,7 @@ class UsersController extends Controller
         if($Photographer){
             if (Hash::check($request->input('Password'), $Photographer->password)) {
                 // session()->put('name', $user->fname);
-
+                $Photographer->update(['last_login' => now()]);
                 session()->put('user_id', $Photographer->id);
                 session()->put('user_name', $Photographer->fname . ' ' . $Photographer->lname);
                 session()->put('is_admin', 1);
@@ -342,5 +345,22 @@ class UsersController extends Controller
         $user->photo = $imagePath;
         $user->update();
         return redirect()->route('profile');
+    }
+
+    //////////////////// admin dashboard dashboard page/////////////////////
+    public function dashboardAdmin(){
+        $admin = Users::findOrFail(session('user_id'));
+        $lastLogin = session('last_login');
+        $newUsers = Users::where('created_at', '>', $lastLogin)->count();
+        $users = Users::where('is_admin',0)->count();
+        $reservation = Reservation::where('created_at', '>', $lastLogin)->count();
+        $category = Categories::where('name','Photographers')->first();
+        $photographers = Employees::where('category_id',$category->id)->count();
+        return view('admin.dashboard', compact('admin', 'users', 'newUsers', 'reservation', 'photographers'));
+    }
+    ////////////////// admin dashboard profile page/////////////////////////
+    public function adminProfile(){
+        $admin = Users::findOrFail(session('user_id'));
+        return view('admin.profile', compact('admin'));
     }
 }
