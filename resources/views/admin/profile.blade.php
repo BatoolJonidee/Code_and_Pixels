@@ -1,18 +1,20 @@
+
 @extends('includeAdmin.top')
 
-@section('title', 'Admin Dashboard | Categories')
+@section('title', 'Admin Dashboard | Profile')
 
 @extends('includeAdmin.blank')
 @section('main')
     <div class="row">
 
-        <div class="col-xl-3 col-lg-3 col-md-5 col-sm-12 col-12">
+        <div class="col-xl-4 col-lg-4 col-md-5 col-sm-12 col-12">
+
             <div class="card">
                 <div class="card-body">
                     <div class="user-avatar text-center d-block">
                         <img src="{{ asset('storage/' . $admin->photo) }}" alt="Admin Avatar"
-                            class="rounded-circle user-avatar-xxl" data-bs-toggle="modal" data-bs-target="#pictureEditModal"
-                            style="cursor: pointer">
+                            class="rounded-circle" data-bs-toggle="modal" data-bs-target="#pictureEditModal"
+                            style="cursor: pointer; width:80%;">
                     </div>
                     <div class="text-center">
                         <h2 class="font-24 mb-0">{{ $admin->fname . ' ' . $admin->lname }}</h2>
@@ -20,6 +22,9 @@
                 </div>
             </div>
         </div>
+        {{-- Edit Profile Picture --}}
+        {{-- Edit Profile Picture --}}
+        {{-- Edit Profile Picture --}}
         {{-- Edit Profile Picture --}}
         <div class="modal fade" id="pictureEditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <form method="post" action="{{ route('profilePictureEdit') }}" style=" width:100%;text-align: center"
@@ -36,7 +41,7 @@
                             <input type="hidden" value="{{ $admin->id }}" name="id">
                             <img src="{{ asset('storage/' . $admin->photo) }}" alt="Profile Picture"
                                 style="width:70%;"><br><br>
-                            <span><input type="file" value="{{ $admin->photo }}" name="photo" required>
+                            <span><input type="file" value="{{ $admin->photo }}" name="photo" style="border-radius: 5px; padding:2px 5px; background-color: rgb(223, 223, 223);" required>
                             </span>
                         </div>
                         <div class="modal-footer">
@@ -48,13 +53,13 @@
                 </div>
             </form>
         </div>
-        <div class="col-xl-9 col-lg-9 col-md-7 col-sm-12 col-12">
+        <div class="col-xl-8 col-lg-9 col-md-7 col-sm-12 col-12">
             <div class="user-data m-b-30" style="background-color: white;padding:2%">
                 <div style="width:100%">
                     <div style="display:flex;justify-content: space-between ">
                         <div>
                             <h2 class="title-3">
-                                <i class="zmdi zmdi-account-calendar"></i> Contacts
+                                <i class="zmdi zmdi-account-calendar"></i> Profile
                             </h2>
                         </div>
                     </div>
@@ -100,8 +105,8 @@
                                             <div class="modal-body">
                                                 <input type="hidden" value="{{ $admin->id }}" name="id">
                                                 <span>First Name</span>
-                                                <span><input id='fnameEditInput' type="text" value="{{ $admin->fname }}"
-                                                        name="fname" class="editProfileInput" required></span><br>
+                                                <span><input type="text" value="{{ $admin->fname }}"
+                                                        name="fname" style="border-radius: 5px; padding:2px 5px; background-color: rgb(223, 223, 223);" required></span><br>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
@@ -143,9 +148,8 @@
                                             <div class="modal-body">
                                                 <input type="hidden" value="{{ $admin->id }}" name="id">
                                                 <span>Last Name</span>
-                                                <span><input id="lnameEditInput" type="text"
-                                                        value="{{ $admin->lname }}" name="lname"
-                                                        class="editProfileInput" required></span>
+                                                <span><input type="text" value="{{ $admin->lname }}" name="lname"
+                                                    style="border-radius: 5px; padding:2px 5px; background-color: rgb(223, 223, 223);" required></span>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn"
@@ -187,8 +191,7 @@
                                             <div class="modal-body">
                                                 <input type="hidden" value="{{ $admin->id }}" name="id">
                                                 <span>Email</span>
-                                                <span><input id="emailEditInput" type="email" value="{{ $admin->email }}"
-                                                        name="email" class="editProfileInput" required></span>
+                                                <span><input type="email" value="{{ $admin->email }}" name="email" style="border-radius: 5px; padding:2px 5px; background-color: rgb(223, 223, 223);" required></span>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn"
@@ -229,11 +232,11 @@
                                             <div class="modal-body">
                                                 <input type="hidden" value="{{ $admin->id }}" name="id">
                                                 <span>Old Password</span>
-                                                <span><input type="password" name="password" class="editProfileInput"
+                                                <span><input type="password" name="password" style="border-radius: 5px; padding:2px 5px; background-color: rgb(223, 223, 223);"
                                                         required></span><br /><br />
                                                 <span>New Password</span>
                                                 <span><input id="passwordEditInput" type="password" name="newPassword"
-                                                        class="editProfileInput" required></span>
+                                                    style="border-radius: 5px; padding:2px 5px; background-color: rgb(223, 223, 223);" required></span>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn"
@@ -274,8 +277,8 @@
                                             <div class="modal-body">
                                                 <input type="hidden" value="{{ $admin->id }}" name="id">
                                                 <span>Phone</span>
-                                                <span><input id="phoneEditInput" type="number" value="0{{ $admin->phone }}"
-                                                        name="phone" class="editProfileInput" required></span>
+                                                <span><input  type="number" value="0{{ $admin->phone }}"
+                                                        name="phone" style="border-radius: 5px; padding:2px 5px; background-color: rgb(223, 223, 223);" required></span>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn"
@@ -318,12 +321,12 @@
                                                 <span>Gender</span>
                                                 <span>
                                                     @if ($admin->gender == 'Male')
-                                                        <select name='gender' class="editProfileInput" required>
+                                                        <select name='gender'style="border-radius: 5px; padding:2px 5px; background-color: rgb(223, 223, 223);" required>
                                                             <option value='Male' selected>Male</option>
                                                             <option value='Female'>Female</option>
                                                         </select>
                                                     @else
-                                                        <select name='gender' class="editProfileInput" required>
+                                                        <select name='gender'style="border-radius: 5px; padding:2px 5px; background-color: rgb(223, 223, 223);" required>
                                                             <option value='Male'>Male</option>
                                                             <option value='Female' selected>Female</option>
                                                         </select>
@@ -369,7 +372,7 @@
                                                 <input type="hidden" value="{{ $admin->id }}" name="id">
                                                 <span>City</span>
                                                 <span>
-                                                    <select id="city" name="city" class="editProfileInput">
+                                                    <select name="city" style="border-radius: 5px; padding:2px 5px; background-color: rgb(223, 223, 223);">
                                                         @php
                                                             $cities = [
                                                                 'Amman' => 'Amman',
@@ -406,40 +409,50 @@
                                 </div>
                             </form>
                             <tr>
+                                {{-- address --}}
+                                {{-- address --}}
+                                {{-- address --}}
+                                {{-- address --}}
                                 <th>Address</th>
                                 <td>{{ $admin->address }}</td>
                                 <td>
                                     <input type="button" class="btn btn-outline-primary" value="Edit" name="editpro"
-                                        data-bs-toggle="modal" data-bs-target="">
+                                        data-bs-toggle="modal" data-bs-target="#addressEditModal">
                                 </td>
                             </tr>
-                        </table>
-                    </div>
-                    {{-- <div class="modal fade" id="DeleteModal{{ $contact->id }}" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            {{-- edit address --}}
+                            {{-- edit address --}}
+                            {{-- edit address --}}
+                            {{-- edit address --}}
+                            <form method="post" action="{{ route('addressEdit') }}" style=" width:100%;text-align: center">
+                                @csrf
+                                <div class="modal fade" id="addressEditModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true" style="text-align: center">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"><i class=" far fa-window-close"></i></button>
+                                                <h5 class="modal-title" id="exampleModalLabel">Address Edit</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
+                                                    class=" far fa-window-close"></i></button>
                                             </div>
                                             <div class="modal-body">
-                                                Are you sure you want to delete user?
+                                                <input type="hidden" value="{{ $admin->id }}" name="id">
+                                                <span>Address</span>
+                                                <span>
+                                                    <textarea cols="20" rows="1" name='address' style="border-radius: 5px; padding:2px 5px; background-color: rgb(223, 223, 223);" required>{{ $admin->address }}</textarea>
                                             </div>
                                             <div class="modal-footer">
-                                                <form method="post"action="{{ route('contacts.destroy', $contact->id) }}">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="button" class="btn"
-                                                        data-bs-dismiss="modal">No</button>
-                                                    <button type="submit" class="btn "
-                                                        style="background-color: #076595; color:white">Yes</button>
-                                                </form>
+                                                <button type="button" class="btn"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn" style="background-color: #076595;color:white">Save changes</button>
                                             </div>
                                         </div>
                                     </div>
-                                </div> --}}
+                                </div>
+                            </form>
+                        </table>
+                    </div>
+
                 </div>
                 <!-- END USER DATA-->
             </div>

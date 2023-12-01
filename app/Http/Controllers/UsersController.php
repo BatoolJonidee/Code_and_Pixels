@@ -244,11 +244,12 @@ class UsersController extends Controller
         if($Photographer){
             if (Hash::check($request->input('Password'), $Photographer->password)) {
                 // session()->put('name', $user->fname);
-                $Photographer->update(['last_login' => now()]);
+                session()->put('last_login', $Photographer->last_login);
                 session()->put('user_id', $Photographer->id);
                 session()->put('user_name', $Photographer->fname . ' ' . $Photographer->lname);
                 session()->put('is_admin', 1);
                 session()->put('user_email', $Photographer->email);
+                $Photographer->update(['last_login' => now()]);
                 return redirect()->intended('/Photographer-dashboard');
             } else {
                 return back()->withErrors(['msg' => 'Invalid email or password']);
@@ -340,14 +341,22 @@ class UsersController extends Controller
         $user = Users::find($request->id);
         $user->city = $request->city;
         $user->update();
-        return redirect()->route('profile');
+        if($user){
+            return redirect()->back()->with('success', 'City updated successfully.');
+        }else{
+            return redirect()->back()->with('error', 'Update failed.');
+        }
     }
     public function addressEdit(Request $request)
     {
         $user = Users::find($request->id);
         $user->address = $request->address;
         $user->update();
-        return redirect()->route('profile');
+        if($user){
+            return redirect()->back()->with('success', 'Address updated successfully.');
+        }else{
+            return redirect()->back()->with('error', 'Update failed.');
+        }
     }
     public function profilePictureEdit(Request $request)
     {
@@ -364,7 +373,11 @@ class UsersController extends Controller
         $user = Users::find($request->id);
         $user->photo = $imagePath;
         $user->update();
-        return redirect()->route('profile');
+        if($user){
+            return redirect()->back()->with('success', 'Profile Picutre updated successfully.');
+        }else{
+            return redirect()->back()->with('error', 'Update failed.');
+        }
     }
 
     //////////////////// admin dashboard dashboard page/////////////////////
@@ -387,19 +400,4 @@ class UsersController extends Controller
         $admin = Users::findOrFail(session('user_id'));
         return view('admin.profile', compact('admin'));
     }
-    // public function profilePictureAdminEdit(Request $request)
-    // {
-    //     $request->validate([
-    //         'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
-    //     ]);
-    //     if ($request->hasFile('photo')) {
-    //         $imagePath = $request->file('photo')->store('images', 'public');
-    //     } else {
-    //         $imagePath = null;
-    //     }
-    //     $admin = Users::find($request->id);
-    //     $admin->photo = $imagePath;
-    //     $admin->update();
-    //     return redirect()->route('profile');
-    // }
 }

@@ -1,12 +1,27 @@
 @extends('employee.blank')
 @section('title', 'Photographer Dashboard')
 @section('main')
+
+
+<div id="total-div" style="width:30%; margin-left:35%; margin-top:3%; box-shadow: 5px 5px 10px black; border-radius: 5px; padding:2%; text-align: center; display:flex; justify-content: space-between">
+    <div>
+        <h5>New Appointments</h5>
+        <h2>{{ $reservation }}</h2>
+    </div>
+    <div id="book-icon-div" style="border-radius: 50%; background-color:#ffdbe6; width:30%;">
+        <i id="book-icon" class="fa-solid fa-book" style="color: #ff407b;padding-top:15%; font-size: 40px"></i>
+    </div>
+</div>
+
 <div id="scheduleContainer">
     <!-- Button trigger modal -->
-    <div id="schedulePageTitle">
-        <p>Sessions</p>
+    <div id="schedulePageTitle" style="display: block ">
+        <p>Sessions</p><br/>
+        <p>New Appointments: {{ $reservation }}</p>
     </div>
     <hr>
+
+
     @if (session('success'))
         <div class="alert alert-success" role="alert">
             {{ session('success') }}

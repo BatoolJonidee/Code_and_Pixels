@@ -44,10 +44,10 @@ Route::get('/photographerDetails/{id}',[PhotographersController::class,'photogra
 Route::post('/storeReservation', [ReservationController::class,'create']);
 Route::delete('delete-session-userSide/{id}' , [ReservationController::class, 'deleteResUserSide']);
 
-//------------- edit profile ------------------------
-//------------- edit profile ------------------------
-//------------- edit profile ------------------------
-//------------- edit profile ------------------------
+//------------- edit profile (user & admin) ------------------------
+//------------- edit profile (user & admin) ------------------------
+//------------- edit profile (user & admin) ------------------------
+//------------- edit profile (user & admin) ------------------------
 Route::post('/fname',[UsersController::class,'fnameEdit'])->name('fnameEdit');
 Route::post('/lname',[UsersController::class,'lnameEdit'])->name('lnameEdit');
 Route::post('/email',[UsersController::class,'emailEdit'])->name('emailEdit');
@@ -57,9 +57,6 @@ Route::post('/gender',[UsersController::class,'genderEdit'])->name('genderEdit')
 Route::post('/city',[UsersController::class,'cityEdit'])->name('cityEdit');
 Route::post('/address',[UsersController::class,'addressEdit'])->name('addressEdit');
 Route::post('/profilePic',[UsersController::class,'profilePictureEdit'])->name('profilePictureEdit');
-// Route::post('/signup', [])->name('reg');
-// Route::post('/reservationDoc',[ReservationController::class,'AddResDocPage'])->name('reservationDoc');
-
 
 //------------------admin dashboard--------------------//
 //------------------admin dashboard--------------------//
@@ -71,12 +68,6 @@ Route::resource('categories',CategoriesController::class);
 Route::resource('photographers',PhotographersController::class);
 Route::get('dashboard',[UsersController::class,'dashboardAdmin']);
 Route::get('admin-profile',[UsersController::class,'adminProfile']);
-
-//edit Admin profile//
-//edit Admin profile//
-//edit Admin profile//
-// Route::put('profilePictureAdminEdit',[UsersController::class, 'profilePictureAdminEdit']);
-
 
 
 //---------------employees dashboard--------------------//

@@ -14,10 +14,9 @@ class PhotographersController extends Controller
 {
     public function index()
     {
-        $categoryId= Categories::where('name', 'Photographers')->value('id');
+        $categoryId = Categories::where('name', 'Photographers')->value('id');
         $photographers = Employees::where('category_id', $categoryId)->orderBy('created_at', 'desc')->get();
         return view('admin.photographers', compact('photographers'));
-
     }
     public function store(Request $request)
     {
@@ -38,7 +37,7 @@ class PhotographersController extends Controller
         ]);
         $categoryId = Categories::where('name', 'Photographers')->value('id');
         // dd($categoryId);
-        $photoPath='images/photographer-default-image.png';
+        $photoPath = 'images/photographer-default-image.png';
         $photographer = Employees::create([
             'fname' => $request->input('fname'),
             'lname' => $request->input('lname'),
@@ -62,7 +61,7 @@ class PhotographersController extends Controller
             // dd($request->photo);
             $request->validate([
                 'photo' => 'image|mimes:jpeg,png,jpg,gif',
-            ],[
+            ], [
                 'photo' => 'The image must be in (jpeg, png, jpg, gif) format',
             ]);
             $photoPath = $request->file('photo')->store('images', 'public');
@@ -72,7 +71,7 @@ class PhotographersController extends Controller
             $photographer->email = $request->email;
             $photographer->description = $request->description;
             $photographer->photo = $photoPath;
-        }else{
+        } else {
             $photographer = Employees::findorFail($id);
             $photographer->fname = $request->fname;
             $photographer->lname = $request->lname;
@@ -92,23 +91,24 @@ class PhotographersController extends Controller
     //////////////// user side /////////////////
     //////////////// user side /////////////////
     //////////////// user side /////////////////
-    public function photographersPageUser(){
+    public function photographersPageUser()
+    {
 
-        $categoryId= Categories::where('name', 'Photographers')->value('id');
+        $categoryId = Categories::where('name', 'Photographers')->value('id');
         $photographers = Employees::where('category_id', $categoryId)->get();
         return view('user.photographers', compact('photographers'));
     }
     public function photographerDetails($id)
     {
-        $photographer= Employees::findOrFail($id);
-        $schedules= Schedules::where('emplyee_id', $id)
-        ->whereDate('date', '>=', now()->toDateString())
-        ->get();
+        $photographer = Employees::findOrFail($id);
+        $schedules = Schedules::where('emplyee_id', $id)
+            ->whereDate('date', '>=', now()->toDateString())
+            ->get();
         $availableDates = Schedules::where('emplyee_id', $id)
-        ->whereDate('date', '>=', now()->toDateString())
-        ->distinct('date')
-        ->pluck('date');
-        return view('user.photographer', compact('photographer','schedules','availableDates'));
+            ->whereDate('date', '>=', now()->toDateString())
+            ->distinct('date')
+            ->pluck('date');
+        return view('user.photographer', compact('photographer', 'schedules', 'availableDates'));
     }
 
 
@@ -116,15 +116,22 @@ class PhotographersController extends Controller
     /////////////////// photographer side //////////////////////
     /////////////////// photographer side //////////////////////
     /////////////////// photographer side //////////////////////
-    public function homePage(){
-        $sessions=Reservation::where('employee_id', session('user_id'))->get();
-        return view('employee.home', compact('sessions'));
+    public function homePage()
+    {
+        $lastLogin = session('last_login');
+        $reservation = Reservation::where('created_at', '>', $lastLogin)
+        ->where('employee_id', session('user_id'))->count();
+        $sessions=Reservation::where('employee_id', session('user_id'))
+        ->orderBy('created_at', 'desc')->get();
+        return view('employee.home', compact('sessions', 'reservation'));
     }
-    public function profilePage(){
-        $photographer=Employees::where('id',session('user_id'))->first();
+    public function profilePage()
+    {
+        $photographer = Employees::where('id', session('user_id'))->first();
         return view('employee.profile', compact('photographer'));
     }
-    public function schedulePage(){
+    public function schedulePage()
+    {
         $photographer = Employees::findOrFail(session('user_id'));
         $schedules = $photographer->schedule;
 
