@@ -29,12 +29,63 @@
         margin-left:2.5%;
     }
 }
-/* @media (max-width:970px){
+
+
+/* sessions page */
+/* sessions page */
+/* sessions page */
+/* sessions page */
+/* sessions page */
+/* sessions page */
+/* sessions page */
+
+#total-div{
+    width:30%;
+    margin-left:35%;
+    margin-top:3%;
+    box-shadow: 5px 5px 10px black;
+    border-radius: 5px;
+    padding:2%;
+    text-align: center;
+    display:flex;
+    justify-content: space-around;
+}
+#book-icon-div{
+    border-radius: 50%;
+    background-color:#ffdbe6;
+    width:20%;
+}
+#book-icon{
+    color: #ff407b;
+    padding-top:25%;
+    padding-bottom:25%;
+    font-size: 40px;
+}
+@media (min-width:700px) and (max-width:970px){
+    #book-icon{
+        padding-top:45%;
+        padding-bottom:45%;
+        font-size: 30px;
+    }
+}
+@media (min-width:450px) and (max-width:699.9px){
     #total-div{
+        width:60%;
+        margin-left: 20%;
+    }
+}
+@media (max-width:449.9px){
+    #total-div{
+        flex-direction: column-reverse;
+
+    }
+    #book-icon-div{
         width:100%;
-        margin-left:25%;
+        margin-bottom: 10%;
     }
     #book-icon{
-        padding-top:50%;
+        padding-top:5%;
+        padding-bottom:5%;
+        font-size: 30px;
     }
-} */
+}

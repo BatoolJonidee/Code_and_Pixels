@@ -107,6 +107,7 @@ class PhotographersController extends Controller
         $availableDates = Schedules::where('emplyee_id', $id)
             ->whereDate('date', '>=', now()->toDateString())
             ->distinct('date')
+            ->orderBy('date', 'asc')
             ->pluck('date');
         return view('user.photographer', compact('photographer', 'schedules', 'availableDates'));
     }
@@ -120,9 +121,9 @@ class PhotographersController extends Controller
     {
         $lastLogin = session('last_login');
         $reservation = Reservation::where('created_at', '>', $lastLogin)
-        ->where('employee_id', session('user_id'))->count();
-        $sessions=Reservation::where('employee_id', session('user_id'))
-        ->orderBy('created_at', 'desc')->get();
+            ->where('employee_id', session('user_id'))->count();
+        $sessions = Reservation::where('employee_id', session('user_id'))
+            ->orderBy('created_at', 'desc')->get();
         return view('employee.home', compact('sessions', 'reservation'));
     }
     public function profilePage()
