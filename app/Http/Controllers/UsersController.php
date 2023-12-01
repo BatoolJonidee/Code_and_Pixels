@@ -274,21 +274,33 @@ class UsersController extends Controller
         $user = Users::find($request->id);
         $user->fname = $request->fname;
         $user->update();
-        return redirect()->route('profile');
+        if($user){
+            return redirect()->back()->with('success', 'First Name updated successfully.');
+        }else{
+            return redirect()->back()->with('error', 'Update failed.');
+        }
     }
     public function lnameEdit(Request $request)
     {
         $user = Users::find($request->id);
         $user->lname = $request->lname;
         $user->update();
-        return redirect()->route('profile');
+        if($user){
+            return redirect()->back()->with('success', 'Last Name updated successfully.');
+        }else{
+            return redirect()->back()->with('error', 'Update failed.');
+        }
     }
     public function emailEdit(Request $request)
     {
         $user = Users::find($request->id);
         $user->email = $request->email;
         $user->update();
-        return redirect()->route('profile');
+        if($user){
+            return redirect()->back()->with('success', 'Eamil updated successfully.');
+        }else{
+            return redirect()->back()->with('error', 'Update failed.');
+        }
     }
     public function passwordEdit(Request $request)
     {
@@ -296,9 +308,9 @@ class UsersController extends Controller
         if (Hash::check($request->input('password'), $user->password)) {
             $user->password = Hash::make($request->input('newPassword'));
             $user->update();
-            return back()->with('success', 'Password changed successfully');
+            return redirect()->back()->with('success', 'Password changed successfully');
         } else {
-            return back()->with('error', 'Old Password incorrect!!');
+            return redirect()->back()->with('error', 'Old Password incorrect!!');
         }
     }
     public function phoneEdit(Request $request)
@@ -306,14 +318,22 @@ class UsersController extends Controller
         $user = Users::find($request->id);
         $user->phone = $request->phone;
         $user->update();
-        return redirect()->route('profile');
+        if($user){
+            return redirect()->back()->with('success', 'Phone updated successfully.');
+        }else{
+            return redirect()->back()->with('error', 'Update failed.');
+        }
     }
     public function genderEdit(Request $request)
     {
         $user = Users::find($request->id);
         $user->gender = $request->gender;
         $user->update();
-        return redirect()->route('profile');
+        if($user){
+            return redirect()->back()->with('success', 'Gender updated successfully.');
+        }else{
+            return redirect()->back()->with('error', 'Update failed.');
+        }
     }
     public function cityEdit(Request $request)
     {
