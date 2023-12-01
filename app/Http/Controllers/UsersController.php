@@ -348,6 +348,8 @@ class UsersController extends Controller
     }
 
     //////////////////// admin dashboard dashboard page/////////////////////
+    //////////////////// admin dashboard dashboard page/////////////////////
+    //////////////////// admin dashboard dashboard page/////////////////////
     public function dashboardAdmin(){
         $admin = Users::findOrFail(session('user_id'));
         $lastLogin = session('last_login');
@@ -359,8 +361,25 @@ class UsersController extends Controller
         return view('admin.dashboard', compact('admin', 'users', 'newUsers', 'reservation', 'photographers'));
     }
     ////////////////// admin dashboard profile page/////////////////////////
+    ////////////////// admin dashboard profile page/////////////////////////
+    ////////////////// admin dashboard profile page/////////////////////////
     public function adminProfile(){
         $admin = Users::findOrFail(session('user_id'));
         return view('admin.profile', compact('admin'));
     }
+    // public function profilePictureAdminEdit(Request $request)
+    // {
+    //     $request->validate([
+    //         'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
+    //     ]);
+    //     if ($request->hasFile('photo')) {
+    //         $imagePath = $request->file('photo')->store('images', 'public');
+    //     } else {
+    //         $imagePath = null;
+    //     }
+    //     $admin = Users::find($request->id);
+    //     $admin->photo = $imagePath;
+    //     $admin->update();
+    //     return redirect()->route('profile');
+    // }
 }

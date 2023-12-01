@@ -6878,6 +6878,12 @@ Media Query
     .dashboard-content {
     padding: 20px 20px 60px 20px;
 }
+nav .navbar{
+    width:fit-content
+}
+    .navbar-brand{
+        font-size: 25px;
+    }
     .nav-left-sidebar .navbar a {
         color: #fff;
     }
@@ -6976,4 +6982,11 @@ Media Query
 
 
 /* Custom, iPhone Retina */
-@media only screen and (max-width:320px) {}
+@media only screen and (max-width:325px) {
+    nav .navbar{
+        width:fit-content;
+    }
+        .navbar-brand{
+            font-size: 19px;
+        }
+}

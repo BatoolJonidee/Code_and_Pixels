@@ -62,12 +62,22 @@ Route::post('/profilePic',[UsersController::class,'profilePictureEdit'])->name('
 
 
 //------------------admin dashboard--------------------//
+//------------------admin dashboard--------------------//
+//------------------admin dashboard--------------------//
+//------------------admin dashboard--------------------//
 Route::resource('users',UsersController::class);
 Route::resource('contacts',ContactController::class);
 Route::resource('categories',CategoriesController::class);
 Route::resource('photographers',PhotographersController::class);
 Route::get('dashboard',[UsersController::class,'dashboardAdmin']);
 Route::get('admin-profile',[UsersController::class,'adminProfile']);
+
+//edit Admin profile//
+//edit Admin profile//
+//edit Admin profile//
+// Route::put('profilePictureAdminEdit',[UsersController::class, 'profilePictureAdminEdit']);
+
+
 
 //---------------employees dashboard--------------------//
 Route::get('Photographer-dashboard',[PhotographersController::class,'homePage']);

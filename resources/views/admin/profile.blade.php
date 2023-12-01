@@ -11,13 +11,42 @@
                     <div class="card-body">
                         <div class="user-avatar text-center d-block">
                             <img src="{{ asset('storage/' . $admin->photo) }}" alt="Admin Avatar"
-                                class="rounded-circle user-avatar-xxl">
+                                class="rounded-circle user-avatar-xxl" data-bs-toggle="modal"
+                                data-bs-target="#pictureEditModal">
                         </div>
                         <div class="text-center">
                             <h2 class="font-24 mb-0">{{ $admin->fname . ' ' . $admin->lname }}</h2>
                         </div>
                     </div>
                 </div>
+            </div>
+            {{-- Edit Profile Picture --}}
+            <div class="modal fade" id="pictureEditModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <form method="post" action="{{ route('profilePictureEdit') }}" style=" width:100%;text-align: center"
+                    enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Edit Profile Picture</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" value="{{ $admin->id }}" name="id">
+                                <img src="{{ asset('storage/' . $admin->photo) }}" alt="Profile Picture"
+                                    style="width:70%;"><br><br>
+                                <span><input type="file" value="{{ $admin->photo }}" name="photo" required>
+                                </span>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn" id="save-photo-Button">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="col-xl-9 col-lg-9 col-md-7 col-sm-12 col-12">
                 <div class="user-data m-b-30" style="background-color: white;padding:2%">
