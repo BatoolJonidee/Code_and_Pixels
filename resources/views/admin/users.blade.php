@@ -185,7 +185,6 @@
             </div>
             <hr>
             <div class="col-lg-12">
-                <!-- USER DATA-->
                 <div class="user-data m-b-30" style="background-color: white;padding:2%">
                     <div style="width:100%">
                         <div style="display:flex;justify-content: space-between ">
@@ -196,7 +195,6 @@
                             </div>
                             <div>
 
-                                {{-- <div class="d-grid gap-2 col-6 mx-auto"> --}}
                                 <button class="btn btn-primary" type="button" data-bs-toggle="modal"
                                     data-bs-target="#userAddModal">Add New User</button>
                             </div>
@@ -218,7 +216,7 @@
                         @enderror
                         <div class="table-responsive table-data">
 
-                            <table class="table table-striped">
+                            <table class="table table-striped" style='text-align:center'>
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -270,215 +268,232 @@
                                                     data-bs-target="#userDeleteModal{{ $user->id }}">
                                             </td>
                                         </tr>
-                                {{-- Edit modal --}}
-                                {{-- Edit modal --}}
-                                {{-- Edit modal --}}
-                                {{-- Edit modal --}}
-                                {{-- Edit modal --}}
-                                {{-- Edit modal --}}
-                                <div class="modal fade" id="userEditModal{{ $user->id }}" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"><i class=" far fa-window-close"></i></button>
-                                            </div>
-                                            <div class="modal-body" style="text-align: center">
-                                                <form method="post" action="{{ route('users.update', $user->id) }}"
-                                                    enctype="multipart/form-data">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    {{-- first name edit --}}
-                                                    {{-- first name edit --}}
-                                                    {{-- first name edit --}}
-                                                    <label class="col-3">First Name:</label>
-                                                    <input  class="col-5 fnameInput-Edit-Admin"
-                                                        type="text" name="fname" value="{{ $user->fname }}"><br>
-                                                    <p class='fnamePEdit'
-                                                        style="font-size: 12px; font-weight: bold; display: none;">**
-                                                        Letters Only
-                                                    </p>
+                                        {{-- Edit modal --}}
+                                        {{-- Edit modal --}}
+                                        {{-- Edit modal --}}
+                                        {{-- Edit modal --}}
+                                        {{-- Edit modal --}}
+                                        {{-- Edit modal --}}
+                                        <div class="modal fade" id="userEditModal{{ $user->id }}" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"><i
+                                                                class=" far fa-window-close"></i></button>
+                                                    </div>
+                                                    <div class="modal-body" style="text-align: center">
+                                                        <form method="post"
+                                                            action="{{ route('users.update', $user->id) }}"
+                                                            enctype="multipart/form-data">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            {{-- first name edit --}}
+                                                            {{-- first name edit --}}
+                                                            {{-- first name edit --}}
+                                                            <label class="col-3">First Name:</label>
+                                                            <input class="col-5 fnameInput-Edit-Admin" type="text"
+                                                                name="fname" value="{{ $user->fname }}"><br>
+                                                            <p class='fnamePEdit'
+                                                                style="font-size: 12px; font-weight: bold; display: none;">
+                                                                **
+                                                                Letters Only
+                                                            </p>
 
-                                                    {{-- last name edit --}}
-                                                    {{-- last name edit --}}
-                                                    {{-- last name edit --}}
-                                                    <label class="col-3">Last Name:</label>
-                                                    <input id ="lnameInput-Edit-Admin" class="col-5"
-                                                        type="text" name="lname" value="{{ $user->lname }}"><br>
-                                                    <p id='lnamePEdit'
-                                                        style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">
-                                                        **
-                                                        Letters Only</p>
-                                                    {{-- email edit --}}
-                                                    {{-- email edit --}}
-                                                    {{-- email edit --}}
-                                                    <label class="col-3">Email:</label>
-                                                    <input id ="emailInput-Edit-Admin" class="col-5"
-                                                        type="text" name="email" value="{{ $user->email }}"><br>
-                                                    <p id='emailPEdit'
-                                                        style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">
-                                                        **
-                                                        example@mail.com</p>
-                                                    {{-- phone edit --}}
-                                                    {{-- phone edit --}}
-                                                    {{-- phone edit --}}
-                                                    <label class="col-3">Mobile:</label>
-                                                    <input id ="phoneInput-Edit-Admin" class="col-5"  type="number"
-                                                        name="phone" value="0{{ $user->phone }}"><br>
-                                                        <p id='phonePEdit'
-                                                        style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">**
-                                                        Numbers Only (10 Digits)</p>
-                                                    {{-- gender edit --}}
-                                                    {{-- gender edit --}}
-                                                    {{-- gender edit --}}
-                                                    <label class="col-3">Gender:</label>
-                                                    @if ($user->gender == 'Female')
-                                                        <select id ="genderInput-Edit-Admin" class="col-5" name="gender" style="height: 25px">
-                                                            <option name="gender" id="gender-male" value="Male">Male
-                                                            </option>
-                                                            <option name="gender" id="gender-female" value="Female"
-                                                                selected>Female
-                                                            </option>
-                                                        </select><br>
-                                                    @else
-                                                        <select id ="genderInput-Edit-Admin" class="col-5" name="gender" style="height: 25px">
-                                                            <option name="gender" id="gender-male" value="Male"
-                                                                selected>Male
-                                                            </option>
-                                                            <option name="gender" id="gender-female" value="Female">
-                                                                Female
-                                                            </option>
-                                                        </select><br>
-                                                    @endif
-                                                    <p id='genderPEdit'
-                                    style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">**
-                                    Gender Required</p>
+                                                            {{-- last name edit --}}
+                                                            {{-- last name edit --}}
+                                                            {{-- last name edit --}}
+                                                            <label class="col-3">Last Name:</label>
+                                                            <input id ="lnameInput-Edit-Admin" class="col-5"
+                                                                type="text" name="lname"
+                                                                value="{{ $user->lname }}"><br>
+                                                            <p id='lnamePEdit'
+                                                                style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">
+                                                                **
+                                                                Letters Only</p>
+                                                            {{-- email edit --}}
+                                                            {{-- email edit --}}
+                                                            {{-- email edit --}}
+                                                            <label class="col-3">Email:</label>
+                                                            <input id ="emailInput-Edit-Admin" class="col-5"
+                                                                type="text" name="email"
+                                                                value="{{ $user->email }}"><br>
+                                                            <p id='emailPEdit'
+                                                                style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">
+                                                                **
+                                                                example@mail.com</p>
+                                                            {{-- phone edit --}}
+                                                            {{-- phone edit --}}
+                                                            {{-- phone edit --}}
+                                                            <label class="col-3">Mobile:</label>
+                                                            <input id ="phoneInput-Edit-Admin" class="col-5"
+                                                                type="number" name="phone"
+                                                                value="0{{ $user->phone }}"><br>
+                                                            <p id='phonePEdit'
+                                                                style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">
+                                                                **
+                                                                Numbers Only (10 Digits)</p>
+                                                            {{-- gender edit --}}
+                                                            {{-- gender edit --}}
+                                                            {{-- gender edit --}}
+                                                            <label class="col-3">Gender:</label>
+                                                            @if ($user->gender == 'Female')
+                                                                <select id ="genderInput-Edit-Admin" class="col-5"
+                                                                    name="gender" style="height: 25px">
+                                                                    <option name="gender" id="gender-male"
+                                                                        value="Male">Male
+                                                                    </option>
+                                                                    <option name="gender" id="gender-female"
+                                                                        value="Female" selected>Female
+                                                                    </option>
+                                                                </select><br>
+                                                            @else
+                                                                <select id ="genderInput-Edit-Admin" class="col-5"
+                                                                    name="gender" style="height: 25px">
+                                                                    <option name="gender" id="gender-male"
+                                                                        value="Male" selected>Male
+                                                                    </option>
+                                                                    <option name="gender" id="gender-female"
+                                                                        value="Female">
+                                                                        Female
+                                                                    </option>
+                                                                </select><br>
+                                                            @endif
+                                                            <p id='genderPEdit'
+                                                                style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">
+                                                                **
+                                                                Gender Required</p>
 
-                                                    {{-- city edit --}}
-                                                    {{-- city edit --}}
-                                                    {{-- city edit --}}
-                                                    <label class="col-3">City:</label>
-                                                    <select id ="cityInput-Edit-Admin" name="city" class="col-5" style="height: 25px">
-                                                        @php
-                                                            $cities = [
-                                                                'Amman' => 'Amman',
-                                                                'Ajloun' => 'Ajloun',
-                                                                'Aqaba' => 'Aqaba',
-                                                                'Balqa' => 'Balqa',
-                                                                'Irbid' => 'Irbid',
-                                                                'Jerash' => 'Jerash',
-                                                                'Karak' => 'Karak',
-                                                                'Ma\'an' => 'Ma\'an',
-                                                                'Madaba' => 'Madaba',
-                                                                'Mafraq' => 'Mafraq',
-                                                                'Tafilah' => 'Tafilah',
-                                                                'Zarqa' => 'Zarqa',
-                                                            ];
-                                                        @endphp
+                                                            {{-- city edit --}}
+                                                            {{-- city edit --}}
+                                                            {{-- city edit --}}
+                                                            <label class="col-3">City:</label>
+                                                            <select id ="cityInput-Edit-Admin" name="city"
+                                                                class="col-5" style="height: 25px">
+                                                                @php
+                                                                    $cities = [
+                                                                        'Amman' => 'Amman',
+                                                                        'Ajloun' => 'Ajloun',
+                                                                        'Aqaba' => 'Aqaba',
+                                                                        'Balqa' => 'Balqa',
+                                                                        'Irbid' => 'Irbid',
+                                                                        'Jerash' => 'Jerash',
+                                                                        'Karak' => 'Karak',
+                                                                        'Ma\'an' => 'Ma\'an',
+                                                                        'Madaba' => 'Madaba',
+                                                                        'Mafraq' => 'Mafraq',
+                                                                        'Tafilah' => 'Tafilah',
+                                                                        'Zarqa' => 'Zarqa',
+                                                                    ];
+                                                                @endphp
 
-                                                        @foreach ($cities as $cityValue => $city)
-                                                            <option value="{{ $cityValue }}"
-                                                                {{ $user->city == $cityValue ? 'selected' : '' }}>
-                                                                {{ $city }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select><br>
-                                                    <p id='cityPEdit'
-                                    style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">**
-                                    City Required</p>
+                                                                @foreach ($cities as $cityValue => $city)
+                                                                    <option value="{{ $cityValue }}"
+                                                                        {{ $user->city == $cityValue ? 'selected' : '' }}>
+                                                                        {{ $city }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select><br>
+                                                            <p id='cityPEdit'
+                                                                style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">
+                                                                **
+                                                                City Required</p>
 
-                                                    {{-- address edit --}}
-                                                    {{-- address edit --}}
-                                                    {{-- address edit --}}
-                                                    <label class="col-3">Address:</label>
-                                                    <textarea id ="addressInput-Edit-Admin" class="col-5" rows="1" name="address">{{ $user->address }}</textarea><br>
-                                                    <p id='addressPEdit'
-                                    style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">**
-                                    Address Required</p>
-                                                    {{-- status edit --}}
-                                                    {{-- status edit --}}
-                                                    {{-- status edit --}}
-                                                    <label class="col-3">Status:</label>
-                                                    @if ($user->is_admin == 0)
-                                                        <select id ="statusInput-Edit-Admin" class="col-5" name="is_admin" style="height: 25px">
-                                                            <option value="0" selected>User
-                                                            </option>
-                                                            <option value="2">Admin
-                                                            </option>
-                                                        </select><br>
-                                                    @else
-                                                        <select id ="statusInput-Edit-Admin" class="col-5" name="is_admin" style="height: 25px">
-                                                            <option value="0">User
-                                                            </option>
-                                                            <option value="2" selected>Admin
-                                                            </option>
-                                                        </select><br>
-                                                    @endif
-                                                    <p id='statusPEdit'
-                                                    style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">**
-                                                    Status Required</p>
-                                                    {{-- photo edit --}}
-                                                    {{-- photo edit --}}
-                                                    {{-- photo edit --}}
-                                                    <label class="col-3">Photo:</label>
-                                                    <input type="file" name="photo" value="{{ $user->photo }}" />
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn"
-                                                    style="background-color: #076595;color:white">Save</button>
-                                            </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {{-- delete modal --}}
-                                {{-- delete modal --}}
-                                {{-- delete modal --}}
-                                {{-- delete modal --}}
-                                {{-- delete modal --}}
-                                {{-- delete modal --}}
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="userDeleteModal{{ $user->id }}" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"><i class=" far fa-window-close"></i></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Are you sure you want to delete user?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <form method="post" action="{{ route('users.destroy', $user->id) }}">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="button" class="btn"
-                                                        data-bs-dismiss="modal">No</button>
-                                                    <button type="submit" class="btn "
-                                                        style="background-color: #076595; color:white">Yes</button>
-                                                </form>
+                                                            {{-- address edit --}}
+                                                            {{-- address edit --}}
+                                                            {{-- address edit --}}
+                                                            <label class="col-3">Address:</label>
+                                                            <textarea id ="addressInput-Edit-Admin" class="col-5" rows="1" name="address">{{ $user->address }}</textarea><br>
+                                                            <p id='addressPEdit'
+                                                                style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">
+                                                                **
+                                                                Address Required</p>
+                                                            {{-- status edit --}}
+                                                            {{-- status edit --}}
+                                                            {{-- status edit --}}
+                                                            <label class="col-3">Status:</label>
+                                                            @if ($user->is_admin == 0)
+                                                                <select id ="statusInput-Edit-Admin" class="col-5"
+                                                                    name="is_admin" style="height: 25px">
+                                                                    <option value="0" selected>User
+                                                                    </option>
+                                                                    <option value="2">Admin
+                                                                    </option>
+                                                                </select><br>
+                                                            @else
+                                                                <select id ="statusInput-Edit-Admin" class="col-5"
+                                                                    name="is_admin" style="height: 25px">
+                                                                    <option value="0">User
+                                                                    </option>
+                                                                    <option value="2" selected>Admin
+                                                                    </option>
+                                                                </select><br>
+                                                            @endif
+                                                            <p id='statusPEdit'
+                                                                style="font-size: 12px; color: rgb(65, 65, 65); font-weight: bold; display: none;">
+                                                                **
+                                                                Status Required</p>
+                                                            {{-- photo edit --}}
+                                                            {{-- photo edit --}}
+                                                            {{-- photo edit --}}
+                                                            <label class="col-3">Photo:</label>
+                                                            <input type="file" name="photo"
+                                                                value="{{ $user->photo }}" />
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn"
+                                                            style="background-color: #076595;color:white">Save</button>
+                                                    </div>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </tbody>
+
+                                        {{-- delete modal --}}
+                                        {{-- delete modal --}}
+                                        {{-- delete modal --}}
+                                        {{-- delete modal --}}
+                                        {{-- delete modal --}}
+                                        {{-- delete modal --}}
+
+                                        <div class="modal fade" id="userDeleteModal{{ $user->id }}" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"><i
+                                                                class=" far fa-window-close"></i></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Are you sure you want to delete user?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <form method="post"
+                                                            action="{{ route('users.destroy', $user->id) }}">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="button" class="btn"
+                                                                data-bs-dismiss="modal">No</button>
+                                                            <button type="submit" class="btn "
+                                                                style="background-color: #076595; color:white">Yes</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </tbody>
                             </table>
                         </div>
-
                     </div>
-                    <!-- END USER DATA-->
                 </div>
             </div>
-
         </div>
     </div>
     <script src="js/usersAdmin.js"></script>

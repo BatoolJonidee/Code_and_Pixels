@@ -452,11 +452,8 @@
                             </form>
                         </table>
                     </div>
-
                 </div>
-                <!-- END USER DATA-->
             </div>
-
         </div>
     </div>
     <script src="js/photographersAdmin.js"></script>

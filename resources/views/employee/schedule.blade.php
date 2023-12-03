@@ -80,8 +80,8 @@
                     <tr>
                         <td>{{ $schedule->id }}</td>
                         <td>{{ $schedule->date }}</td>
-                        <td>{{ \Carbon\Carbon::parse($schedule->date)->format('l') }}</td>
-                        <td>{{ $schedule->time }}</td>
+                        <td>{{ \Carbon\Carbon::parse($schedule->date)->format('D') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($schedule->time)->format('h:i A') }}</td>
                         @if ($schedule->status == 0)
                         <td>Available</td>
                         @else

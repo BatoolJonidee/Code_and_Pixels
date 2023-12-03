@@ -45,7 +45,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6">
+                        <a class="nav-link" href="{{url('appointments')}}" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6">
                             <i class=" fas fa-calendar-alt"></i>
                             Appointments
                         </a>

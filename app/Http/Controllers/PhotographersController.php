@@ -150,12 +150,10 @@ class PhotographersController extends Controller
         $request->validate([
             'date' => 'required|date',
             'times' => 'required|array|min:1|in:09:00,10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00,18:00,19:00,20:00,21:00,22:00,23:00',
-            // 'times.*' => '', // Add more time options as needed
         ],[
             'times'=> "You can't add Schedule without choosing the time",
         ]);
 
-        // $photographer= Employees::findorFail($id);
         $selectedTimes = $request->input('times');
         foreach ($selectedTimes as $selectedTime) {
             $schedule = Schedules::create([
@@ -165,7 +163,6 @@ class PhotographersController extends Controller
             ]);
         }
 
-        // You can add a success message or redirect to a confirmation page
         return redirect()->back()->with('success', 'Schedule saved successfully');
     }
     public function destroySchedule($id)
@@ -213,9 +210,7 @@ class PhotographersController extends Controller
     }
     public function descriptionEdit(Request $request)
     {
-        // dd($request->id);
         $photographer = Employees::find($request->id);
-        // dd($photographer);
         $photographer->description = $request->description;
         $photographer->update();
         return back()->with('success', 'Description changed successfully');
@@ -225,7 +220,6 @@ class PhotographersController extends Controller
         $request->validate([
             'photo' => 'image|mimes:jpeg,png,jpg,gif'
         ]);
-        // check if there is a img and save the path for it
         if ($request->hasFile('photo')) {
             $imagePath = $request->file('photo')->store('images', 'public');
         } else {

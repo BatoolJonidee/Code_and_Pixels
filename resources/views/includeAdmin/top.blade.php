@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="public/css/dashboard.css"/>
-    <link rel="icon" type="image/x-icon" href="./img/nav/logo.png">
-    <link rel="icon" type="image/x-icon" href="./img/nav/logo.png">
+    <link rel="icon" type="image/png" href="public/storage/logo.png">
+
+    {{-- <link rel="icon" type="image/x-icon" href="{{ asset('storage/logo.png')}}"> --}}
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/libs/css/style.css">

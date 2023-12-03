@@ -47,8 +47,8 @@
                         <td>{{ $session->id }}</td>
                         <td>{{ $session->user->fname . " " . $session->user->lname }}</td>
                         <td>{{ $session->date }}</td>
-                        <td>{{ \Carbon\Carbon::parse($session->date)->format('l') }}</td>
-                        <td>{{ $session->time }}</td>
+                        <td>{{ \Carbon\Carbon::parse($session->date)->format('D') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($session->time)->format('g :i A') }}</td>
                         <td>{{ $session->status }}</td>
                         <td>
                             <form method="post" action="{{ url('changeStatus-photographerSide', $session->id) }}">

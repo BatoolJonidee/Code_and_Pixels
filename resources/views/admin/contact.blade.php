@@ -7,10 +7,8 @@
 @section('main')
     <div class="section__content section__content--p30">
         <div class="container-fluid">
-            {{-- <div class="container border-radius"> --}}
             <hr>
             <div class="col-lg-12">
-                <!-- CONTACT DATA-->
                 <div class="user-data m-b-30" style="background-color: white;padding:2%">
                     <div style="width:100%">
                         <div style="display:flex;justify-content: space-between ">
@@ -27,7 +25,7 @@
                         @enderror
 
                         <div class="table-responsive table-data">
-                            <table class="table table-striped">
+                            <table class="table table-striped" style='text-align:center'>
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -86,12 +84,9 @@
 
                             </table>
                         </div>
-
                     </div>
-                    <!-- END USER DATA-->
                 </div>
             </div>
-
         </div>
     </div>
     <script src="js/usersAdmin.js"></script>

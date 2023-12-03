@@ -38,7 +38,6 @@
         </div>
         <hr>
         <div class="col-lg-12">
-            <!-- USER DATA-->
             <div class="user-data m-b-30" style="background-color: white;padding:2%">
                 <div style="width:100%">
                     <div style="display:flex;justify-content: space-between ">
@@ -48,8 +47,6 @@
                             </h2>
                         </div>
                         <div>
-
-                            {{-- <div class="d-grid gap-2 col-6 mx-auto"> --}}
                             <button class="btn btn-primary" type="button" data-bs-toggle="modal"
                                 data-bs-target="#categoryAddModal">Add New Category</button>
                         </div>
@@ -73,7 +70,7 @@
                     @enderror
                     <div class="table-responsive table-data">
 
-                        <table class="table table-striped">
+                        <table class="table table-striped" style='text-align:center'>
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -97,12 +94,9 @@
                                         <td>{{ $category->created_at }}</td>
                                         <td>{{ $category->updated_at }}</td>
                                         <td>
-                                            {{-- <form method="post" action="{{ route('users.edit',$user->id) }}" > --}}
                                             <input type="button" class="btn btn-outline-primary" value="Edit"
                                                 name="editpro" data-bs-toggle="modal"
                                                 data-bs-target="#categoryEditModal{{ $category->id }}">
-
-                                            {{-- </form> --}}
                                         </td>
                                         <td>
                                             <input type="submit" class="btn btn-outline-danger" value="Delete"
@@ -159,7 +153,6 @@
                             {{-- delete modal --}}
                             {{-- delete modal --}}
 
-                            <!-- Modal -->
                             <div class="modal fade" id="categoryDeleteModal{{ $category->id }}" tabindex="-1"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
@@ -187,15 +180,11 @@
                             </div>
                             @endforeach
                         </tbody>
-
                         </table>
                     </div>
-
                 </div>
-                <!-- END USER DATA-->
             </div>
         </div>
-
     </div>
 </div>
 <script src="js/usersAdmin.js"></script>

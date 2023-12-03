@@ -66,6 +66,7 @@ Route::resource('users',UsersController::class);
 Route::resource('contacts',ContactController::class);
 Route::resource('categories',CategoriesController::class);
 Route::resource('photographers',PhotographersController::class);
+Route::resource('appointments',ReservationController::class);
 Route::get('dashboard',[UsersController::class,'dashboardAdmin']);
 Route::get('admin-profile',[UsersController::class,'adminProfile']);
 

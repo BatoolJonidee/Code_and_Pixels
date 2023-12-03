@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reservation;
 use App\Models\Schedules;
+use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,9 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        //
+        $reservations = Reservation::orderBy("date", "desc")->get();
+        return view("admin.reservation", compact("reservations"));
+
     }
 
     /**
@@ -154,8 +157,7 @@ class ReservationController extends Controller
             $session->update();
             if ($session) {
                 $schedule = Schedules::where('emplyee_id', $session->employee_id)->where('date', $session->date)
-                    ->where('time', $session->time)
-                    ->first();
+                    ->where('time', $session->time)->first();
                 $schedule->status = 1;
                 $schedule->update();
                 if ($schedule) {
@@ -175,8 +177,7 @@ class ReservationController extends Controller
         $session->update();
         if ($session) {
             $schedule = Schedules::where('emplyee_id', $session->employee_id)->where('date', $session->date)
-                ->where('time', $session->time)
-                ->first();
+                ->where('time', $session->time)->first();
             $schedule->status = 0;
             $schedule->update();
             if ($schedule) {

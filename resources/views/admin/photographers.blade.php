@@ -1,6 +1,6 @@
 @extends('includeAdmin.top')
 
-@section('title', 'Admin Dashboard | Categories')
+@section('title', 'Admin Dashboard | Photographers')
 
 @extends('includeAdmin.blank')
 @section('main')
@@ -110,7 +110,6 @@
         </div>
         <hr>
         <div class="col-lg-12">
-            <!-- Photographer DATA-->
             <div class="user-data m-b-30" style="background-color: white;padding:2%">
                 <div style="width:100%">
                     <div style="display:flex;justify-content: space-between ">
@@ -120,18 +119,12 @@
                             </h2>
                         </div>
                         <div>
-
-                            {{-- <div class="d-grid gap-2 col-6 mx-auto"> --}}
                             <button class="btn btn-primary" type="button" data-bs-toggle="modal"
                                 data-bs-target="#photographerAddModal">Add New Photographer</button>
                         </div>
                     </div>
 
-                    {{-- <form method="post"> --}}
-                    {{-- <p style="text-align: left; color: #888">Total number of users: {{$sum}} &nbsp; --}}
-                    {{-- <input type="button" id="addUser-btn" class="btn btn btn-secondary" value="Add New User" name="adding"> --}}
-                    {{-- </form> --}}
-                    {{-- </div> --}}
+                    
                     @error('success')
                         <div class="alert alert-success" role="alert" style="width: 100%">
                             {{ $message }}
@@ -149,7 +142,7 @@
                     @enderror
                     <div class="table-responsive table-data">
 
-                        <table class="table table-striped">
+                        <table class="table table-striped" style='text-align:center'>
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -179,12 +172,9 @@
                                         <td>{{ $photographer->created_at }}</td>
                                         <td>{{ $photographer->updated_at }}</td>
                                         <td>
-                                            {{-- <form method="post" action="{{ route('users.edit',$user->id) }}" > --}}
                                             <input type="button" class="btn btn-outline-primary" value="Edit"
                                                 name="editpro" data-bs-toggle="modal"
                                                 data-bs-target="#photographerEditModal{{ $photographer->id }}">
-
-                                            {{-- </form> --}}
                                         </td>
                                         <td>
                                             <input type="submit" class="btn btn-outline-danger" value="Delete"
@@ -275,7 +265,6 @@
                             {{-- delete modal --}}
                             {{-- delete modal --}}
 
-                            <!-- Modal -->
                             <div class="modal fade" id="photographerDeleteModal{{ $photographer->id }}" tabindex="-1"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
@@ -307,7 +296,6 @@
                     </div>
 
                 </div>
-                <!-- END USER DATA-->
             </div>
         </div>
 
