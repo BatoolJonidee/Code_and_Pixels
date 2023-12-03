@@ -97,25 +97,8 @@
 
     </div>
     <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
+    <div id="newest-photographers-div-container">
+        
+    </div>
     <script src="js/home.js"></script>
 @endsection
