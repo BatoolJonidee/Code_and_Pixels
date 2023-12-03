@@ -65,17 +65,17 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <br/>
-    <div id="choose-us-div-container" >
-        
+    <br />
+    <div id="choose-us-div-container">
+
         <p id="choose-us-header">Why Choose Us?</p>
-        
+
         <div id="choose-us-inner-container">
             <div>
                 <img src="{{ asset('storage/images/time.png') }}" alt="time icon">
                 <h5>Respect Time</h5>
                 <p>
-                    Photographers will be in the <br/>session's location at the time.
+                    Photographers will be in the <br />session's location at the time.
                 </p>
             </div>
             <div>
@@ -96,11 +96,11 @@
         </div>
 
     </div>
-    <br/>
+    <br />
     {{-- <div id="newest-photographers-div-container">
         <p id="last-photographers-header"> Last Photographers</p>
         <div id="last-photographers-inner-container">
-            @foreach ($photographers as $photographer )
+            @foreach ($photographers as $photographer)
                 <div class="last-photographers-card">
                     <div class="face img">
                         <img src="{{ asset('storage/' . $photographer->photo) }}" alt="newest two photographer's image"  class="last-photographers-img"/>
@@ -115,13 +115,18 @@
     <div id="newest-photographers-div-container">
         <p id="last-photographers-header"> Last Photographers</p>
         <div id="last-photographers-inner-container">
-            @foreach ($photographers as $photographer )
+            @foreach ($photographers as $photographer)
                 <div class="last-photographers-card">
                     <div class="last-photographers-img">
-                        <img src="{{ asset('storage/' . $photographer->photo) }}" alt="newest two photographer's image" width="100%" />
+                        <img src="{{ asset('storage/' . $photographer->photo) }}" alt="newest two photographer's image"
+                            width="100%" />
                     </div>
                     <div class="last-photographers-name">
-                        <a> {{ $photographer->fname . " " . $photographer->lname }} </a>
+                        <a> {{ $photographer->fname . ' ' . $photographer->lname }}
+                            <br />
+                            <span class="last-photographers-desc">{{ Str::limit($photographer->description, 70) }}</span>
+                        </a>
+
                     </div>
                 </div>
             @endforeach

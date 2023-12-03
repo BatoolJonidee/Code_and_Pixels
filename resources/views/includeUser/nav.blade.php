@@ -25,7 +25,7 @@
                     <a class="aNav" href="{{ route('logout') }}"><i class="fa-solid fa-right-to-bracket "></i></a>
                 </p>
             @endif
-            @if (session()->has('user_id') == null && session('is_admin') == 0)
+            @if (session()->has('user_id') == null || session('is_admin') == 2)
                 <p><a class="aNav" href="{{ url('/') }}">Home</a></p>
                 <p><a class="aNav" href="{{ url('photographer') }}">Photographers</a></p>
                 <p><a class="aNav" href="{{ url('contact') }}">Contact</a></p>
@@ -33,13 +33,15 @@
                 <p><a class="aLoginNav" href="{{ route('reg') }}">Login | Register</a></p>
             @endif
             @if (session()->has('user_id') != null && session('is_admin') == 1)
-                <p><a class="pNav" href="{{ url('Photographer-dashboard') }}">Sessions</a></p>
-                <p><a class="pNav" href="{{ url('Photographer-schedule') }}">Schedule</a></p>
+                
+                
+                <p><a class="aNav" href="{{ url('Photographer-dashboard') }}">Sessions</a></p>
+                <p><a class="aNav" href="{{ url('Photographer-schedule') }}">Schedule</a></p>
+                <p><a class="aNav" href="{{ url('contact') }}">Contact</a></p>
+                <p><a class="aNav" href="{{ url('about') }}">About</a></p>
                 <p>
-                    <a class="pNav" href=" {{ url('Photographer-profile') }} ">Profile</a>
-                </p>
-                <p>
-                    <a class="pNav" href="{{ route('logout') }}">Logout</a>
+                    <a class="aNav" href=" {{ url('Photographer-profile') }} "><i class="fa-solid fa-user"></i></a>&nbsp;|&nbsp;
+                    <a class="aNav" href="{{ route('logout') }}"><i class="fa-solid fa-right-to-bracket "></i></a>
                 </p>
             @endif
         </div>
@@ -52,17 +54,15 @@
     <div id="mobile-nav-div">
         @if (session()->has('user_id') != null && session('is_admin') == 0)
             <p><a class="aNav" href="{{ url('/') }}">Home</a></p>
-            {{-- <p><a class="aNav" href="">Developers</a></p> --}}
             <p><a class="aNav" href="{{ url('photographer') }}">Photographers</a></p>
             <p><a class="aNav" href="{{ url('contact') }}">Contact</a></p>
             <p><a class="aNav" href="{{ url('about') }}">About</a></p>
             <p>
                 <a class="aNav" href=" {{ route('profile') }} "><i class="fa-solid fa-user "></i></a> |
-                {{-- <a class="aNav" href=""><i class="fa-solid fa-cart-shopping "></i></a> | --}}
                 <a class="aNav" href=" {{ route('logout') }} "><i class="fa-solid fa-right-to-bracket "></i></a>
             </p>
         @endif
-        @if(session()->has('user_id') == null)
+        @if(session()->has('user_id') == null || session('is_admin')==2)
             <p><a class="aNav" href="{{ url('/') }}">Home</a></p>
             {{-- <p><a class="aNav" href="">Developers</a></p> --}}
             <p><a class="aNav" href="{{ url('photographer') }}">Photographers</a></p>
@@ -73,6 +73,8 @@
         @if (session()->has('user_id') != null && session('is_admin') == 1)
             <p><a class="aNav" href="{{ url('Photographer-dashboard') }}">Sessions</a></p>
             <p><a class="aNav" href="{{ url('Photographer-schedule') }}">Schedule</a></p>
+            <p><a class="aNav" href="{{ url('contact') }}">Contact</a></p>
+            <p><a class="aNav" href="{{ url('about') }}">About</a></p>
             <p>
                 <a class="aNav" href="{{ url('Photographer-profile') }}"><i class="fa-solid fa-user "></i></a> |
                 <a class="aNav" href=" {{ route('logout') }} "><i class="fa-solid fa-right-to-bracket "></i></a>

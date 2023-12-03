@@ -23,12 +23,6 @@ body{
     text-decoration: none;
     color: #076594;
 }
-.pNav{
-    text-decoration: none;
-    color: #076594;
-    font-size: 28px;
-    font-weight: bolder;
-}
 .aLoginNav{
     text-decoration: none;
     background-color: #076594;
@@ -55,34 +49,28 @@ body{
     border-radius: 5px;
     cursor: pointer;
 }
-.pNav:hover{
-    background-color: #023047;
-    padding:5px;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
 #logoNavDiv{
-    height: 80px;
+    height: 120px;
     display: flex;
     justify-content: space-between;
     background-color: #e3f2fd;
 }
 #logoDiv{
-    height: 70px;
+    height: 120px;
     width:15%;
+    margin-top:5px;
     text-align: center;
 }
 #logo-img{
-    height: 70px;
+    height: 100px;
 }
 
 #navbar-div{
-    width:70%;
-    padding-top: 2%;
+    width:80%;
+    padding-top: 3%;
     display: flex;
     justify-content: space-around;
-    font-size: 25px;
+    font-size: 27px;
     font-weight: bold;
 
 }
@@ -112,7 +100,7 @@ body{
     #navbar-div{
         width:80%;
         font-size:23px;
-        padding-top: 3%;
+        padding-top: 5%;
     }
     #mobile-nav-div{
         display: none;
@@ -122,7 +110,7 @@ body{
     #navbar-div{
         width:80%;
         font-size: 21.5px;
-        padding-top: 3%;
+        padding-top: 5%;
     }
     #mobile-nav-div{
         display: none;
@@ -501,7 +489,7 @@ footer a:hover {
 }
 #choose-us-header {
     color: white;
-    font-size: 45px;
+    font-size: 35px;
     font-weight: bold;
     position: relative;
     width: fit-content;
@@ -538,7 +526,7 @@ footer a:hover {
     width:30%;
     border-radius: 5px;
     border-style: outset;
-    border-width: 10px;
+    border-width: 7px;
 }
 #choose-us-inner-container div img{
     width:100%;
@@ -551,7 +539,7 @@ footer a:hover {
     }
     #choose-us-inner-container div{
         width:calc(95%/2);
-        padding:1%;
+        margin:1%;
     }
     #choose-us-inner-container div img{
         width:100%;
@@ -563,7 +551,7 @@ footer a:hover {
 @media (max-width:369.9px){
     #choose-us-inner-container div{
         width:100%;
-        padding:1%;
+        margin:1%;
     }
     #choose-us-inner-container div img{
         width:100%;
@@ -572,15 +560,19 @@ footer a:hover {
         font-size: 27px;
     }
 }
-
+/* last photographers section  */
+/* last photographers section  */
+/* last photographers section  */
+/* last photographers section  */
+/* last photographers section  */
 #last-photographers-header{
     color: white;
-    font-size: 45px;
+    font-size: 35px;
     font-weight: bold;
     position: relative;
     width: fit-content;
     padding: 1%;
-    margin-left: 7%;
+    margin-left: 9%;
     transform: translateX(-200%);
 }
 
@@ -602,10 +594,11 @@ footer a:hover {
     justify-content: space-around;
     width:80%;
     margin-left: 10%;
-    padding-left:5%;
+    flex-wrap: wrap;
+    /* padding-left:5%; */
 }
 .last-photographers-card{
-    width:calc(90%/2);
+    width:calc(90%/3);
     position: relative;
     border-radius: 15px;
     border:10px solid #ccc;
@@ -619,13 +612,14 @@ footer a:hover {
     position: absolute;
     width:100%;
     height: 100%;
-    background-color: rgb(0,0,0,39%);
+    background-color: rgb(0,0,0,50%);
     color:white;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     font-size: 30px;
+    padding: 3%;
     /* margin:5%; */
     top: 0;
     bottom: 0;
@@ -640,5 +634,60 @@ footer a:hover {
 }
 .last-photographers-card:hover .last-photographers-name{
     transform: rotateX(0deg);
+}
+.last-photographers-desc{
+    font-size: 18px; 
+    font-weight: normal;
+}
+@media (min-width:610px) and (max-width:850px){
+    .last-photographers-name{
+        font-size: 22px;
+    }
+    .last-photographers-desc{
+        font-size: 16px; 
+        font-weight: normal
+    }
+    #last-photographers-inner-container{
+        width:100%;
+        margin-left: 0%;
 
+    }
+}
+@media (min-width:400px) and (max-width:609.9px){
+    .last-photographers-name{
+        font-size: 22px;
+    }
+    .last-photographers-desc{
+        font-size: 16px; 
+        font-weight: normal
+    }
+    #last-photographers-inner-container{
+        width:100%;
+        margin-left: 0%;
+
+    }
+    .last-photographers-card{
+        width:calc(90%/2);
+    }
+}
+@media (max-width:399.9px){
+    .last-photographers-name{
+        font-size: 22px;
+    }
+    .last-photographers-desc{
+        font-size: 16px; 
+        font-weight: normal
+    }
+    #last-photographers-inner-container{
+        width:100%;
+        margin-left: 0%;
+
+    }
+    .last-photographers-card{
+        width:90%;
+        margin-bottom: 1%;
+    }
+    #last-photographers-header{
+        font-size: 27px;
+    }
 }
