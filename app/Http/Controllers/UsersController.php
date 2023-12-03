@@ -386,11 +386,19 @@ class UsersController extends Controller
     public function dashboardAdmin(){
         $admin = Users::findOrFail(session('user_id'));
         $lastLogin = session('last_login');
+        if($lastLogin==null){
+            $users = Users::where('is_admin',0)->count();
+            $newUsers=$users;
+            $reservation=Reservation::all()->count();
+            $category = Categories::where('name','Photographers')->first();
+            $photographers = Employees::where('category_id',$category->id)->count();
+        }else{
         $newUsers = Users::where('created_at', '>', $lastLogin)->count();
         $users = Users::where('is_admin',0)->count();
         $reservation = Reservation::where('created_at', '>', $lastLogin)->count();
         $category = Categories::where('name','Photographers')->first();
         $photographers = Employees::where('category_id',$category->id)->count();
+        }
         return view('admin.dashboard', compact('admin', 'users', 'newUsers', 'reservation', 'photographers'));
     }
     ////////////////// admin dashboard profile page/////////////////////////

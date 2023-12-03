@@ -104,12 +104,13 @@ class PhotographersController extends Controller
         $schedules = Schedules::where('emplyee_id', $id)
             ->whereDate('date', '>=', now()->toDateString())
             ->get();
+        $scheduleCount=$schedules->count();
         $availableDates = Schedules::where('emplyee_id', $id)
             ->whereDate('date', '>=', now()->toDateString())
             ->distinct('date')
             ->orderBy('date', 'asc')
             ->pluck('date');
-        return view('user.photographer', compact('photographer', 'schedules', 'availableDates'));
+        return view('user.photographer', compact('photographer', 'schedules', 'availableDates', 'scheduleCount'));
     }
 
 
@@ -120,11 +121,17 @@ class PhotographersController extends Controller
     public function homePage()
     {
         $lastLogin = session('last_login');
-        $reservation = Reservation::where('created_at', '>', $lastLogin)
-            ->where('employee_id', session('user_id'))->count();
-        $sessions = Reservation::where('employee_id', session('user_id'))
-            ->orderBy('created_at', 'desc')->get();
-        return view('employee.home', compact('sessions', 'reservation'));
+        if($lastLogin==null){
+            $reservation=0;
+            $sessions = Reservation::where('employee_id', session('user_id'))
+                ->orderBy('created_at', 'desc')->get();
+        }else{
+            $reservation = Reservation::where('created_at', '>', $lastLogin)
+                ->where('employee_id', session('user_id'))->count();
+            $sessions = Reservation::where('employee_id', session('user_id'))
+                ->orderBy('created_at', 'desc')->get();
+            }
+            return view('employee.home', compact('sessions', 'reservation'));
     }
     public function profilePage()
     {
@@ -144,6 +151,8 @@ class PhotographersController extends Controller
             'date' => 'required|date',
             'times' => 'required|array|min:1|in:09:00,10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00,18:00,19:00,20:00,21:00,22:00,23:00',
             // 'times.*' => '', // Add more time options as needed
+        ],[
+            'times'=> "You can't add Schedule without choosing the time",
         ]);
 
         // $photographer= Employees::findorFail($id);

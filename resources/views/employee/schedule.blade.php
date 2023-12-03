@@ -17,6 +17,10 @@
                 {{ session('success') }}
             </div>
         @endif
+        @error('times')
+            <div class="alert alert-danger" role="alert">{{ $message }}</div>
+        @enderror
+
         <!-- Modal -->
         <div class="modal fade" id="addSessionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">

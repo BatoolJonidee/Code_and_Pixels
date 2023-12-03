@@ -175,7 +175,7 @@
                                         <td>{{ $photographer->fname }}</td>
                                         <td>{{ $photographer->lname }}</td>
                                         <td>{{ $photographer->email }}</td>
-                                        <td>{{ $photographer->description }}</td>
+                                        <td>{!! nl2br(e($photographer->description)) !!}</td>
                                         <td>{{ $photographer->created_at }}</td>
                                         <td>{{ $photographer->updated_at }}</td>
                                         <td>

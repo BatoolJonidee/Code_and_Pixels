@@ -37,7 +37,7 @@
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Add Sessions</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    @if (session()->has('user_id') != null && session('is_admin') == 0)
+                    @if (session()->has('user_id') != null && session('is_admin') == 0 && $scheduleCount !=0)
                         <form method="post" action=" {{ url('storeReservation') }} ">
                             @csrf
                             <div class="modal-body">
@@ -67,6 +67,16 @@
                                     Schedule</button>
                             </div>
                         </form>
+                        @elseif (session()->has('user_id') != null && session('is_admin') == 0 && $scheduleCount ==0)
+                        <div class="modal-body">
+                            Sorry, <span style="color: red"> {{$photographer->fname . ' ' . $photographer->lname}}</span> doesn't have Schedule Now, come back later.
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn" data-bs-dismiss="modal"
+                                style="background-color: #076595;color:white">
+                                Close</button>
+                        </div>
                     @else
                         <div class="modal-body">
                             Sorry, you can't <span style="color: red">Book Sessions</span> before login.
