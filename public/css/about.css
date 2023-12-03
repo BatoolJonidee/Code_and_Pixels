@@ -10,21 +10,31 @@
     flex-direction: column-reverse;
     align-items: center;
     text-align: center;
-    padding: 3% 3%;
+    padding: 2% 3%;
     border-radius: 10px;
-    background-color:rgb(200, 200, 200) ;
+    background-color: rgb(200, 200, 200);
 }
 
-#our-vision-title{
-    width:fit-content;
-    color:#e2e3e3;
+#our-vision-title {
+    width: fit-content;
+    color: #e2e3e3;
     position: relative;
     padding: 2%;
     background-color: none;
-    margin-left: 12%;
+    margin-left: 3%;
+    animation: fadeIn 2s ease-in-out forwards;
 }
 
-#our-vision-title:before{
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#our-vision-title:before {
     content: "";
     background-color: #043d59;
     position: absolute;
@@ -37,44 +47,69 @@
     border-radius: 5px;
 }
 
-#our-vision-logo{
-    width:60%;
+#our-vision-logo {
+    width: 60%;
     border-radius: 10px;
     padding: 1%;
     background-color: white;
     box-shadow: 5px 5px 10px black;
     text-align: center;
     margin-bottom: 5%;
+    opacity: 0; 
+    animation: up 2s ease-in-out forwards;
 }
 
-h5{
-    color:#115871;
+@keyframes up {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+h5 {
+    color: #115871;
     text-shadow: 2px 2px 7px #043d59;
 }
 
 #our-vision-logo img {
-    width:90%;
+    width: 90%;
     height: auto;
     border-radius: 50%;
     margin-left: auto;
     margin-right: auto;
+    opacity: 0; 
+    animation: up 2s ease-in-out forwards;
 }
 
-@media screen and (min-width: 768px) {
+@media (min-width: 900px) {
     #our-vision-container {
         flex-direction: row;
         justify-content: space-between;
         text-align: left;
-        width:80%;
-        margin:0 auto;
+        width: 80%;
+        margin: 0 auto;
     }
 
     #our-vision-text {
         width: 58%;
+        font-size: 20px;
+        opacity: 0; /* Initial opacity set to 0 for fade-in effect */
+        animation: up 2s ease-in-out forwards;
+    }
+
+    #our-vision-title {
+        margin-left: 12%;
+        animation: fadeIn 2s ease-in-out forwards;
     }
 
     #our-vision-logo {
         width: 38%;
-        margin-top:5%
+        margin-bottom: 0%;
+        opacity: 0; /* Initial opacity set to 0 for slide-in effect */
+        animation: up 2s ease-in-out forwards;
     }
 }
