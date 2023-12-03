@@ -33,6 +33,10 @@ Route::get('/reg',function(){
 Route::get('/contact',function(){
     return view('user.contact');
 });
+
+Route::get('/about',function(){
+    return view('user.about');
+});
 Route::post('/reg', [UsersController::class,'create'])->name('signup');
 Route::post('/login',[UsersController::class,'login'])->name('login');
 Route::get('/logout',[UsersController::class,'logout'])->name('logout');

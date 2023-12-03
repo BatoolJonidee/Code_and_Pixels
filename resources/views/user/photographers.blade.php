@@ -22,8 +22,6 @@
                             See More
                         </a>
                     </p>
-
-                    {{-- {{ route('employee.show', ['id' => $employee->id]) }} --}}
                 </div>
             </div>
         @endforeach

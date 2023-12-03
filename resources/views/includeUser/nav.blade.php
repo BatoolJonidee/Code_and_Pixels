@@ -17,8 +17,8 @@
             @if (session()->has('user_id') != null && session('is_admin') == 0)
                 <p><a class="aNav" href="{{ url('/') }}">Home</a></p>
                 <p><a class="aNav" href="{{ url('photographer') }}">Photographers</a></p>
-                <p><a class="aNav" href="{{ url('/contact') }}">Contact</a></p>
-                <p><a class="aNav" href="">About</a></p>
+                <p><a class="aNav" href="{{ url('contact') }}">Contact</a></p>
+                <p><a class="aNav" href="{{ url('about') }}">About</a></p>
                 <p>
                     <a class="aNav" href=" {{ route('profile') }} "><i class="fa-solid fa-user"></i></a>&nbsp;|&nbsp;
                     {{-- <a class="aNav" href=""><i class="fa-solid fa-cart-shopping "></i></a>&nbsp;|&nbsp; --}}
@@ -28,8 +28,8 @@
             @if (session()->has('user_id') == null && session('is_admin') == 0)
                 <p><a class="aNav" href="{{ url('/') }}">Home</a></p>
                 <p><a class="aNav" href="{{ url('photographer') }}">Photographers</a></p>
-                <p><a class="aNav" href="{{ url('/contact') }}">Contact</a></p>
-                <p><a class="aNav" href="">About</a></p>
+                <p><a class="aNav" href="{{ url('contact') }}">Contact</a></p>
+                <p><a class="aNav" href="{{ url('about') }}">About</a></p>
                 <p><a class="aLoginNav" href="{{ route('reg') }}">Login | Register</a></p>
             @endif
             @if (session()->has('user_id') != null && session('is_admin') == 1)
@@ -54,8 +54,8 @@
             <p><a class="aNav" href="{{ url('/') }}">Home</a></p>
             {{-- <p><a class="aNav" href="">Developers</a></p> --}}
             <p><a class="aNav" href="{{ url('photographer') }}">Photographers</a></p>
-            <p><a class="aNav" href="{{ url('/contact') }}">Contact</a></p>
-            <p><a class="aNav" href="">About</a></p>
+            <p><a class="aNav" href="{{ url('contact') }}">Contact</a></p>
+            <p><a class="aNav" href="{{ url('about') }}">About</a></p>
             <p>
                 <a class="aNav" href=" {{ route('profile') }} "><i class="fa-solid fa-user "></i></a> |
                 {{-- <a class="aNav" href=""><i class="fa-solid fa-cart-shopping "></i></a> | --}}
@@ -66,8 +66,8 @@
             <p><a class="aNav" href="{{ url('/') }}">Home</a></p>
             {{-- <p><a class="aNav" href="">Developers</a></p> --}}
             <p><a class="aNav" href="{{ url('photographer') }}">Photographers</a></p>
-            <p><a class="aNav" href="{{ url('/contact') }}">Contact</a></p>
-            <p><a class="aNav" href="">About</a></p>
+            <p><a class="aNav" href="{{ url('contact') }}">Contact</a></p>
+            <p><a class="aNav" href="{{ url('about') }}">About</a></p>
             <p><a class="aLoginNav" href="{{ route('reg') }}">Login | Register</a></p>
         @endif
         @if (session()->has('user_id') != null && session('is_admin') == 1)
