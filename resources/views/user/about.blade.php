@@ -19,7 +19,7 @@
             </div>
             <div id='our-vision-logo'>
                 <img src='{{ asset('storage/logo.png') }}' alt='logo image' />
-                <h5>Code and Pixels</h5>
+                <h5 id="header-our-vision-logo">Code and Pixels</h5>
             </div>
         </div>
     </div>

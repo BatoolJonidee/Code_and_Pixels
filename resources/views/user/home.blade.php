@@ -15,13 +15,13 @@
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="5000">
                 <div style="display:flex; justify-content: center; padding-left:8%; padding-right:7% ">
-                    <div style="width:40%; padding-top:9%; ">
+                    <div id="slider-1-div-text" >
                         <p style="font-size: 35px; text-align: left ; font-weight: 600">Life is Full of </p><br>
                         <p style="font-size: 50px; text-align: center ; color:#0a598f; font-weight: bolder">Beautiful
                             Momments</p><br>
                         <h5 style="font-size: 35px; text-align: right ; font-weight: 600">Remember Them..</h5>
                     </div>
-                    <div style="width:60%">
+                    <div id="slider-1-div-img" style="width:60%">
                         <img src="storage/images/imgonline-com-ua-resize-lSVXrX46v54RnXNU.jpg" class="d-block w-100"
                             alt="first slide image" style="width: 100%">
                     </div>
@@ -31,11 +31,11 @@
             </div>
             <div class="carousel-item" data-bs-interval="3000">
                 <div style="display:flex; justify-content: center; padding-left:10%; padding-right:10% ">
-                    <div style="width: 50%">
-                        <img src="storage/images/imgonline-com-ua-resize-b1uV5y00AjerJ.jpg" class="d-block w-100" alt="second slide image"
+                    <div id="slider-2-div-img">
+                        <img src="storage/images/imgonline-com-ua-resize-b1uV5y00AjerJ.jpg"  alt="second slide image"
                             style="width:100%">
                     </div>
-                    <div style="width:50%; padding-top:9%; " >
+                    <div style="width:50%; padding-top:9%; " id="slider-2-div-text">
                         <p style="font-size: 40px; text-align: left ; font-weight: 600">Professional
                             </p><br>
                         <p style="font-size: 50px; text-align: center ; color:#0a598f; font-weight: bolder">
@@ -45,10 +45,14 @@
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="3000">
-                <img src="storage/images/slider 3.jpeg" class="d-block w-100" alt="third slide image" style="padding-left:10%; padding-right:10%; width:68% ">
-                <div class="carousel-caption d-none d-md-block" >
+                <img id="slider-3-img-large-screen" src="storage/images/slider 3.jpeg" alt="third slide image" style="width:90%;padding-left:10%;">
+                <div class="carousel-caption d-none d-md-block" id="slider-3-div" >
                     <h3 style="color: white">Still waiting?</h3>
                     <p style="color: white; font-size: 50px; font-weight: bolder"> Book Your Session Now</p>
+                </div>
+                <div style="width:100%" id="slider-3-small-screen" >
+                    <img src="storage/images/imgonline-com-ua-resize-lSVXrX46v54RnXNU.jpg" 
+                        alt="first slide image"  >
                 </div>
             </div>
         </div>
@@ -60,5 +64,9 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
+    </div>
+    <div id="choos-us-div-container">
+        
+
     </div>
 @endsection

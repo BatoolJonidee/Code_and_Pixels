@@ -457,3 +457,38 @@ footer a:hover {
     }
   }
 
+/* home page */
+#slider-3-small-screen img {
+    display: none;
+}
+#slider-2-div-img{
+    width: 50%;
+}
+#slider-1-div-text{
+    width:40%; 
+    padding-top:9%;
+}
+@media (max-width: 775px) {
+    #slider-3-img-large-screen {
+        display: none;
+    }
+
+    #slider-3-small-screen img {
+        display: block;
+        width: 100%; /* Ensure the image takes full width */
+    }
+    #slider-2-div-text{
+        display: none;
+    }
+    #slider-2-div-img{
+        width: 100%;
+    }
+    #slider-1-div-text{
+        width:100%;
+        height: fit-content;
+        padding-top:9%;
+    }
+    #slider-1-div-img{
+        display: none;
+    }
+}
