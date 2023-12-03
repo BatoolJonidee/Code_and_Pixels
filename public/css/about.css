@@ -17,7 +17,8 @@
 
 #our-vision-title {
     width: fit-content;
-    color: #e2e3e3;
+    color: white;
+    font-weight: bold;
     position: relative;
     padding: 2%;
     background-color: none;
