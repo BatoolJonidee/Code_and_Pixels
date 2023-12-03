@@ -22,9 +22,7 @@ Route::get('users',function(){
     return view('admin.users');
 });
 
-Route::get('/', function () {
-    return view('user.home');
-})->name('home');
+Route::get('/', [UsersController::class, 'homePage'] )->name('home');
 
 Route::get('/reg',function(){
     return view('register');

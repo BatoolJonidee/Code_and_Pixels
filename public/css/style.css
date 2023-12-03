@@ -530,12 +530,10 @@ footer a:hover {
     justify-content: space-between;
     width:90%;
     margin-left: 5%;
-    transform: translateY(200%);
+    transform: translateY(100%);
     flex-wrap: wrap;
-
 }
 #choose-us-inner-container div{
-    /* align-items: center; */
     text-align: center;
     width:30%;
     border-radius: 5px;
@@ -574,18 +572,73 @@ footer a:hover {
         font-size: 27px;
     }
 }
-/* @media (max-width:839.9px){
-    #choose-us-inner-container{
-        width:100%;
-        margin-left: 0;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-    #choose-us-inner-container div{
-        width:calc(95%/2);
-        padding:1%;
-    }
-    #choose-us-inner-container div img{
-        width:100%;
-    }
-} */
+
+#last-photographers-header{
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+    position: relative;
+    width: fit-content;
+    padding: 1%;
+    margin-left: 7%;
+    transform: translateX(-200%);
+}
+
+#last-photographers-header:before {
+    content: "";
+    background-color: #043d59;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform: skewX(-20deg);
+    border-radius: 5px;
+    transition: opacity 2s ease-in-out; 
+}
+#last-photographers-inner-container{
+    display: flex;
+    justify-content: space-around;
+    width:80%;
+    margin-left: 10%;
+    padding-left:5%;
+}
+.last-photographers-card{
+    width:calc(90%/2);
+    position: relative;
+    border-radius: 15px;
+    border:10px solid #ccc;
+    object-fit: cover;
+    overflow: hidden;
+}
+.last-photographers-img {
+    position: relative; 
+}
+.last-photographers-name{
+    position: absolute;
+    width:100%;
+    height: 100%;
+    background-color: rgb(0,0,0,39%);
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 30px;
+    /* margin:5%; */
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    /* transform: translateY(180deg); */
+    transform: rotateX(90deg);
+    transform-origin: center bottom;
+    transition: 0.5s;
+    
+    /* transform-origin: center buttom ; */
+}
+.last-photographers-card:hover .last-photographers-name{
+    transform: rotateX(0deg);
+
+}

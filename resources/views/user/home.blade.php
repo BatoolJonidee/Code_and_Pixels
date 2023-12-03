@@ -97,8 +97,35 @@
 
     </div>
     <br/>
+    {{-- <div id="newest-photographers-div-container">
+        <p id="last-photographers-header"> Last Photographers</p>
+        <div id="last-photographers-inner-container">
+            @foreach ($photographers as $photographer )
+                <div class="last-photographers-card">
+                    <div class="face img">
+                        <img src="{{ asset('storage/' . $photographer->photo) }}" alt="newest two photographer's image"  class="last-photographers-img"/>
+                    </div>
+                    <div class="face name">
+                        <a> {{ $photographer->fname . " " . $photographer->lname }} </a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div> --}}
     <div id="newest-photographers-div-container">
-        
+        <p id="last-photographers-header"> Last Photographers</p>
+        <div id="last-photographers-inner-container">
+            @foreach ($photographers as $photographer )
+                <div class="last-photographers-card">
+                    <div class="last-photographers-img">
+                        <img src="{{ asset('storage/' . $photographer->photo) }}" alt="newest two photographer's image" width="100%" />
+                    </div>
+                    <div class="last-photographers-name">
+                        <a> {{ $photographer->fname . " " . $photographer->lname }} </a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
     <script src="js/home.js"></script>
 @endsection

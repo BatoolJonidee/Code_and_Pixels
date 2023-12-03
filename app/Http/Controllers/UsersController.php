@@ -408,4 +408,17 @@ class UsersController extends Controller
         $admin = Users::findOrFail(session('user_id'));
         return view('admin.profile', compact('admin'));
     }
+
+    //////////////////////////////// HOME PAGE /////////////////////////////
+    //////////////////////////////// HOME PAGE /////////////////////////////
+    //////////////////////////////// HOME PAGE /////////////////////////////
+    //////////////////////////////// HOME PAGE /////////////////////////////
+    //////////////////////////////// HOME PAGE /////////////////////////////
+    //////////////////////////////// HOME PAGE /////////////////////////////
+
+    public function homePage(){
+        // $category=Categories::where('name','Photographers')->first();
+        $photographers=Employees::orderBy('created_at','desc')->take(3)->get();
+        return view('user.home', compact('photographers'));
+    }
 }

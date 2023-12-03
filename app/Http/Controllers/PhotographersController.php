@@ -218,7 +218,9 @@ class PhotographersController extends Controller
     public function profilePicEdit(Request $request)
     {
         $request->validate([
-            'photo' => 'image|mimes:jpeg,png,jpg,gif'
+            'photo' => 'image|mimes:jpeg,png,jpg,gif',
+        ],[
+            'photo' => 'The image must be in (jpeg, png, jpg, gif) format',
         ]);
         if ($request->hasFile('photo')) {
             $imagePath = $request->file('photo')->store('images', 'public');
