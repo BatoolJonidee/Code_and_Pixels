@@ -65,17 +65,17 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <br /><br />
-    <div id="choose-us-div-container">
-        <div id="choose-us-header-container">
-        <p id="choose-us-header" class="animated-element">Why Choose Us?</p>
-        </div>
+    <br/>
+    <div id="choose-us-div-container" >
+        
+        <p id="choose-us-header">Why Choose Us?</p>
+        
         <div id="choose-us-inner-container">
             <div>
                 <img src="{{ asset('storage/images/time.png') }}" alt="time icon">
                 <h5>Respect Time</h5>
                 <p>
-                    Photographers will be in the session's location at the time.
+                    Photographers will be in the <br/>session's location at the time.
                 </p>
             </div>
             <div>
@@ -96,29 +96,26 @@
         </div>
 
     </div>
-    <script>
-        function isElementInViewport(element) {
-            const rect = element.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
-        }
-        function handleScroll() {
-            const animatedElement = document.querySelector('#choose-us-header');
-            const container = document.querySelector('#choose-us-header-container');
-
-            if (isElementInViewport(container)) {
-                console.log('ee');
-                animatedElement.classList.add('animate-in');
-                container.style.opacity = 1;
-                window.removeEventListener('scroll', handleScroll);
-            }
-        }
-
-        window.addEventListener('scroll', handleScroll);
-        document.addEventListener('DOMContentLoaded', handleScroll);
-    </script>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <script src="js/home.js"></script>
 @endsection

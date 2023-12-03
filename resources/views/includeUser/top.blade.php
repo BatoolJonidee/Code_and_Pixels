@@ -8,7 +8,6 @@
     <link rel="icon" type="image/x-icon" href="storage/logo.png">
     <link rel="stylesheet" href="./css/about.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/profile.css">
     <link rel="stylesheet" href="./css/photographers.css">
     <link rel="stylesheet" href="./css/photographer.css">
     <link rel="stylesheet" href="./css/photographerProfile.css">
