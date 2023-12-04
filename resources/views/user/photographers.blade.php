@@ -3,6 +3,7 @@
 
 @section('main')
 
+    <h1 id="photographers-page-header">Photographers</h1>
     <div id="photographers-container-div">
         @foreach ($photographers as $photographer)
             <div id="card-photographers-page">

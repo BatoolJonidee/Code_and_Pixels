@@ -66,6 +66,27 @@
         </button>
     </div>
     <br />
+    <div id="newest-photographers-div-container">
+        <p id="last-photographers-header"> Last Photographers</p>
+        <div id="last-photographers-inner-container">
+            @foreach ($photographers as $photographer)
+                <div class="last-photographers-card">
+                    <div class="last-photographers-img">
+                        <img src="{{ asset('storage/' . $photographer->photo) }}" alt="newest two photographer's image"
+                            width="100%" />
+                    </div>
+                    <div class="last-photographers-name">
+                        <a style="text-decoration: none; color:white" href="{{route ('photographerDetails', $photographer->id)}}"> {{ $photographer->fname . ' ' . $photographer->lname }}
+                            <br />
+                            <span class="last-photographers-desc">{{ Str::limit($photographer->description, 67) }}</span>
+                        </a>
+
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+    <br />
     <div id="choose-us-div-container">
 
         <p id="choose-us-header">Why Choose Us?</p>
@@ -96,41 +117,40 @@
         </div>
 
     </div>
-    <br />
-    {{-- <div id="newest-photographers-div-container">
-        <p id="last-photographers-header"> Last Photographers</p>
-        <div id="last-photographers-inner-container">
-            @foreach ($photographers as $photographer)
-                <div class="last-photographers-card">
-                    <div class="face img">
-                        <img src="{{ asset('storage/' . $photographer->photo) }}" alt="newest two photographer's image"  class="last-photographers-img"/>
-                    </div>
-                    <div class="face name">
-                        <a> {{ $photographer->fname . " " . $photographer->lname }} </a>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div> --}}
-    <div id="newest-photographers-div-container">
-        <p id="last-photographers-header"> Last Photographers</p>
-        <div id="last-photographers-inner-container">
-            @foreach ($photographers as $photographer)
-                <div class="last-photographers-card">
-                    <div class="last-photographers-img">
-                        <img src="{{ asset('storage/' . $photographer->photo) }}" alt="newest two photographer's image"
-                            width="100%" />
-                    </div>
-                    <div class="last-photographers-name">
-                        <a> {{ $photographer->fname . ' ' . $photographer->lname }}
-                            <br />
-                            <span class="last-photographers-desc">{{ Str::limit($photographer->description, 70) }}</span>
-                        </a>
-
-                    </div>
-                </div>
-            @endforeach
+    {{-- <div id="quick-reser-container">
+        <div id="quick-reser-form">
+            <select id="selectedPhotographer" name="id" required
+                onchange="selectDate({{ json_encode($photographer->schedule) }})">
+                <option value="" selected disabled>Select Photographers</option>
+                @foreach ($allPhotographers as $photographer)
+                    <option value="{{ $photographer->id }}">{{ $photographer->fname . ' ' . $photographer->lname }}
+                    </option>
+                @endforeach
+            </select>
+            <br />
+            <select id="selectedDate" name="date" required
+                onchange="selectDate({{ json_encode($allPhotographers->schedule) }})">
+                <option value="" disabled selected>Select Date</option>
+            </select>
         </div>
     </div>
+    
+    <script>
+        function selectDate(schedules) {
+            let date = document.getElementById('selectedDate');
+            let photographer = document.getElementById('selectedPhotographer').value;
+            console.log(photographer);
+            date.innerHTML = '<option value="" disabled selected>Select Date</option>';
+            schedules.forEach(element => {
+                if (photographer == element.emplyee_id && element.status == 0) {
+                    console.log('hh');
+                    let option = document.createElement('option');
+                    option.value = element.date;
+                    option.text = element.date;
+                    date.appendChild(option);
+                }
+            });
+        };
+    </script> --}}
     <script src="js/home.js"></script>
 @endsection

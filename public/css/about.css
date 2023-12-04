@@ -85,6 +85,10 @@
     opacity: 0; 
     animation: up 2s ease-in-out forwards;
 }
+#our-vision-text {
+    opacity: 0;
+    animation: up 2s ease-in-out forwards;
+}
 
 @media (min-width: 900px) {
     #our-vision-container {
@@ -98,7 +102,7 @@
     #our-vision-text {
         width: 58%;
         font-size: 20px;
-        opacity: 0; /* Initial opacity set to 0 for fade-in effect */
+        opacity: 0;
         animation: up 2s ease-in-out forwards;
     }
 
@@ -110,7 +114,7 @@
     #our-vision-logo {
         width: 38%;
         margin-bottom: 0%;
-        opacity: 0; /* Initial opacity set to 0 for slide-in effect */
+        opacity: 0; 
         animation: up 2s ease-in-out forwards;
     }
 }

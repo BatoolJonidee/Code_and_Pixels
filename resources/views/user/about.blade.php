@@ -24,15 +24,4 @@
         </div>
     </div>
 
-    {{-- <div id="founder-container">
-            <div id='founder-img-div'>
-                <img src='{{ asset('storage/batoolAli.png') }}' alt='owner image' />
-            </div>
-            <div id='founder-about-div'>
-                <h1>Batool Ali Al-Jonidee,</h1>
-                <h2>Computer Engineer & Full Stack Developer</h2>
-                <h3></h3>
-            </div>
-        </div> --}}
-
 @endsection

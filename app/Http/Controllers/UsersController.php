@@ -417,8 +417,8 @@ class UsersController extends Controller
     //////////////////////////////// HOME PAGE /////////////////////////////
 
     public function homePage(){
-        // $category=Categories::where('name','Photographers')->first();
+        $allPhotographers=Employees::all();
         $photographers=Employees::orderBy('created_at','desc')->take(3)->get();
-        return view('user.home', compact('photographers'));
+        return view('user.home', compact('photographers', 'allPhotographers'));
     }
 }
