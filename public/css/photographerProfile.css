@@ -84,7 +84,7 @@
     background-color: #076595;
     color:white;
 }
-#description-showPhotographer{
+#price-showPhotographer{
     border-radius:5px;
     padding:1%;
     background-color: rgb(233, 233, 233);
@@ -92,9 +92,23 @@
     width:100%;
     justify-content: space-between;
 }
+#description-showPhotographer{
+    padding:1%;
+    display: flex;
+    width:100%;
+    justify-content: space-between;
+}
 #save-description-Button-Photographer{
     background-color: #076595;
     color:white;
+}
+#session-type-showPhotographer{
+    border-radius:5px;
+    padding:1%;
+    background-color: rgb(233, 233, 233);
+    display: flex;
+    width:100%;
+    justify-content: space-between;
 }
 @media (max-width:900px){
     #containerProfilePhotographer{

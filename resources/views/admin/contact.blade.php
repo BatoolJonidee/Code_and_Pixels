@@ -18,11 +18,11 @@
                                 </h2>
                             </div>
                         </div>
-                        @error('success')
-                            <div class="alert alert-success" role="alert" style="width: 100%">
-                                {{ $message }}
+                        @if (session('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
                             </div>
-                        @enderror
+                        @endif
 
                         <div class="table-responsive table-data">
                             <table class="table table-striped" style='text-align:center'>
@@ -89,5 +89,4 @@
             </div>
         </div>
     </div>
-    <script src="js/usersAdmin.js"></script>
 @endsection

@@ -41,7 +41,7 @@ class CategoriesController extends Controller
             $request->validate([
                 'photo' => 'image|mimes:jpeg,png,jpg,gif',
             ],[
-                'error' => 'The image must be in (jpeg, png, jpg, gif) format',
+                'photo' => 'The image must be in (jpeg, png, jpg, gif) format',
             ]);
             $photoPath = $request->file('photo')->store('images', 'public');
             $category=Categories::create([
@@ -53,10 +53,10 @@ class CategoriesController extends Controller
                 'name' => $request->input('name'),
             ]);
         }
-        if ($category) {
-            return back()->withErrors(['success' => 'Category created successfully.']);
+        if($category){
+            return back()->with('success', 'Category created successfully.');
         }else{
-            return back()->withError(['error' => 'Failed to create category.']);
+            return back()->with('error', 'Failed to create category.');
         }
     }
 
@@ -107,7 +107,11 @@ class CategoriesController extends Controller
             $category->name = $request->name;
        }
         $category->update();
-        return back()->withErrors(['success' => 'Category info updated successfully.']);
+        if($category){
+            return back()->with('success', 'Category info updated successfully.');
+        }else{
+            return back()->with('error', 'Failed to update Category.');
+        }
     }
 
     /**
@@ -119,6 +123,6 @@ class CategoriesController extends Controller
     public function destroy($id)
     {
         Categories::findorFail($id)->delete();
-        return back()->withErrors(['success' => 'Category Deleted successfully.']);
+        return back()->with('success', 'Category Deleted successfully.');
     }
 }

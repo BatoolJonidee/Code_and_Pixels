@@ -274,6 +274,58 @@
                     </div>
                 </div>
             </form>
+
+            {{-- Price --}}
+            {{-- Price --}}
+            {{-- Price --}}
+            {{-- Price --}}
+            <div id="price-showPhotographer">
+                <div>
+                    <p>Price</p>
+                </div>
+                <div>
+                    <p>{{ $photographer->price }} JOD</p>
+                </div>
+                <div>
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#priceEditModal"
+                        style="background-color: #076595; color:white; cursor: pointer;">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- edit Price Modal -->
+            <!-- edit Price Modal -->
+            <!-- edit Price Modal -->
+            <!-- edit Price Modal -->
+            <form method="post" action="{{ url('pricePhotographer') }}" class="profilePhotographerForm">
+                @csrf
+                <div class="modal fade" id="priceEditModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Price Edit</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" value="{{ $photographer->id }}" name="id">
+                                <span>Price</span>
+                                <span><input id="lnameEditInput" type="text" value="{{ $photographer->price }}"
+                                        name="price" class="editProfileInputPhotographer" required></span>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn" id="save-lname-Button-Photographer">Save
+                                    changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
             {{-- Description --}}
             {{-- Description --}}
             {{-- Description --}}
@@ -326,6 +378,54 @@
                 </div>
             </form>
 
+            {{-- session type --}}
+            <div id="session-type-showPhotographer">
+                <div>
+                    <p style="color:black">Session Type</p>
+                </div>
+                <div style="width:30%;">
+                    <p style="color:black">{{ $photographer->session_type }}</p>
+                </div>
+                <div>
+                    <button type="button" class="btn" data-bs-toggle="modal"
+                        data-bs-target="#sessionTypeEditModal"
+                        style="background-color: #076595; color:white; cursor: pointer;">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- edit session type Modal -->
+            <!-- edit session type Modal -->
+            <!-- edit session type Modal -->
+            <!-- edit session type Modal -->
+            <form method="post" action="{{ url('sessionTypePhotographer') }}" class="profilePhotographerForm">
+                @csrf
+                <div class="modal fade" id="sessionTypeEditModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Session Type Edit</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" value="{{ $photographer->id }}" name="id">
+                                <span>Description</span>
+                                <span>
+                                    <textarea cols="40" rows="5" name='session_type' class="editProfileInputPhotographer" required>{{ $photographer->session_type }}</textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn" id="save-description-Button-Photographer">Save
+                                    changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

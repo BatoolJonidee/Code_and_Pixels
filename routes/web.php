@@ -88,4 +88,6 @@ Route::post('/emailPhotographer',[PhotographersController::class,'emailEdit']);
 Route::post('/passwordPhotographer',[PhotographersController::class,'passwordEdit']);
 Route::post('/descriptionPhotographer',[PhotographersController::class,'descriptionEdit']);
 Route::post('/profilePicPhotographer',[PhotographersController::class,'profilePicEdit']);
+Route::post('/pricePhotographer',[PhotographersController::class,'priceEdit']);
+Route::post('/sessionTypePhotographer',[PhotographersController::class,'sessionTypeEdit']);
 

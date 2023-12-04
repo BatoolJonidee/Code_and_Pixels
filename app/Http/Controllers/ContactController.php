@@ -33,10 +33,10 @@ class ContactController extends Controller
             'subject' => $request->input('subject'),
             'message' => $request->input('message'),
         ]);
-        if ($contact) {
-            return back()->withErrors(['success' => 'Message Sent Successfully.']);
+        if($contact){
+            return back()->with('success', 'Message Sent Successfully.');
         }else{
-            return back()->withErrors(['error', 'Failed to Send Message.']);
+            return back()->with('error', 'Failed to Send Message.');
         }
     }
 
@@ -94,6 +94,6 @@ class ContactController extends Controller
     public function destroy($id)
     {
         contact::findorFail($id)->delete();
-        return back()->withErrors(['success'=>'Message Deleted successfully.']);
+        return back()->with('success', 'Message Deleted successfully.');
     }
 }

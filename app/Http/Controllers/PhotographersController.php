@@ -26,14 +26,18 @@ class PhotographersController extends Controller
             'email' => 'email|required',
             'password' => 'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/ |string|min:8|max:32|required',
             'conf-password' => 'same:password|required',
+            'price' => 'required|numeric|min:0',
             'description' => 'required',
+            'session_type' => 'required',
         ], [
             'fname' => 'First Name Required.',
             'lname' => 'Last name Required.',
             'email.email' => 'The email address is not valid.',
             'password.regex' => 'Password must be 8-32 characters and contain at least one uppercase letter, one lowercase letter, one number, and one special character',
             'conf-password.same' => 'Password confirmation must match with password.',
-            'description' => 'Description Required'
+            'price' => 'Price Required and must be muneric number',
+            'description' => 'Description Required',
+            'session_type' => 'Session type required',
         ]);
         $categoryId = Categories::where('name', 'Photographers')->value('id');
         // dd($categoryId);
@@ -43,16 +47,16 @@ class PhotographersController extends Controller
             'lname' => $request->input('lname'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
+            'price' => $request->input('price'),
             'description' => $request->input('description'),
+            'session_type' => $request->input('session_type'),
             'category_id' => $categoryId,
             'photo' => $photoPath
         ]);
-        // dd ($user);
-        if ($photographer) {
-            return back()->withErrors(['success' => 'Photographer created successfully.']);
-        }
-        if (!($photographer)) {
-            return back()->withError(['error' => 'Failed to create Photographer.']);
+        if($photographer){
+            return back()->with('success', 'Photographer created successfully.');
+        }else{
+            return back()->with('error', 'Failed to create Photographer.');
         }
     }
     public function update(Request $request, $id)
@@ -69,17 +73,25 @@ class PhotographersController extends Controller
             $photographer->fname = $request->fname;
             $photographer->lname = $request->lname;
             $photographer->email = $request->email;
+            $photographer->price = $request->price;
             $photographer->description = $request->description;
+            $photographer->session_type = $request->session_type;
             $photographer->photo = $photoPath;
         } else {
             $photographer = Employees::findorFail($id);
             $photographer->fname = $request->fname;
             $photographer->lname = $request->lname;
             $photographer->email = $request->email;
+            $photographer->price = $request->price;
             $photographer->description = $request->description;
+            $photographer->session_type = $request->session_type;
         }
         $photographer->update();
-        return back()->withErrors(['success' => 'Photographer info updated successfully.']);
+        if($photographer){
+            return back()->with('success', 'Photogrpher Info updated successfully');
+        }else{
+            return back()->with('error', 'Filed to update Photographer Info.');
+        }   
     }
     public function destroy($id)
     {
@@ -181,21 +193,33 @@ class PhotographersController extends Controller
         $photographer = Employees::find($request->id);
         $photographer->fname = $request->fname;
         $photographer->update();
-        return back()->with('success', 'First Name changed successfully');
+        if($photographer){
+            return back()->with('success', 'First Name updated successfully');
+        }else{
+            return back()->with('error', 'Filed to update First Name.');
+        }   
     }
     public function lnameEdit(Request $request)
     {
         $photographer = Employees::find($request->id);
         $photographer->lname = $request->lname;
         $photographer->update();
-        return back()->with('success', 'Last Name changed successfully');
+        if($photographer){
+            return back()->with('success', 'Last Name updated successfully');
+        }else{
+            return back()->with('error', 'Filed to update Last Name.');
+        }   
     }
     public function emailEdit(Request $request)
     {
         $photographer = Employees::find($request->id);
         $photographer->email = $request->email;
         $photographer->update();
-        return back()->with('success', 'Email changed successfully');
+        if($photographer){
+            return back()->with('success', 'Email updated successfully');
+        }else{
+            return back()->with('error', 'Filed to update Email.');
+        }   
     }
     public function passwordEdit(Request $request)
     {
@@ -203,7 +227,11 @@ class PhotographersController extends Controller
         if (Hash::check($request->input('password'), $photographer->password)) {
             $photographer->password = Hash::make($request->input('newPassword'));
             $photographer->update();
-            return back()->with('success', 'Password changed successfully');
+            if($photographer){
+                return back()->with('success', 'Password updated successfully');
+            }else{
+                return back()->with('error', 'Filed to update Password.');
+            }   
         } else {
             return back()->with('error', 'Old Password incorrect!! Please try again');
         }
@@ -213,7 +241,22 @@ class PhotographersController extends Controller
         $photographer = Employees::find($request->id);
         $photographer->description = $request->description;
         $photographer->update();
-        return back()->with('success', 'Description changed successfully');
+        if($photographer){
+            return back()->with('success', 'Description updated successfully');
+        }else{
+            return back()->with('error', 'Filed to update Description.');
+        }   
+    }
+    public function priceEdit(Request $request)
+    {
+        $photographer = Employees::find($request->id);
+        $photographer->price = $request->price;
+        $photographer->update();
+        if($photographer){
+            return back()->with('success', 'Price updated successfully');
+        }else{
+            return back()->with('error', 'Filed to update Price.');
+        }   
     }
     public function profilePicEdit(Request $request)
     {
@@ -230,6 +273,21 @@ class PhotographersController extends Controller
         $photographer = Employees::find($request->id);
         $photographer->photo = $imagePath;
         $photographer->update();
-        return back()->with('success', 'Profile Picture changed successfully');
+        if($photographer){
+            return back()->with('success', 'Profile Picture updated successfully');
+        }else{
+            return back()->with('error', 'Filed to update Profile Picture.');
+        }   
+    }
+    public function sessionTypeEdit(Request $request)
+    {
+        $photographer = Employees::find($request->id);
+        $photographer->session_type = $request->session_type;
+        $photographer->update();
+        if($photographer){
+            return back()->with('success', 'Session Type updated successfully');
+        }else{
+            return back()->with('error', 'Filed to update Session Type.');
+        }   
     }
 }

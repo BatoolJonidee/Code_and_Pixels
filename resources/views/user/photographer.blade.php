@@ -24,8 +24,11 @@
             </div>
             <div id="photographerDetails-detailsDiv">
                 <h1 id="photographerDetails-title">{{ $photographer->fname . ' ' . $photographer->lname }}</h1><br />
-                <p>{!! nl2br(e($photographer->description)) !!}</p><br>
+                <p><strong style="color: red">Description: </strong> {!! nl2br(e($photographer->description)) !!}</p>
+                <p><strong style="color: red">Session's type: </strong> {{ $photographer->session_type }}</p>
 
+                <div><strong style="color:red">Session Price: </strong> {{ $photographer->price }} JOD</div>
+                <br/>
                 <p id="photographerDetails-bookBtn" data-bs-toggle="modal" data-bs-target="#bookSessionModal">Book Session
                 </p>
             </div>

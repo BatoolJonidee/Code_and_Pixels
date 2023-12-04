@@ -3,21 +3,22 @@
 
 @section('main')
 
-<h1 id="contact-page-header">Contact Us</h1>
+    <h1 id="contact-page-header">Contact Us</h1>
     <div id="container">
 
         <div id="inner-container">
             <div id="left-div-contact">
-                @error('error')
-                    <div class="alert alert-danger" role="alert" style="width: 100%">
-                        {{ $message }}
+                @if (session('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('success') }}
                     </div>
-                @enderror
-                @error('success')
-                    <div class="alert alert-success" role="alert" style="width: 100%">
-                        {{ $message }}
+                @endif
+
+                @if (session('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ session('error') }}
                     </div>
-                @enderror
+                @endif
                 <form method="post" action="{{ route('createContact') }}">
                     @csrf
                     <div id="name-email-div-contact">

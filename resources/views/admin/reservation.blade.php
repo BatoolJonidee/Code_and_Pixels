@@ -103,5 +103,4 @@
             </div>
         </div>
     </div>
-    <script src="js/photographersAdmin.js"></script>
 @endsection
