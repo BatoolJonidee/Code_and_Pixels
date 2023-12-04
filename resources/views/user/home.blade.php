@@ -87,6 +87,12 @@
         </div>
     </div>
     <br />
+    <div id="search-div-container">
+        <div>
+            <h1>Search About Your Favorite Photographer..</h1><br/>
+            <input id="search-input" type="text" name="name" /><button id="search-btn" type="submit"> Go</button>
+        </div>
+    </div>
     <div id="choose-us-div-container">
 
         <p id="choose-us-header">Why Choose Us?</p>
