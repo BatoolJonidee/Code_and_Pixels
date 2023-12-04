@@ -76,7 +76,7 @@
                             <table class="table table-striped" style='text-align:center'>
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>#</th>
                                         <th>Photo</th>
                                         <th>Name</th>
                                         <th>Created at</th>
@@ -86,9 +86,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php $total=0 ?>
                                     @foreach ($categories as $category)
                                         <tr>
-                                            <td>{{ $category->id }}</td>
+                                            <td>{{ $total+=1 }}</td>
                                             <td>
                                                 <img src="{{ asset('storage/' . $category->photo) }}"
                                                     alt="User Profile Image" style="height: 50px">

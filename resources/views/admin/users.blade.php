@@ -197,7 +197,7 @@
                             <table class="table table-striped" style='text-align:center'>
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>#</th>
                                         <th>Photo</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
@@ -214,9 +214,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php $total=0 ?>
                                     @foreach ($users as $user)
                                         <tr>
-                                            <td>{{ $user->id }}</td>
+                                            <td>{{ $total+=1 }}</td>
                                             <td>
                                                 <img src="{{ asset('storage/' . $user->photo) }}"
                                                     alt="User Profile Image" style="height: 50px">

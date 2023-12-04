@@ -36,19 +36,22 @@
                     <th>Date</th>
                     <th>Day</th>
                     <th>Time</th>
+                    <th>Location</th>
                     <th>Status</th>
                     <th>Confirm / Pending</th>
                     <th>Cancel</th>
                 </tr>
             </thead>
             <tbody>
+                <?php $total=0 ?>
                 @foreach ($sessions as $session)
                     <tr>
-                        <td>{{ $session->id }}</td>
+                        <td>{{ $total+=1 }}</td>
                         <td>{{ $session->user->fname . " " . $session->user->lname }}</td>
                         <td>{{ $session->date }}</td>
                         <td>{{ \Carbon\Carbon::parse($session->date)->format('D') }}</td>
                         <td>{{ \Carbon\Carbon::parse($session->time)->format('g :i A') }}</td>
+                        <td>{{ $session->session_location }}</td>
                         <td>{{ $session->status }}</td>
                         <td>
                             <form method="post" action="{{ url('changeStatus-photographerSide', $session->id) }}">

@@ -59,7 +59,9 @@
                                 <label>Time</label>
                                 <select id="selectedTime" name="time" required>
                                     <option value="" disabled selected>Select Time</option>
-                                </select>
+                                </select><br/><br/>
+                                <label class="col-3">Session Location</label>
+                                <textarea class="col-5" rows="2" name="session_location" required></textarea><br>
 
                             </div>
 

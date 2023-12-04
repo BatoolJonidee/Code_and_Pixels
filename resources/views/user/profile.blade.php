@@ -546,6 +546,7 @@
                             <th>Date</th>
                             <th>Day</th>
                             <th>Time</th>
+                            <th>Location</th>
                             <th>Status</th>
                             <th>Delete</th>
                         </tr>
@@ -557,8 +558,9 @@
                                 <td>{{ $total+=1 }}</td>
                                 <td>{{ $reservation->employee->fname . ' ' . $reservation->employee->lname }}</td>
                                 <td>{{ $reservation->date }}</td>
-                                <td>{{ \Carbon\Carbon::parse($reservation->date)->format('l') }}</td>
-                                <td>{{ $reservation->time }}</td>
+                                <td>{{ \Carbon\Carbon::parse($reservation->date)->format('D') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($reservation->time)->format('h:i A') }}</td>
+                                <td>{{ $reservation->session_location }}</td>
                                 <td>{{ $reservation->status }}</td>
                                 <td>
                                     <input type="submit" class="btn btn-outline-danger" value="Delete"

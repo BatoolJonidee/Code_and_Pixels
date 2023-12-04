@@ -153,8 +153,7 @@ class PhotographersController extends Controller
     public function schedulePage()
     {
         $photographer = Employees::findOrFail(session('user_id'));
-        $schedules = $photographer->schedule;
-
+        $schedules = $photographer->schedule()->orderBy('date','desc')->get();
         return view('employee.schedule', compact('schedules'));
     }
     public function storeSchedulePage(Request $request, $id)

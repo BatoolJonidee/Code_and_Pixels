@@ -38,27 +38,29 @@
                             <table class="table table-striped" style='text-align:center'>
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>#</th>
                                         <th>User</th>
                                         <th>Photographer</th>
                                         <th>Date</th>
                                         <th>Day</th>
                                         <th>Time</th>
+                                        <th>Location</th>
                                         <th>Status</th>
                                         <th>Confirm / Pending</th>
                                         <th>Cancel</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody><?php $total=0 ?>
                                     @foreach ($reservations as $reservation)
                                         <tr>
-                                            <td>{{ $reservation->id }}</td>
+                                            <td>{{ $total+=1 }}</td>
                                             <td>{{ $reservation->user->fname . ' ' . $reservation->user->lname }}</td>
                                             <td>{{ $reservation->employee->fname . ' ' . $reservation->employee->lname }}
                                             </td>
                                             <td>{{ $reservation->date }}</td>
                                             <td>{{ \Carbon\Carbon::parse($reservation->date)->format('D') }}</td>
                                             <td>{{ \Carbon\Carbon::parse($reservation->time)->format('h:i A') }}</td>
+                                            <td>{{ $reservation->session_location }}</td>
                                             <td>
                                                 @if ($reservation->date < \Carbon\Carbon::today())
                                                     Passed

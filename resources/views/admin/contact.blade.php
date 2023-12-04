@@ -28,7 +28,7 @@
                             <table class="table table-striped" style='text-align:center'>
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>#</th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Subject</th>
@@ -39,9 +39,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php $total=0 ?>
                                     @foreach ($contacts as $contact)
                                         <tr>
-                                            <td>{{ $contact->id }}</td>
+                                            <td>{{ $total+=1 }}</td>
                                             <td>{{ $contact->name }}</td>
                                             <td>{{ $contact->email }}</td>
                                             <td>{{ $contact->subject }}</td>

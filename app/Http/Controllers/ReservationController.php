@@ -43,6 +43,7 @@ class ReservationController extends Controller
                 'employee_id' => $request->input('id'),
                 'date' => $request->input('date'),
                 'time' => $request->input('time'),
+                'session_location' => $request->input('session_location'),
             ]);
 
             if ($reservation) {

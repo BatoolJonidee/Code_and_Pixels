@@ -76,9 +76,10 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $total=0 ?>
                     @foreach ($schedules as $schedule)
                     <tr>
-                        <td>{{ $schedule->id }}</td>
+                        <td>{{ $total+=1 }}</td>
                         <td>{{ $schedule->date }}</td>
                         <td>{{ \Carbon\Carbon::parse($schedule->date)->format('D') }}</td>
                         <td>{{ \Carbon\Carbon::parse($schedule->time)->format('h:i A') }}</td>
