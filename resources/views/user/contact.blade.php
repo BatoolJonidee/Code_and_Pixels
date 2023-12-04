@@ -3,24 +3,24 @@
 
 @section('main')
 
+<h1 id="contact-page-header">Contact Us</h1>
     <div id="container">
 
         <div id="inner-container">
             <div id="left-div-contact">
-                <h1 >Contact Us</h1>
-        @error('error')
-            <div class="alert alert-danger" role="alert" style="width: 100%">
-                {{ $message }}
-            </div>
-        @enderror
-        @error('success')
-            <div class="alert alert-success" role="alert" style="width: 100%">
-                {{ $message }}
-            </div>
-        @enderror
+                @error('error')
+                    <div class="alert alert-danger" role="alert" style="width: 100%">
+                        {{ $message }}
+                    </div>
+                @enderror
+                @error('success')
+                    <div class="alert alert-success" role="alert" style="width: 100%">
+                        {{ $message }}
+                    </div>
+                @enderror
                 <form method="post" action="{{ route('createContact') }}">
                     @csrf
-                    <div id="name-email-div-contact" >
+                    <div id="name-email-div-contact">
                         <div style="width:47%">
                             <label for='fullName'>Full Name</label><br />
                             @if (session()->has('user_id') == null)

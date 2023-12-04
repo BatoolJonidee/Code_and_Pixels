@@ -19,6 +19,8 @@ body{
 /* -----------Header----------- */
 /* -----------Header----------- */
 /* -----------Header----------- */
+/* -----------Header----------- */
+/* -----------Header----------- */
 .aNav{
     text-decoration: none;
     color: #076594;
@@ -231,12 +233,65 @@ footer a:hover {
 
 
 /* Contact Page */
+/* Contact Page */
+/* Contact Page */
+/* Contact Page */
+/* Contact Page */
+/* Contact Page */
+/* Contact Page */
+/* Contact Page */
+/* Contact Page */
 
+#contact-page-header{
+    width: fit-content;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    padding: 2%;
+    background-color: none;
+    margin-left: 11.5%;
+    margin-top:3%;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#contact-page-header:before {
+    content: "";
+    background-color: #043d59;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform: skewX(-20deg);
+    border-radius: 5px;
+}
 #container{
     width:80%;
     background-color: #e8eaed;
     box-shadow: 5px 5px 10px gray;
-    margin:4% 10% 5% 10%;
+    margin:0% 10% 5% 10%;opacity: 0; 
+    animation: up 2s ease-in-out forwards;
+}
+
+@keyframes up {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 #header-contact-page{
     padding-left: 3%;
@@ -288,7 +343,6 @@ footer a:hover {
     }
     #inner-container{
         width:100%;
-        /* margin:4% 5% 5% 5%; */
         flex-direction: column;
     }
     #left-div-contact{
@@ -310,7 +364,6 @@ footer a:hover {
     }
     #inner-container{
         width:100%;
-        /* margin:4% 5% 5% 5%; */
         flex-direction: column;
     }
     #left-div-contact{
@@ -326,6 +379,8 @@ footer a:hover {
 }
 
 
+/* Not Found Page */
+/* Not Found Page */
 /* Not Found Page */
 /* Not Found Page */
 /* Not Found Page */
@@ -392,7 +447,6 @@ footer a:hover {
   }
 
   .notfound h1 {
-    /* font-family: 'Quicksand', sans-serif; */
     font-size: 86px;
     text-transform: uppercase;
     font-weight: 700;
@@ -402,7 +456,6 @@ footer a:hover {
   }
 
   .notfound h2 {
-    /* font-family: 'Quicksand', sans-serif; */
     font-size: 26px;
     margin: 0;
     font-weight: 700;
@@ -410,7 +463,6 @@ footer a:hover {
   }
 
   .notfound a {
-    /* font-family: 'Quicksand', sans-serif; */
     font-size: 14px;
     text-decoration: none;
     text-transform: uppercase;
@@ -446,6 +498,13 @@ footer a:hover {
   }
 
 /* home page */
+/* home page */
+/* home page */
+/* home page */
+/* home page */
+/* home page */
+/* home page */
+/* home page */
 #slider-3-small-screen img {
     display: none;
 }
@@ -463,7 +522,7 @@ footer a:hover {
 
     #slider-3-small-screen img {
         display: block;
-        width: 100%; /* Ensure the image takes full width */
+        width: 100%;
     }
     #slider-2-div-text{
         display: none;
@@ -481,7 +540,12 @@ footer a:hover {
     }
 }
 
-/* home style */ 
+/* choose us section  */
+/* choose us section  */
+/* choose us section  */
+/* choose us section  */
+/* choose us section  */
+/* choose us section  */
 #choose-us-div-container{
     width:100%;
     padding: 2% 5%;
@@ -595,7 +659,6 @@ footer a:hover {
     width:80%;
     margin-left: 10%;
     flex-wrap: wrap;
-    /* padding-left:5%; */
 }
 .last-photographers-card{
     width:calc(90%/3);
@@ -620,17 +683,13 @@ footer a:hover {
     font-weight: bold;
     font-size: 30px;
     padding: 3%;
-    /* margin:5%; */
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
-    /* transform: translateY(180deg); */
     transform: rotateX(90deg);
     transform-origin: center bottom;
     transition: 0.5s;
-    
-    /* transform-origin: center buttom ; */
 }
 .last-photographers-card:hover .last-photographers-name{
     transform: rotateX(0deg);
