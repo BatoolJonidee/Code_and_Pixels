@@ -45,6 +45,7 @@ Route::get('/photographer',[PhotographersController::class,'photographersPageUse
 Route::get('/photographerDetails/{id}',[PhotographersController::class,'photographerDetails'])->name('photographerDetails');
 Route::post('/storeReservation', [ReservationController::class,'create']);
 Route::delete('delete-session-userSide/{id}' , [ReservationController::class, 'deleteResUserSide']);
+Route::get('search',[PhotographersController::class,'search']);
 
 //------------- edit profile (user & admin) ------------------------
 //------------- edit profile (user & admin) ------------------------

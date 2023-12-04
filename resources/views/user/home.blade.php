@@ -5,6 +5,7 @@
 @endsection
 @section('main')
 
+
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
@@ -90,7 +91,10 @@
     <div id="search-div-container">
         <div>
             <h1>Search About Your Favorite Photographer..</h1><br/>
-            <input id="search-input" type="text" name="name" /><button id="search-btn" type="submit"> Go</button>
+            <form method="GET" action="{{ url('search') }}">
+                <input id="search-input" type="text" name="name" placeholder="Serch Photographer.." />
+                <button id="search-btn" type="submit">Go</button>
+            </form>
         </div>
     </div>
     <div id="choose-us-div-container">

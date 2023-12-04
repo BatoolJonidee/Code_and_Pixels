@@ -124,7 +124,19 @@ class PhotographersController extends Controller
             ->pluck('date');
         return view('user.photographer', compact('photographer', 'schedules', 'availableDates', 'scheduleCount'));
     }
+    public function search(Request $request)
+    {
+        $search = $request->input('name');
+        $photographers = Employees::where('fname','LIKE',"%$search%")->orWhere("lname","LIKE","%$search%")->get();
 
+        if($photographers->count() > 0){
+            return view("user.photographers", compact("photographers"));
+        }else{
+            session()->put("search","no");
+            return view('user.not-found');
+        }
+        
+    }
 
 
     /////////////////// photographer side //////////////////////
