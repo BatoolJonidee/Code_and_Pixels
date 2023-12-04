@@ -13,6 +13,19 @@
     padding: 2% 3%;
     border-radius: 10px;
     background-color: rgb(200, 200, 200);
+    opacity: 0;
+    animation: up 2s ease-in-out forwards;
+}
+
+@keyframes up {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 #our-vision-title {
@@ -56,8 +69,6 @@
     box-shadow: 5px 5px 10px black;
     text-align: center;
     margin-bottom: 5%;
-    opacity: 0; 
-    animation: up 2s ease-in-out forwards;
 }
 
 @keyframes up {
@@ -85,11 +96,6 @@
     opacity: 0; 
     animation: up 2s ease-in-out forwards;
 }
-#our-vision-text {
-    opacity: 0;
-    animation: up 2s ease-in-out forwards;
-}
-
 @media (min-width: 900px) {
     #our-vision-container {
         flex-direction: row;

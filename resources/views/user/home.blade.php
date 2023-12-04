@@ -117,6 +117,9 @@
         </div>
 
     </div>
+    <span class="up">
+        <i class="fa-solid fa-circle-up fa-2xl" ></i>
+    </span>
     {{-- <div id="quick-reser-container">
         <div id="quick-reser-form">
             <select id="selectedPhotographer" name="id" required

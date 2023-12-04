@@ -279,7 +279,8 @@ footer a:hover {
     width:80%;
     background-color: #e8eaed;
     box-shadow: 5px 5px 10px gray;
-    margin:0% 10% 5% 10%;opacity: 0; 
+    margin:0% 10% 5% 10%;
+    opacity: 0; 
     animation: up 2s ease-in-out forwards;
 }
 
@@ -749,4 +750,15 @@ footer a:hover {
     #last-photographers-header{
         font-size: 27px;
     }
+}
+.up{
+    position: fixed;
+    bottom: 100px;
+    right: -40px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.up.show{
+    right:10px;
 }

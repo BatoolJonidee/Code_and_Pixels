@@ -1,8 +1,9 @@
 let heading=document.getElementById('choose-us-div-container');
 let headerP=document.getElementById('choose-us-header');
-let chooseDivs=document.getElementById('choose-us-inner-container')
-let lastPhoHeader=document.getElementById('last-photographers-header')
-let lastPhoCont=document.getElementById('newest-photographers-div-container')
+let chooseDivs=document.getElementById('choose-us-inner-container');
+let lastPhoHeader=document.getElementById('last-photographers-header');
+let lastPhoCont=document.getElementById('newest-photographers-div-container');
+let span = document.querySelector('.up');
 window.onscroll=()=>{
     let top = window.scrollY;
     let offset=heading.offsetTop-500;
@@ -18,7 +19,16 @@ window.onscroll=()=>{
     if(top>=offsetLastPhoCont && top<offsetLastPhoCont+height){
         lastPhoHeader.style.transform='translateX(0)';
         lastPhoHeader.style.transition='1s';
-        // chooseDivs.style.transform='translateY(0)';
-        // chooseDivs.style.transition='1s';
+    }
+    if(this.scrollY>=400){
+        span.classList.add('show');
+    }else{
+        span.classList.remove('show');
     }
 }
+span.addEventListener('click',function(){
+    window.scrollTo({
+        top:0,
+        behavior:"smooth",
+    })
+})
