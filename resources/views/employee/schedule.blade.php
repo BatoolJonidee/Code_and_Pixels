@@ -3,6 +3,7 @@
 @extends('includeUser.top')
     @section('title', 'Photographer Profile')
     @include('includeUser.nav')
+    <div id="reservation-photographer-side-div-container">
     <div id="scheduleContainer">
         <!-- Button trigger modal -->
         <div id="schedulePageTitle">
@@ -134,6 +135,7 @@
 
         </div>
     </div>
+</div>
     <script>
         document.getElementById('date').min = new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toISOString().split('T')[
             0];

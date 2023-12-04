@@ -14,7 +14,9 @@
     display: flex;
     justify-content: space-evenly;
     width:100%;
+    margin-top:10%;
 }
+
 #profilePicPhotographer
 {
     border-radius: 50%;
@@ -110,11 +112,27 @@
     width:100%;
     justify-content: space-between;
 }
-@media (max-width:900px){
+@media (min-width:450px) and (max-width:900px){
     #containerProfilePhotographer{
         display: block;
         width: 100%;
-
+        padding-top: 13%;
+    }
+    #photoDivProfilePhotographer{
+        width:70%;
+        margin-left: 15%;
+        height: fit-content;
+    }
+    #settingDivPhotographer{
+        width:90%;
+        margin-left: 5%;
+    }
+}
+@media (max-width:449.9px){
+    #containerProfilePhotographer{
+        display: block;
+        width: 100%;
+        padding-top: 30%;
     }
     #photoDivProfilePhotographer{
         width:70%;

@@ -52,7 +52,7 @@
                     <h3 style="color: white">Still waiting?</h3>
                     <p style="color: white; font-size: 50px; font-weight: bolder"> Book Your Session Now</p>
                 </div>
-                <div style="width:100%" id="slider-3-small-screen">
+                <div style="width:100%;" id="slider-3-small-screen">
                     <img src="storage/images/imgonline-com-ua-resize-lSVXrX46v54RnXNU.jpg" alt="first slide image">
                 </div>
             </div>
@@ -104,21 +104,21 @@
         <div id="choose-us-inner-container">
             <div>
                 <img src="{{ asset('storage/images/time.png') }}" alt="time icon">
-                <h5>Respect Time</h5>
+                <h5 style="color: #043d59">Respect Time</h5>
                 <p>
                     Photographers will be in the <br />session's location at the time.
                 </p>
             </div>
             <div>
                 <img src="{{ asset('storage/images/prof-photographer.png') }}" alt="professional photographers icon" />
-                <h5>Professional Photogrphers</h5>
+                <h5 style="color: #043d59">Professional Photogrphers</h5>
                 <p>
                     We carefully selected our photographers.
                 </p>
             </div>
             <div>
                 <img src="{{ asset('storage/images/money.png') }}" alt="money icon" />
-                <h5>Affordable Price</h5>
+                <h5 style="color: #043d59">Affordable Price</h5>
                 <p>
                     A special price for our clients.
                 </p>
@@ -128,42 +128,7 @@
 
     </div>
     <span class="up">
-        <i class="fa-solid fa-circle-up fa-2xl" ></i>
+        <i class="fa-solid fa-circle-up fa-2xl" style="color: #043d59;"></i>
     </span>
-    {{-- <div id="quick-reser-container">
-        <div id="quick-reser-form">
-            <select id="selectedPhotographer" name="id" required
-                onchange="selectDate({{ json_encode($photographer->schedule) }})">
-                <option value="" selected disabled>Select Photographers</option>
-                @foreach ($allPhotographers as $photographer)
-                    <option value="{{ $photographer->id }}">{{ $photographer->fname . ' ' . $photographer->lname }}
-                    </option>
-                @endforeach
-            </select>
-            <br />
-            <select id="selectedDate" name="date" required
-                onchange="selectDate({{ json_encode($allPhotographers->schedule) }})">
-                <option value="" disabled selected>Select Date</option>
-            </select>
-        </div>
-    </div>
-    
-    <script>
-        function selectDate(schedules) {
-            let date = document.getElementById('selectedDate');
-            let photographer = document.getElementById('selectedPhotographer').value;
-            console.log(photographer);
-            date.innerHTML = '<option value="" disabled selected>Select Date</option>';
-            schedules.forEach(element => {
-                if (photographer == element.emplyee_id && element.status == 0) {
-                    console.log('hh');
-                    let option = document.createElement('option');
-                    option.value = element.date;
-                    option.text = element.date;
-                    date.appendChild(option);
-                }
-            });
-        };
-    </script> --}}
     <script src="js/home.js"></script>
 @endsection

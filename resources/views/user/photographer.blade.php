@@ -4,7 +4,7 @@
 
 @section('main')
 
-    <div style="width:fit-content; margin-left:auto; margin-right:auto">
+    <div id="photographer-page-container">
         @if (session('success'))
             <div class="alert alert-success" role="alert" style="width:100%">
                 {{ session('success') }}
@@ -24,10 +24,10 @@
             </div>
             <div id="photographerDetails-detailsDiv">
                 <h1 id="photographerDetails-title">{{ $photographer->fname . ' ' . $photographer->lname }}</h1><br />
-                <p><strong style="color: red">Description: </strong> {!! nl2br(e($photographer->description)) !!}</p>
-                <p><strong style="color: red">Session's type: </strong> {{ $photographer->session_type }}</p>
+                <p><strong style="color: #495c66;font-size: 20px">Description: </strong> {!! nl2br(e($photographer->description)) !!}</p>
+                <p><strong style="color: #495c66;font-size: 20px">Session's type: </strong> {{ $photographer->session_type }}</p>
 
-                <div><strong style="color:red">Session Price: </strong> {{ $photographer->price }} JOD</div>
+                <div><strong style="color: #495c66;font-size: 20px">Session Price: </strong> {{ $photographer->price }} JOD</div>
                 <br/>
                 <p id="photographerDetails-bookBtn" data-bs-toggle="modal" data-bs-target="#bookSessionModal">Book Session
                 </p>

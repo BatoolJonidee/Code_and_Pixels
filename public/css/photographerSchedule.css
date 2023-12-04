@@ -1,3 +1,4 @@
+
 #scheduleContainer{
     width:70%;
     margin-left:15%;
@@ -29,7 +30,24 @@
         margin-left:2.5%;
     }
 }
-
+#reservation-photographer-side-div-container{
+    margin-top:12%;
+}
+@media (min-width:550px) and (max-width:850px){
+    #reservation-photographer-side-div-container{
+        margin-top:20%;
+    }
+}
+@media (min-width:390px) and (max-width:549.9px){
+    #reservation-photographer-side-div-container{
+        margin-top:30%;
+    }
+}
+@media (max-width:389.9px){
+    #reservation-photographer-side-div-container{
+        margin-top:43%;
+    }
+}
 
 /* sessions page */
 /* sessions page */
@@ -77,7 +95,8 @@
 @media (max-width:449.9px){
     #total-div{
         flex-direction: column-reverse;
-
+        width:50%;
+        margin-left: 25%;
     }
     #book-icon-div{
         width:100%;

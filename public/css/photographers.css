@@ -6,7 +6,7 @@
     padding: 2%;
     background-color: none;
     margin-left: 10%;
-    margin-top:3%;
+    margin-top:13%;
     animation: fadeIn 2s ease-in-out forwards;
 }
 
@@ -89,7 +89,10 @@
     color:#076594;
 }
 
-@media (min-width:750px) and (max-width:900px){
+@media (min-width:750px) and (max-width:940px){
+    #photographers-page-header{
+        margin-top:20%;
+    }
     #photographers-container-div{
         width:95%;
         margin-left:2.5%;
@@ -99,6 +102,9 @@
     }
 }
 @media (min-width:500px) and (max-width:749.9px){
+    #photographers-page-header{
+        margin-top:25%;
+    }
     #photographers-container-div{
         width:95%;
         margin-left:2.5%;
@@ -110,7 +116,10 @@
         margin-bottom: 2%;
     }
 }
-@media (max-width:499.9px){
+@media (min-width:330px) and (max-width:499.9px){
+    #photographers-page-header{
+        margin-top:40%;
+    }
     #photographers-container-div{
         width:95%;
         margin-left:2.5%;
@@ -122,3 +131,19 @@
         width:100%;
     }
 }
+@media (max-width:329.9px){
+    #photographers-page-header{
+        margin-top:50%;
+    }
+    #photographers-container-div{
+        width:95%;
+        margin-left:2.5%;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    #card-photographers-page{
+        margin-bottom: 2%;
+        width:100%;
+    }
+}
+

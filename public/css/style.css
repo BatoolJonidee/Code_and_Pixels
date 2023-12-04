@@ -21,6 +21,12 @@ body{
 /* -----------Header----------- */
 /* -----------Header----------- */
 /* -----------Header----------- */
+header{
+    position: fixed;
+    top:0;
+    width:100%;
+    z-index: 1;
+}
 .aNav{
     text-decoration: none;
     color: #076594;
@@ -98,6 +104,14 @@ body{
 #mobile-nav-div p:nth-child(even){
     background-color: rgb(234, 235, 235);
 }
+/* not found result */
+/* not found result */
+/* not found result */
+/* not found result */
+#not-found-img{
+    margin-top:10%;
+    height:700px;
+}
 @media(min-width:800px) and (max-width:1000px){
     #navbar-div{
         width:80%;
@@ -126,6 +140,10 @@ body{
         display: block;
         padding-top: 4%;
         padding-right: 5%;
+    }
+    #not-found-img{
+        margin-top:18%;
+        height: 400px;
     }
 }
 /* -----------Footer----------- */
@@ -184,8 +202,29 @@ footer a:hover {
 /* edit profile */
 /* edit profile */
 /* edit profile */
-
-
+#containerProfile{
+    padding-top:10%;
+} 
+@media (min-width:640px) and (max-width:840px){
+    #containerProfile{
+        padding-top:15%;
+    } 
+}
+@media (min-width:500px) and  (max-width:639.9px){
+    #containerProfile{
+        padding-top:20%;
+    } 
+}
+@media (min-width:370px) and (max-width:499.9px){
+    #containerProfile{
+        padding-top:30%;
+    } 
+}
+@media (max-width:369.9px){
+    #containerProfile{
+        padding-top:41%;
+    } 
+}
 .editProfileInput{
     border-radius: 5px;
     padding:2px 5px;
@@ -250,7 +289,7 @@ footer a:hover {
     padding: 2%;
     background-color: none;
     margin-left: 11.5%;
-    margin-top:3%;
+    margin-top:200px;
     animation: fadeIn 2s ease-in-out forwards;
 }
 
@@ -506,6 +545,24 @@ footer a:hover {
 /* home page */
 /* home page */
 /* home page */
+#carouselExampleDark{
+    margin-top:13%
+}
+@media(min-width:610px) and (max-width:950px){
+    #carouselExampleDark{
+        margin-top:20%
+    }
+}
+@media(min-width:420px) and (max-width:609.9px){
+    #carouselExampleDark{
+        margin-top:30%
+    }
+}
+@media (max-width:419.9px){
+    #carouselExampleDark{
+        margin-top:45%
+    }
+}
 #slider-3-small-screen img {
     display: none;
 }
@@ -749,8 +806,9 @@ footer a:hover {
         margin-bottom: 1%;
     }
     #last-photographers-header{
-        font-size: 27px;
+        font-size: 25px;
     }
+    
 }
 .up{
     position: fixed;
@@ -848,5 +906,16 @@ footer a:hover {
     #search-btn{
         width:50%;
         margin-left:25%;
+    }
+    #not-found-img{
+        margin-top:45%;
+        height: 300px;
+    }
+}
+
+@media( max-width:400px){
+    #not-found-img{
+        margin-top:75%;
+        height: 200px;
     }
 }
