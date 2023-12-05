@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Models\Employees;
 use App\Models\Reservation;
+use App\Models\Schedules;
 use App\Models\Users;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
@@ -210,8 +211,23 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        Users::findorFail($id)->delete();
-        return back()->withErrors(['success' => 'User Deleted successfully.']);
+        $reservations=Reservation::where('user_id',$id)->get();
+        if($reservations->isEmpty())
+        {
+            Users::findorFail($id)->delete();
+            return back()->withErrors(['success' => 'User Deleted successfully.']);
+        }else{
+            foreach ($reservations as $reservation){
+                $schedule = Schedules::where('emplyee_id', $reservation->employee_id)
+                ->where('date', $reservation->date)->where('time',$reservation->time)->first();
+                if($schedule){
+                    $schedule->status=0;
+                    $schedule->update();
+                }
+            }
+            Users::findorFail($id)->delete();
+            return back()->withErrors(['success' => 'User Deleted successfully.']);
+        }
     }
     ///////////////////////login/////////////////////////////////
     ///////////////////////login/////////////////////////////////

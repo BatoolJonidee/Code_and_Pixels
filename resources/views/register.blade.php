@@ -123,12 +123,16 @@
                     <br>
                     <input type="text" placeholder="Email" name="Email" />
                     @error('Email')
-                        <div class="text-danger">{{ $message }}</div>
+                    <div class="alert alert-danger" role="alert" style="width: 100%">
+                        {{ $message }}
+                    </div>
                     @enderror
                     <br>
                     <input type="password" placeholder="Password" name="Password" />
                     @error('Password')
-                        <div class="text-danger">{{ $message }}</div>
+                    <div class="alert alert-danger" role="alert" style="width: 100%">
+                        {{ $message }}
+                    </div>
                     @enderror
                     <br><br>
                     <input type="submit" value="LOGIN" class="button">

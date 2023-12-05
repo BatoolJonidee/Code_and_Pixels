@@ -37,7 +37,6 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         if ($request->hasFile('photo')) {
-            // dd($request->photo);
             $request->validate([
                 'photo' => 'image|mimes:jpeg,png,jpg,gif',
             ],[
