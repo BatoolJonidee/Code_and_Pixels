@@ -48,7 +48,7 @@
             <div id="settingBtn"
                 style="text-align: center ; margin-top:10% ; background-color: #076595; color:white ;cursor: pointer; border-radius: 10px;">
                 <h5>
-                    Setting
+                    Settings
                 </h5>
             </div>
             <div id="appointmentBtn"

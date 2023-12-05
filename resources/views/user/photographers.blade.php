@@ -17,7 +17,7 @@
                             </a>
                         </p>
                         <p>
-                            {{ Str::limit($photographer->description, 70) }}
+                            {{ Str::limit($photographer->description, 60) }}
                             <a href="{{ route('photographerDetails', $photographer->id) }}">
                                 See More
                             </a>
@@ -26,4 +26,5 @@
                 </div>
             @endforeach
         </div>
+        <br><br>
 @endsection

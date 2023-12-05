@@ -123,6 +123,11 @@
  button:active {
 	 transform: scale(0.95);
 }
+.ghost:hover{
+	background-color: white;
+	color:#0376a3;
+	box-shadow: 2px 2px 5px black;
+}
  input,select,textarea {
 	 background: transparent;
 	 padding: 10px 16px;

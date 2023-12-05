@@ -9,6 +9,7 @@ use App\Models\Users;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 
 class UsersController extends Controller
@@ -137,9 +138,13 @@ class UsersController extends Controller
      */
     public function show(Users $users)
     {
-        $user = Users::find(session()->get('user_id'));
-        $reservations= $user->reservation;
-        return view('user.profile', compact('user','reservations'));
+        if(session()->has('user_id') != null && session('is_admin') == 0){
+            $user = Users::find(session()->get('user_id'));
+            $reservations= $user->reservation;
+            return view('user.profile', compact('user','reservations'));
+        }else{
+            return view('error');
+        }
     }
 
     /**
@@ -263,6 +268,11 @@ class UsersController extends Controller
     ///////////////////Logout///////////////////////////////
     public function logout()
     {
+        Session::forget('last_login');
+        Session::forget('user_id');
+        Session::forget('user_name');
+        Session::forget('user_email');
+        Session::forget('is_admin');
         session()->flush();
         return redirect('/');
     }
@@ -384,6 +394,7 @@ class UsersController extends Controller
     //////////////////// admin dashboard dashboard page/////////////////////
     //////////////////// admin dashboard dashboard page/////////////////////
     public function dashboardAdmin(){
+        if(session()->has('user_id') != null && session('is_admin') == 2){
         $admin = Users::findOrFail(session('user_id'));
         $lastLogin = session('last_login');
         if($lastLogin==null){
@@ -400,13 +411,21 @@ class UsersController extends Controller
         $photographers = Employees::where('category_id',$category->id)->count();
         }
         return view('admin.dashboard', compact('admin', 'users', 'newUsers', 'reservation', 'photographers'));
+        }else{
+            return view('error');
+        }
+
     }
     ////////////////// admin dashboard profile page/////////////////////////
     ////////////////// admin dashboard profile page/////////////////////////
     ////////////////// admin dashboard profile page/////////////////////////
     public function adminProfile(){
-        $admin = Users::findOrFail(session('user_id'));
-        return view('admin.profile', compact('admin'));
+        if(session()->has('user_id') != null && session('is_admin') == 2){
+            $admin = Users::findOrFail(session('user_id'));
+            return view('admin.profile', compact('admin'));
+        }else{
+            return view('error');
+        }
     }
 
     //////////////////////////////// HOME PAGE /////////////////////////////

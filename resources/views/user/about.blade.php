@@ -23,5 +23,5 @@
             </div>
         </div>
     </div>
-
-@endsection
+<br/><br/>
+    @endsection
