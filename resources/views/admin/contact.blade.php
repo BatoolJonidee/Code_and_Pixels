@@ -34,7 +34,6 @@
                                         <th>Subject</th>
                                         <th>Message</th>
                                         <th>Created at</th>
-                                        <th>Updated at</th>
                                         <th>Delete</th>
                                     </tr>
                                 </thead>
@@ -48,7 +47,6 @@
                                             <td>{{ $contact->subject }}</td>
                                             <td>{{ $contact->message }}</td>
                                             <td>{{ $contact->created_at }}</td>
-                                            <td>{{ $contact->updated_at }}</td>
                                             <td>
                                                 <input type="submit" class="btn btn-outline-danger" value="Delete" data-bs-toggle="modal"
                                                 data-bs-target="#DeleteModal{{ $contact->id }}">

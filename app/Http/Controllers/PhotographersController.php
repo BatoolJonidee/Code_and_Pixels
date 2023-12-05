@@ -40,7 +40,6 @@ class PhotographersController extends Controller
             'session_type' => 'Session type required',
         ]);
         $categoryId = Categories::where('name', 'Photographers')->value('id');
-        // dd($categoryId);
         $photoPath = 'images/photographer-default-image.png';
         $photographer = Employees::create([
             'fname' => $request->input('fname'),
