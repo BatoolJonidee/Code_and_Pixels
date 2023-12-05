@@ -163,34 +163,54 @@
                             </div>
                         @enderror
                         @error('fname')
-                            <div class="text-danger">{{ $message }}</div>
+                        <div class="alert alert-danger" role="alert" style="width: 100%">
+                            {{ $message }}
+                        </div>
                         @enderror
                         @error('lname')
-                            <div class="text-danger">{{ $message }}</div>
+                        <div class="alert alert-danger" role="alert" style="width: 100%">
+                            {{ $message }}
+                        </div>
                         @enderror
                         @error('email')
-                            <div class="text-danger">{{ $message }}</div>
+                        <div class="alert alert-danger" role="alert" style="width: 100%">
+                            {{ $message }}
+                        </div>
                         @enderror
                         @error('password')
-                            <div class="text-danger">{{ $message }}</div>
+                        <div class="alert alert-danger" role="alert" style="width: 100%">
+                            {{ $message }}
+                        </div>
                         @enderror
                         @error('conf-password')
-                            <div class="text-danger">{{ $message }}</div>
+                        <div class="alert alert-danger" role="alert" style="width: 100%">
+                            {{ $message }}
+                        </div>
                         @enderror
                         @error('phone')
-                            <div class="text-danger">{{ $message }}</div>
+                        <div class="alert alert-danger" role="alert" style="width: 100%">
+                            {{ $message }}
+                        </div>
                         @enderror
                         @error('gender')
-                            <div class="text-danger">{{ $message }}</div>
+                        <div class="alert alert-danger" role="alert" style="width: 100%">
+                            {{ $message }}
+                        </div>
                         @enderror
                         @error('city')
-                            <div class="text-danger">{{ $message }}</div>
+                        <div class="alert alert-danger" role="alert" style="width: 100%">
+                            {{ $message }}
+                        </div>
                         @enderror
                         @error('address')
-                            <div class="text-danger">{{ $message }}</div>
+                        <div class="alert alert-danger" role="alert" style="width: 100%">
+                            {{ $message }}
+                        </div>
                         @enderror
                         @error('status')
-                            <div class="text-danger">{{ $message }}</div>
+                        <div class="alert alert-danger" role="alert" style="width: 100%">
+                            {{ $message }}
+                        </div>
                         @enderror
                         <div class="table-responsive table-data">
 

@@ -91,7 +91,7 @@ class UsersController extends Controller
         $request->validate([
             'fname' => 'alpha|required',
             'lname' => 'alpha|required',
-            'email' => 'email|required',
+            'email' => 'email|required|unique:users',
             'password' => 'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/ |string|min:8|max:32|required',
             'conf-password' => 'same:password|required',
             'phone' => 'numeric|digits:10|required',
@@ -102,7 +102,7 @@ class UsersController extends Controller
         ], [
             'fname.alpha' => 'Must contain letters only.',
             'lname.alpha' => 'Must contain letters only.',
-            'email.email' => 'The email address is not valid.',
+            'email.email' => "The email address is not valid or it's existing.",
             'password.regex' => 'Password must be 8-32 characters and contain at least one uppercase letter, one lowercase letter, one number, and one special character',
             'conf-password.same' => 'Password confirmation must match with password.',
             'phone.numeric' => 'Phone must be a valid number with 10 digits.',
